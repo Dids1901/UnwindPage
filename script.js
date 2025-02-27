@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Seleciona automaticamente o item "shelf" (vídeo default)
-    const defaultItem = document.querySelector('.feature-item[data-video="videos/shelf.mp4"]');
+    const defaultItem = document.querySelector('.feature-item[data-video="videos/estante.mp4"]');
     if (defaultItem) {
         defaultItem.click();
         featureVideo.play().catch(err => console.log("Erro ao tentar reproduzir: ", err));
