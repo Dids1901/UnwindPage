@@ -1,0 +1,795 @@
+@font-face {
+    font-family: 'hamster';
+    src: url('fonts/hamster.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'carving';
+    src: url('fonts/MADECarvingSoftPERSONALUSE-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'opensans';
+    src: url('fonts/opensans.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'carving', sans-serif;
+    margin: 0;
+    background-color: #14181c;
+    padding-top: 10vh;
+    padding: 0 5%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    border-bottom: #444444 0.5px solid;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: rgba(20, 24, 28, 0.85);
+    color: white;
+  }
+  
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 7vw 0 1vw;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  nav ul li a:hover {
+    color: #107be6;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  .login-btn {
+    padding: 10px 20px;
+    background-color: #107be6;
+    border: none;
+    border-radius: 5px;
+    margin: 0 40px 0 40px;
+    color: white;
+    font-family: "carving";
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-btn:hover {
+    background-color: #0a5aa3;
+  }
+  .menu-toggle {
+    display: none; /* Só aparece no mobile */
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* MENU MOBILE (inicialmente oculto) */
+/* MENU MOBILE (inicialmente oculto) */
+.mobile-menu {
+  display: none;
+}
+
+/* Lista UL */
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  width: 100%; /* Define largura para melhor espaçamento */
+  text-align: left;
+}
+
+.mobile-menu ul li {
+  margin: 15px 0;
+  padding: 1rem;
+  border-bottom: #444 2px solid;
+  display: flex;
+  justify-content: space-between; /* Mantém o texto à esquerda e seta à direita */
+  align-items: center;
+}
+
+/* Ícone de seta no final da linha */
+.mobile-menu ul li::after {
+  content: ">";
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Links */
+.mobile-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  flex: 1; /* Faz com que o link ocupe todo o espaço disponível */
+}
+
+/* Botão "Começar Agora" no final */
+.login-btn-mobile {
+  background-color: #107be6;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  font-family: "carving";
+  border-radius: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 20px; /* Dá um espaço entre o botão e o final da tela */
+  width: 80%; /* Largura para alinhar com a lista */
+}
+
+  
+h1 {
+    color: #107be6;
+    font-size: 2rem;
+    font-family: "hamster";
+}
+
+h2 {
+    font-size: 3rem;
+    color: #fff;
+    font-family: "opensans";
+}
+
+.feature-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.art {
+    width: 30%;
+    margin: auto;
+  }
+  
+  .cta-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre o botão e os ícones */
+    margin-top: 30px;
+}
+
+/* Estilizando os ícones das redes sociais */
+.social-links {
+    display: flex;
+    gap: 35px;
+}
+
+.social-links a {
+    font-size: 2.5rem;
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #107be6; /* Muda a cor ao passar o mouse */
+    transform: scale(1.2); /* Aumenta um pouco o ícone */
+}
+
+
+.hero-lamp {
+    width: 1.8rem;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90vh;
+    padding: 40px 0px 0 0px;
+    background-color: #14181c;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 55%;
+    text-align: left;
+}
+
+.hero h2 {
+    font-family: "opensans";
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+}
+
+.cta-button {
+    background: white;
+    color: #107be6;
+    padding: 12px 25px;
+    text-decoration: none;
+    margin-right: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 1rem;
+    transition: background 0.3s, color 0.3s;
+    border: 2px solid white;
+}
+
+.cta-button:hover {
+    background: #107be6;
+    color: white;
+}
+
+/* Grid de Imagens */
+.hero-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    grid-template-rows: repeat(4, auto); /* 4 linhas */
+    gap: 20px;
+    margin-top: 60px;
+    width: 40%;
+    position: relative;
+}
+
+/* Ajuste do tamanho das imagens */
+.grid-item {
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Efeito ao passar o mouse */
+.grid-item:hover {
+    transform: scale(1.08);
+    z-index: 10; /* Coloca a imagem sobre as outras */
+}
+
+/* Posição das imagens na grade */
+.img-1 { grid-column: 1; grid-row: 1; margin-top: -45pxpx; }
+.img-2 { grid-column: 2; grid-row: 2; margin-top: -45px; }
+.img-3 { grid-column: 1; grid-row: 3; margin-top: -45px; }
+.img-4 { grid-column: 2; grid-row: 4; margin-top: -45px; }
+
+
+/* Efeito de hover para dar dinamismo */
+
+
+
+.cross-media {
+    text-align: center;
+    padding: 0px 0px;
+    padding-top: 10vh;
+    background-color: #14181c;
+    color: white;
+}
+
+.cross-media h2 {
+    text-align: left;
+    font-family: "opensans";
+}
+/* Container geral para os blocos */
+.media-container {
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    margin-top: 20px;
+    
+  }
+  
+  /* Cada bloco */
+  .media-block {
+    text-align: center;
+    margin-bottom: 40px;
+    border: 2px solid #14181c;
+  }
+  .media-block:hover {
+    border-radius: 10px;
+    border: 2px solid #107be6;
+  }
+  
+  /* Container que engloba a grid e o overlay */
+  .overlay-container {
+    position: relative;
+    width: 25vw; /* mesmo tamanho definido para a grid */
+  }
+  
+  /* Grid de imagens */
+  .media-grid {
+    display: grid;
+    width: 25vw;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 112px);
+    gap: 0;
+  }
+  
+  /* Imagens: remove o border-radius geral e aplica individualmente */
+  .media-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Arredondamento somente nos cantos: 
+     - 1ª imagem: canto superior esquerdo
+     - 3ª imagem: canto superior direito
+     - 4ª imagem: canto inferior esquerdo
+     - 6ª imagem: canto inferior direito */
+  .media-grid img:nth-child(1) {
+    border-top-left-radius: 10px;
+  }
+  .media-grid img:nth-child(4) {
+    border-top-right-radius: 10px;
+  }
+  .media-grid img:nth-child(13) {
+    border-bottom-left-radius: 10px;
+  }
+  .media-grid img:nth-child(16) {
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Overlay que cobre a grid */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* Estilo para o texto no overlay */
+  .overlay h3 {
+    font-size: 2rem;
+    color: white;
+    font-family: "opensans";
+    margin: 0;
+  }
+  
+  /* Ao passar o mouse, o overlay desaparece */
+  .overlay-container:hover .overlay {
+    opacity: 0;
+  }
+  
+
+/* Efeito ao passar o mouse */
+
+
+.features {
+    background-color: #14181c;
+    color: #fff;
+    padding-top: 5vh;
+
+  }
+  
+  /* Layout: duas colunas e o vídeo central */
+  .features-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 40px;
+  }
+  
+  /* Colunas laterais com 30% de largura cada; o vídeo central ocupa o restante */
+  .features-column {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Vídeo central */
+  .video-container {
+    width: 20%;
+    
+  }
+  
+  .video-container video {
+    width: 100%;
+    border: 2px solid #107be6;
+    border-radius: 20px;
+    
+  }
+  
+  /* Estilo dos itens */
+  .feature-item {
+    background: #2e2e2e;
+    padding: 20px;
+    height: 150px;
+    border-radius: 5px;
+    border: 3px solid #444;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .feature-item:hover {
+    border-color: #107be6;
+  }
+
+  /* Estado ativo: item selecionado */
+  .feature-item.active {
+    background: #107be6;
+    border-color: #107be6;
+    transform: translateY(-5px);
+  }
+  
+  /* Efeito no ícone */
+  .feature-item .icon i {
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+  
+  .feature-item.active .icon i,
+  .feature-item:hover .icon i {
+    color: white;
+    transform: scale(1.2);
+  }
+  
+  .feature-item h3 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    font-family: "opensans", sans-serif;
+  }
+  
+  .feature-item p {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+
+
+.reviews .review {
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 5px;
+}
+
+.download {
+    color: #fff;
+}
+
+.download a {
+    margin: 10px;
+}
+
+footer {
+    background: #107be6;
+    color: white;
+    text-align: center;
+    margin-left: -5%;  /* Substitua pelo padding exato do body */
+    margin-right: -5%;
+    padding: 20px;
+}
+
+
+.icon {
+    margin-right: 10px; /* Aumenta a distância entre o ícone e o texto */
+    vertical-align: middle; /* Alinha o ícone verticalmente ao texto */
+    display: inline-block; /* Mantém o ícone alinhado corretamente */
+}
+
+.showcase {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #14181c;
+    color: white;
+}
+
+.showcase h2 {
+    text-align: left;
+}
+
+/* Container de vídeos */
+.video-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    grid-template-rows: repeat(2, auto);  /* 2 linhas */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Estilo dos vídeos */
+.video-showcase video {
+    width: 100%;
+    max-width: 300px; /* Ajuste para tamanho de celular */
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #107be6;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito hover nos vídeos */
+.video-showcase video:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Estilização da seção FAQ */
+.faq-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 0px;
+    background-color: #14181c;
+    color: white;
+}
+
+.faq-content {
+    display: flex;
+    align-items: flex-start; /* Alinha o texto e a lista no topo */
+    width: 100%;
+    gap: 50px; /* Espaço entre texto e perguntas */
+}
+
+/* Bloco da esquerda com o título */
+.faq-text {
+    flex: 1;
+    text-align: left; /* Mantém alinhado à esquerda */
+}
+
+.faq-content h2 {
+    flex: 1;
+    margin-top: -20px;
+}
+
+/* Bloco da direita com as perguntas */
+.faq-container {
+    flex: 2; /* Ocupa mais espaço que o título */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Cada pergunta */
+.faq-question {
+    width: 100%;
+    background: #2e2e2e;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 1.2rem;
+    font-family: "carving";
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #107be6;
+}
+
+/* Ícone da seta */
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+/* Resposta oculta inicialmente */
+.faq-answer {
+    display: none;
+    background: #1c1f24;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Animação ao expandir */
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  
+  .nav-links {
+      display: none; /* Esconde o menu normal no mobile */
+  }
+  .login-btn {
+    display: none;
+  }
+
+  .menu-toggle {
+      display: block; /* Exibe o botão do menu */
+      padding-right: 5vw;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    background-color: rgba(20, 24, 28, 0.85);
+    color: white;
+  }
+
+  .header-left {
+    justify-content: space-between;
+  }
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+}
+.media-container {
+  display: flex;
+  flex-direction: column; /* Define os itens em coluna */
+  align-items: center; /* Centraliza os itens na horizontal */
+  gap: 3vw;
+  margin-top: 20px;
+}
+.overlay-container {
+  position: relative;
+  width: 80vw; /* mesmo tamanho definido para a grid */
+}
+
+/* Grid de imagens */
+.media-grid {
+  display: grid;
+  width: 80vw;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 112px);
+  gap: 0;
+}
+.cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Espaço entre o botão e os ícones */
+  margin-top: 30px;
+}
+.hero-image-grid {
+  display: none;
+}
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;height: auto;
+  justify-content: space-between;
+  padding: 10vh 0px 0 0px;
+  background-color: #14181c;
+  color: white;
+  overflow: hidden;
+}
+.faq-content {
+  display: flex;
+  flex-direction: column; /* Alinha o texto e a lista no topo */
+  width: 100%;
+  gap: 50px; /* Espaço entre texto e perguntas */
+}
+
+.faq-content h2 {
+  text-align: center;
+  margin-top: -20px;
+}
+.features-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.features h2{
+  text-align: center;
+}
+
+.video-container {
+  width: 80%;
+  
+}
+.header-left {
+  width: 100%;
+  justify-content: space-between;
+}
+.logo {
+  
+  align-items: center;
+  margin: 0 0vw 0 5vw;
+}
+.features-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 40px;
+}
+.cross-media h2 {
+  text-align: center;
+}
+.mobile-menu {
+  position: absolute;
+  top: 7vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(20, 24, 28, 0.85);
+  text-align: center;
+  display: none;
+  flex-direction: column; /* Empilhar itens verticalmente */
+  justify-content: space-between; /* Separa os itens */
+  align-items: center;
+  
+}
+.feature-item {
+  height: 170px;
+  
+}
+
+}

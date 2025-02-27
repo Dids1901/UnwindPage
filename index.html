@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Descubra, avalie e compartilhe o entretenimento</title>
+    <link rel="icon" type="image/png" href="images/logoQuadrado.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+        <div class="logo">
+            <img src="images/logoQuadrado.png" alt="Unwind Logo" class="hero-lamp">
+            <h1>Unwind</h1>
+        </div>
+
+        <!-- Ícone do Menu Hamburguer (visível apenas no mobile) -->
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <!-- Navegação padrão -->
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#cross-media">Mídias</a></li>
+                <li><a href="#features">Recursos</a></li>
+                <li><a href="#questions">Dúvidas</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="header-right">
+        <button class="login-btn">Começar Agora</button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#cross-media">Mídias</a></li>
+            <li><a href="#features">Recursos</a></li>
+            <li><a href="#questions">Dúvidas</a></li>
+        </ul>
+        <button class="login-btn-mobile">Começar Agora</button>
+    </div>
+</header>
+
+    
+      <section id="hero" class="hero">
+        <div class="hero-content">
+            <h2>A plataforma que entende o seu gosto</h2>
+            <p>
+                Entre em uma comunidade vibrante e apaixonada por filmes, séries e games. Aqui você pode avaliar, comentar e compartilhar suas experiências com novas mídias, receber recomendações personalizadas e explorar diversos conteúdos. Junte-se a nós e transforme a forma como você descobre e vive o entretenimento.
+            </p>
+            <div class="cta-container">
+                <a href="#download" class="cta-button">Entre no Beta</a>
+                
+                <!-- Redes Sociais -->
+                <div class="social-links">
+                    <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Grid de Imagens -->
+        <div class="hero-image-grid">
+            <img src="images/gamingArt.png" alt="Imagem 1" class="grid-item img-1">
+            <img src="images/friends.png" alt="Imagem 2" class="grid-item img-2">
+            <img src="images/watching.png" alt="Imagem 3" class="grid-item img-3">
+            <img src="images/reviews.png" alt="Imagem 4" class="grid-item img-4">
+        </div>
+    </section>
+    <section id="cross-media" class="cross-media">
+        <h2>Games, séries e filmes — temos todos</h2>
+        
+        <div class="media-container">
+          <!-- Bloco de Games -->
+          <div class="media-block">
+            <div class="overlay-container">
+              <div class="media-grid">
+                <img src="images/minecraft.webp" alt="Game 1">
+                <img src="images/eldenRing.webp" alt="Game 2">
+                <img src="images/cyberpunk2077.webp" alt="Game 3">
+                <img src="images/batman.webp" alt="Game 4">
+                <img src="images/re4.webp" alt="Game 5">
+                <img src="images/gtaV.webp" alt="Game 6">
+                <img src="images/lol.webp" alt="Game 7">
+                <img src="images/mario3D.webp" alt="Game 8">
+                <img src="images/godWar.webp" alt="Game 9">
+                <img src="images/hades.webp" alt="Game 10">
+                <img src="images/cod.webp" alt="Game 11">
+                <img src="images/ac2.webp" alt="Game 12">
+                <img src="images/legoMarvel.webp" alt="Game 13">
+                <img src="images/forzaV.webp" alt="Game 14">
+                <img src="images/mortalKombat.webp" alt="Game 15">
+                <img src="images/clashRoyale.webp" alt="Game 16">
+              </div>
+              <div class="overlay">
+                <h3><span class="icon"><i class="fas fa-gamepad"></i></span> Games</h3>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bloco de Filmes -->
+          <div class="media-block">
+            <div class="overlay-container">
+              <div class="media-grid">
+                <img src="images/shining.jpg" alt="Filme 1">
+                <img src="images/fightClub.jpg" alt="Filme 2">
+                <img src="images/toyStory.jpg" alt="Filme 3">
+                <img src="images/matrix.jpg" alt="Filme 4">
+                <img src="images/avengers.jpg" alt="Filme 5">
+                <img src="images/woldWallstreet.jpg" alt="Filme 6">
+                <img src="images/pulpFiction.jpg" alt="Filme 7">
+                <img src="images/spiderverse.jpg" alt="Filme 8">
+                <img src="images/yourName.jpg" alt="Filme 9">
+                <img src="images/godfather.jpg" alt="Filme 10">
+                <img src="images/laLaLand.jpg" alt="Filme 11">
+                <img src="images/lordOfRings.jpg" alt="Filme 12">
+                <img src="images/whiplash.jpg" alt="Filme 13">
+                <img src="images/darkKnight.jpg" alt="Filme 14">
+                <img src="images/starWars.jpg" alt="Filme 15">
+                <img src="images/prisoners.jpg" alt="Filme 16">
+                
+              </div>
+              <div class="overlay">
+                <h3><span class="icon"><i class="fas fa-film"></i></span> Filmes</h3>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bloco de Séries -->
+          <div class="media-block">
+            <div class="overlay-container">
+              <div class="media-grid">
+                <img src="images/gameOfThrones.jpg" alt="Série 1">
+                <img src="images/breakingBad.jpg" alt="Série 2">
+                <img src="images/attackOnTitan.jpg" alt="Série 3">
+                <img src="images/simpsons.jpg" alt="Série 4">
+                <img src="images/strangerThings.jpg" alt="Série 5">
+                <img src="images/theOffice.jpg" alt="Série 6">
+                <img src="images/laCasaPapel.jpg" alt="Série 7">
+                <img src="images/friends.jpg" alt="Série 8">
+                <img src="images/lucifer.jpg" alt="Série 9">
+                <img src="images/rickMorty.jpg" alt="Série 10">
+                <img src="images/vikings.jpg" alt="Série 11">
+                <img src="images/theBatman.jpg" alt="Série 12">
+                <img src="images/naruto.jpg" alt="Série 13">
+                <img src="images/walkingDead.jpg" alt="Série 14">
+                <img src="images/theBoys.jpg" alt="Série 15">
+                <img src="images/blackMirror.jpg" alt="Série 16">
+               
+              </div>
+              <div class="overlay">
+                <h3><span class="icon"><i class="fas fa-tv"></i></span> Séries</h3>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    
+      <section id="features" class="features">
+        <h2>Descubra, avalie e compartilhe</h2>
+        <div class="features-layout">
+          <!-- Coluna esquerda -->
+          <div class="features-column left">
+            <div class="feature-item" data-video="">
+              <h3><span class="icon"><i class="fas fa-brain"></i></span> Sugestão Inteligente</h3>
+              <p>Nosso algoritmo sugere filmes, séries e games com base em suas avaliações e preferências.</p>
+            </div>
+            <div class="feature-item" data-video="">
+              <h3><span class="icon"><i class="fas fa-users"></i></span> Interações Sociais</h3>
+              <p>Compartilhe coleções, veja postagens de amigos e descubra novas tendências na comunidade.</p>
+            </div>
+            <div class="feature-item" data-video="videos/estante.mp4">
+              <h3><span class="icon"><i class="fas fa-book"></i></span> Estante de Mídias</h3>
+              <p>Registre, avalie e organize todas as mídias que você já consumiu. Construa seu próprio histórico.</p>
+            </div>
+          </div>
+      
+          <!-- Vídeo central -->
+          <div class="video-container">
+            <video id="feature-video" controls autoplay muted loop>
+              <source src="videos/shelf.mp4" type="video/mp4">
+              Seu navegador não suporta vídeos.
+            </video>
+          </div>
+      
+          <!-- Coluna direita -->
+          <div class="features-column right">
+            <div class="feature-item" data-video="videos/colecoes.mp4">
+              <h3><span class="icon"><i class="fas fa-layer-group"></i></span> Crie Suas Coleções</h3>
+              <p>Monte coleções personalizadas para organizar suas mídias favoritas.</p>
+            </div>
+            <div class="feature-item" data-video="videos/busca.mp4">
+              <h3><span class="icon"><i class="fas fa-search"></i></span> Pesquisa Avançada</h3>
+              <p>Encontre a mídia que procura com filtros avançados por ano, gênero, nota e mais.</p>
+            </div>
+            <div class="feature-item" data-video="videos/futuro.mp4">
+              <h3><span class="icon"><i class="fas fa-calendar-alt"></i></span> Futuros Lançamentos</h3>
+              <p>Fique por dentro dos lançamentos mais aguardados e veja a empolgação da comunidade.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section id="questions" class="faq-section">
+        <div class="faq-content">
+            <h2>Respostas para suas perguntas</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Por que escolher o Unwind em vez de outros apps? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O Unwind valoriza todos os tipos de mídia, criando uma comunidade inclusiva. Além disso, temos o maior conjunto de interações sociais da categoria, permitindo que você descubra, comente e compartilhe suas experiências com amigos e outros apaixonados por entretenimento. E com nosso algoritmo avançado, você recebe recomendações incrivelmente precisas para suas próximas grandes descobertas.</p>
+                    </div>
+                    
+                    
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como funciona nosso sistema de recomendação de mídias? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O Unwind analisa suas avaliações, preferências e interações para sugerir filmes, séries e jogos que você realmente vai gostar. Após a análise nós disponibilizamos um mar de possibilidade para voce explorar.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quais informações sobre as mídias consigo encontrar? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O Unwind reúne detalhes completos sobre cada mídia: trailers, datas, descrições, classificação etária, nota geral, duração e gêneros. Além disso, há informações específicas:  
+                        - 🎮 Games: Gameplay, plataformas e estúdios.  
+                        - 🎬 Filmes: Elenco, diretores e serviços de streaming.  
+                        - 📺 Séries: Temporadas, episódios e onde assistir.</p>
+                    </div>
+                    
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        O que não devo esperar do Unwind? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O Unwind não é uma plataforma de streaming ou emulação. Nosso foco está na descoberta, avaliação e interação sobre mídias, proporcionando a melhor experiência para explorar, compartilhar e discutir filmes, séries e games.</p>
+                    </div>
+                    
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como eu subo de nível? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Você pode subir de nível avaliando mais mídias e interagindo ativamente com a comunidade. Quanto mais engajamento, mais títulos e personalizações você desbloqueia!</p>
+                    </div>
+                    
+                </div>
+                
+    
+                
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Unwind. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+
+      
+      
+</body>
+</html>
