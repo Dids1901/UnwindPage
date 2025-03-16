@@ -1,10 +1,14 @@
 // Menu Mobile Toggle
 function toggleMenu() {
     let menu = document.querySelector(".mobile-menu");
+    let button = document.querySelector(".menu-toggle");
+
     if (menu.style.display === "block") {
-        menu.style.display = "none"; // Esconde se estiver visível
+        menu.style.display = "none"; 
+        button.innerHTML = "☰"; // Volta para o ícone de hambúrguer
     } else {
-        menu.style.display = "block"; // Mostra se estiver oculto
+        menu.style.display = "block"; 
+        button.innerHTML = "✖"; // Muda para o X
     }
 }
 
@@ -45,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Seleciona automaticamente o item "shelf" (vídeo default)
-    const defaultItem = document.querySelector('.feature-item[data-video="videos/shelf.mp4"]');
+    const defaultItem = document.querySelector('.feature-item[data-video="videos/estante.mp4"]');
     if (defaultItem) {
         defaultItem.click();
         featureVideo.play().catch(err => console.log("Erro ao tentar reproduzir: ", err));
