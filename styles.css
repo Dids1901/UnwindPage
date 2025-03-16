@@ -199,7 +199,7 @@ h2 {
   .cta-container {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espaço entre o botão e os ícones */
+    
     margin-top: 30px;
 }
 
@@ -258,7 +258,6 @@ h2 {
     color: #004aad;
     padding: 12px 25px;
     text-decoration: none;
-    margin-right: 30px;
     font-weight: bold;
     border-radius: 5px;
     display: inline-block;
@@ -695,7 +694,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* Espaço entre o botão e os ícones */
+  
   margin-top: 30px;
 }
 .hero {
