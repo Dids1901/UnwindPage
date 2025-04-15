@@ -17,8 +17,7 @@
   <header>
     <div class="header-left">
         <div class="logo">
-            <img src="images/trueUnwind.png" alt="Unwind Logo" class="hero-lamp">
-            <h1>Unwind</h1>
+            <img src="images/logoTexto.png" alt="Unwind Logo" class="hero-lamp">
         </div>
 
         <!-- Ícone do Menu Hamburguer (visível apenas no mobile) -->
@@ -30,6 +29,7 @@
                 <li><a href="#hero">Início</a></li>
                 <li><a href="#cross-media">Mídias</a></li>
                 <li><a href="#features">Recursos</a></li>
+                <li><a href="#recomendacao">Recomendações</a></li>
                 <li><a href="#questions">Dúvidas</a></li>
             </ul>
         </nav>
@@ -45,6 +45,7 @@
             <li><a href="#hero">Início</a></li>
             <li><a href="#cross-media">Mídias</a></li>
             <li><a href="#features">Recursos</a></li>
+            <li><a href="#recomendacao">Recomendações</a></li>
             <li><a href="#questions">Dúvidas</a></li>
         </ul>
         <button class="login-btn-mobile">Começar Agora</button>
@@ -54,9 +55,9 @@
     
       <section id="hero" class="hero">
         <div class="hero-content">
-            <h2>O universo do entretenimento na palma da sua mão.</h2>
+            <h2>O universo do entretenimento na sua mão</h2>
             <p>
-                Entre em uma comunidade vibrante e apaixonada por filmes, séries e games. Aqui você pode avaliar, comentar e compartilhar suas experiências com novas mídias, receber recomendações personalizadas e explorar diversos conteúdos. Junte-se a nós e transforme a forma como você descobre e vive o entretenimento.
+                Entre em uma comunidade vibrante e apaixonada por games, séries e filmes. Junte-se a nós e transforme a forma como você descobre e vive o entretenimento.
             </p>
             <div class="cta-container">
                 <a href="#download" class="cta-button">Entre no Beta</a>
@@ -70,10 +71,16 @@
     
         <!-- Grid de Imagens -->
         <div class="hero-image-grid">
-            <img src="images/heroImage.png" alt="Universe of Entertainment" class="grid-item">
+            <img src="images/heroImage2.png" alt="Universe of Entertainment" class="grid-item">
             
         </div>
     </section>
+
+    <section id="mockup">
+      <img src="images/mockupDefinitivo.png" alt="Tela do app" class="mockup-img">
+      
+    </section>
+    
     <section id="cross-media" class="cross-media">
         <h2>Games, séries e filmes — temos todos</h2>
         
@@ -165,21 +172,26 @@
       </section>
     
       <section id="features" class="features">
-        <h2>Descubra, avalie e compartilhe</h2>
         <div class="features-layout">
           <!-- Coluna esquerda -->
           <div class="features-column left">
-            <div class="feature-item" data-video="videos/sugestao.mp4">
-              <h3><span class="icon"><i class="fas fa-brain"></i></span> Sugestão Inteligente</h3>
-              <p>Nosso algoritmo sugere filmes, séries e games com base em suas avaliações e preferências.</p>
+            
+            <div class="feature-item" data-video="videos/estante.mp4">
+              <h3><span class="icon"><i class="fas fa-book"></i></span> Estante de Mídias</h3>
+              <p>Registre, avalie e organize todas as mídias que você já consumiu. Construa seu próprio histórico.</p>
             </div>
             <div class="feature-item" data-video="videos/social.mp4">
               <h3><span class="icon"><i class="fas fa-users"></i></span> Interações Sociais</h3>
               <p>Compartilhe coleções, veja postagens de amigos e descubra novas tendências na comunidade.</p>
             </div>
-            <div class="feature-item" data-video="videos/estante.mp4">
-              <h3><span class="icon"><i class="fas fa-book"></i></span> Estante de Mídias</h3>
-              <p>Registre, avalie e organize todas as mídias que você já consumiu. Construa seu próprio histórico.</p>
+            <div class="feature-item" data-video="videos/informacoes.mp4">
+              <h3>
+                <span class="icon"><i class="fas fa-info-circle"></i></span>
+                Informações Úteis
+              </h3>
+              <p>
+                Descubra informações completas para cada título, organizadas de forma clara e útil.
+              </p>
             </div>
           </div>
       
@@ -193,7 +205,7 @@
       
           <!-- Coluna direita -->
           <div class="features-column right">
-            <div class="feature-item" data-video="videos/colecoes.mp4">
+            <div class="feature-item" data-video="videos/colecao.mp4">
               <h3><span class="icon"><i class="fas fa-layer-group"></i></span> Crie Suas Coleções</h3>
               <p>Monte coleções personalizadas para organizar suas mídias favoritas.</p>
             </div>
@@ -201,10 +213,69 @@
               <h3><span class="icon"><i class="fas fa-search"></i></span> Pesquisa Avançada</h3>
               <p>Encontre a mídia que procura com filtros avançados por ano, gênero, nota e mais.</p>
             </div>
-            <div class="feature-item" data-video="videos/futuro.mp4">
+            <div class="feature-item" data-video="videos/futuros.mp4">
               <h3><span class="icon"><i class="fas fa-calendar-alt"></i></span> Futuros Lançamentos</h3>
               <p>Fique por dentro dos lançamentos mais aguardados e veja a empolgação da comunidade.</p>
             </div>
+          </div>
+        </div>
+      </section>
+      <section id="recomendacao" class="recomendacao-section">
+        <div class="recomendacao-layout-top nova-linha">
+          <!-- Coluna esquerda com botões -->
+          <div class="exemplo-controle">
+            <button class="exemplo-btn ativo" onclick="mudarExemplo(0)">1</button>
+            <button class="exemplo-btn" onclick="mudarExemplo(1)">2</button>
+            <button class="exemplo-btn" onclick="mudarExemplo(2)">3</button>
+          </div>
+      
+          <!-- Exemplo visual em linha -->
+          <div class="linha-exemplo-horizontal">
+            <div class="input-bloco">
+              <img id="input-img" src="images/spiderMan2.jpg" alt="Input Mídia" class="exemplo-img" />
+              <div id="avaliacao-input" class="avaliacao">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <div class="seta">&#8594;</div>
+            <div class="exemplo-grupo">
+              <div class="output-item">
+                <img src="images/spiderMan.jpg" alt="Homem-Aranha Jogo" class="exemplo-img pequeno rotacionado" />
+              </div>
+              <div class="output-item">
+                <img src="images/spiderManGame.webp" alt="Homem-Aranha Série" class="exemplo-img pequeno rotacionado" />
+              </div>
+              <div class="output-item">
+                <img src="images/spetacularSpiderMan.webp" alt="Homem-Aranha Animação" class="exemplo-img pequeno rotacionado" />
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Etapas abaixo -->
+        <div class="recomendacao-etapas">
+          <div class="etapa">
+            <div class="icone-bolinha">
+              <i class="fas fa-star"></i>
+            </div>
+            <p>Analisa suas avaliações e preferências</p>
+          </div>
+      
+          <div class="etapa">
+            <div class="icone-bolinha">
+              <i class="fas fa-link"></i>
+            </div>
+            <p>Compara com usuários e conteúdos semelhantes</p>
+          </div>
+      
+          <div class="etapa">
+            <div class="icone-bolinha">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <p>Entrega as melhores sugestões em todos os formatos</p>
           </div>
         </div>
       </section>

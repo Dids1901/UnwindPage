@@ -55,3 +55,54 @@ document.addEventListener('DOMContentLoaded', function () {
         featureVideo.play().catch(err => console.log("Erro ao tentar reproduzir: ", err));
     }
 });
+const exemplos = [
+    {
+      origem: "images/spiderMan2.jpg",
+      sugestoes: [
+        "images/spiderMan.jpg",
+        "images/spiderManGame.webp",
+        "images/spetacularSpiderMan.webp"
+      ],
+      estrelas: 4
+    },
+    {
+      origem: "images/theWitcher3.jpg",
+      sugestoes: [
+        "images/theWitcher.jpg",
+        "images/skyrim.webp",
+        "images/eldenRing.jpeg"
+      ],
+      estrelas: 5
+    },
+    {
+      origem: "images/blackMirror.jpg",
+      sugestoes: [
+        "images/exMachina.webp",
+        "images/severance.webp",
+        "images/loveDeath.webp"
+      ],
+      estrelas: 4.5
+    }
+  ];
+
+  function mudarExemplo(index) {
+    const data = exemplos[index];
+    document.getElementById('input-img').src = data.origem;
+    document.querySelectorAll('.exemplo-grupo .pequeno').forEach((img, i) => {
+      img.src = data.sugestoes[i];
+    });
+    document.querySelectorAll('.exemplo-btn').forEach(btn => btn.classList.remove('ativo'));
+    document.querySelectorAll('.exemplo-btn')[index].classList.add('ativo');
+
+    const avaliacao = document.getElementById('avaliacao-input');
+    avaliacao.innerHTML = '';
+    const cheias = Math.floor(data.estrelas);
+    const meia = data.estrelas % 1 !== 0;
+
+    for (let i = 0; i < cheias; i++) {
+      avaliacao.innerHTML += '<i class="fas fa-star"></i>';
+    }
+    if (meia) {
+      avaliacao.innerHTML += '<i class="fas fa-star-half-alt"></i>';
+    }
+  }
