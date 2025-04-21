@@ -29,7 +29,7 @@
 body {
     font-family: 'carving', sans-serif;
     margin: 0;
-    background-color: #071533;
+    background-color: #000f2f;
     padding-top: 10vh;
 }
 
@@ -44,7 +44,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    background-color: rgba(7, 21, 51);
+    background-color: rgba(0, 15, 47);
     color: white;
   }
   
@@ -208,12 +208,13 @@ h2 {
 /* Estilizando os ícones das redes sociais */
 .social-links {
     display: flex;
+    margin-left: 30px;
     gap: 35px;
 }
 
 .social-links a {
     font-size: 2.5rem;
-    color: white;
+    color: #bdf;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -234,7 +235,7 @@ h2 {
     justify-content: space-between;
     height: 90vh;
     padding: 0 5% 0 5%;
-    background-color: #071533;
+    background-color: #000f2f;
     color: white;
     overflow: hidden;
 }
@@ -273,7 +274,7 @@ h2 {
 
 .cta-button:hover {
     background: #107be6;
-    color: #071533;
+    color: #000f2f;
 }
 
 /* Grid de Imagens */
@@ -294,7 +295,7 @@ h2 {
 #mockup {
   width: 100%;
   
-  background: linear-gradient(180deg, #071533 0%, #14181c 100%);
+  background: linear-gradient(180deg, #000f2f 0%, #14181c 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -465,7 +466,7 @@ h2 {
   }
   
   .feature-item:hover {
-    background-color: #071533;
+    background-color: #000f2f;
     border-color: #107be6;
     color: #107be6;
   }
@@ -474,7 +475,7 @@ h2 {
   .feature-item.active {
     background: #107be6;
     border-color: #107be6;
-    color: #071533;
+    color: #000f2f;
     transform: translateY(-5px);
   }
   
@@ -489,7 +490,7 @@ h2 {
     color: #107be6;
   }
   .feature-item.active .icon i {
-    color: #071533;
+    color: #000f2f;
     transform: scale(1.2);
   }
   
@@ -576,7 +577,7 @@ footer {
 }
 
 .recomendacao-section {
-  background: linear-gradient(180deg, #14181c 0%, #071533 100%);
+  background: linear-gradient(180deg, #14181c 0%, #000f2f 100%);
   color: #ffffff;
   padding: 10vh 5%;
 }
@@ -822,7 +823,7 @@ footer {
     justify-content: center;
     align-items: flex-start;
     padding: 80px 5%;
-    background-color: #071533;
+    background-color: #000f2f;
     color: white;
 }
 
@@ -922,7 +923,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     height: 7vh;
-    background-color: rgba(7, 21, 51);
+    background-color: rgba(0, 15, 47);
     color: white;
   }
 
@@ -1116,7 +1117,7 @@ h2 {
   font-size: 0.7rem;
 }
 .recomendacao-section {
-  background: linear-gradient(180deg, #14181c 0%, #071533 100%);
+  background: linear-gradient(180deg, #14181c 0%, #000f2f 100%);
   color: #ffffff;
   padding: 0vh 5%;
 }
