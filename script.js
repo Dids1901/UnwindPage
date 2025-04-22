@@ -106,3 +106,55 @@ const exemplos = [
       avaliacao.innerHTML += '<i class="fas fa-star-half-alt"></i>';
     }
   }
+  const form = document.getElementById('betaForm');
+const emailInput = document.getElementById('email');
+const successMsg = document.getElementById('successMsg');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const email = emailInput.value.trim();
+
+  if (!validateEmail(email)) {
+    alert('Por favor, insira um e-mail válido.');
+    return;
+  }
+
+  // Aqui você pode integrar com Firebase ou outro backend
+  console.log('Email enviado:', email);
+
+  emailInput.value = '';
+  successMsg.style.display = 'block';
+
+  setTimeout(() => {
+    successMsg.style.display = 'none';
+  }, 5000);
+});
+
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+const select = document.getElementById('device');
+    select.addEventListener('change', function() {
+      if (this.value === '') {
+        this.style.color = '#b0b0b0'; // Cor do placeholder
+      } else {
+        this.style.color = '#fff'; // Cor das opções Android/iOS
+      }
+    });
+    // Definir cor inicial ao carregar a página
+    select.style.color = '#b0b0b0';
+    const loginBtn = document.querySelector('.login-btn');
+    loginBtn.addEventListener('click', () => {
+      document.getElementById('beta-tester').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault(); // Previne o comportamento padrão do link
+        const targetId = this.getAttribute('href').substring(1); // Remove o '#'
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });

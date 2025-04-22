@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>O universo do entretenimento na palma da sua mão.</title>
+  <link rel="icon" type="image/png" href="images/trueUnwind.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'carving';
+      src: url('fonts/MADECarvingSoftPERSONALUSE-Medium.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'opensans';
+      src: url('fonts/opensans.ttf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+  font-family: 'hamster';
+  src: url('fonts/Hamster.woff2') format('woff2'),
+       url('fonts/Hamster.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'carving', sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #000f2f 0%, #107be6 100%);
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: #fff;
+      font-family: "opensans";
+    }
+
+    #beta-tester {
+      padding: 0px 5% 0px 5%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .beta-tester-container {
+      padding: 1rem 2rem 2rem 2rem;
+      background: rgba(0, 15, 47, 0.4);
+      border-radius: 20px;
+      border: solid 2px #444;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #beta-tester h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #beta-tester p {
+      margin-bottom: 1rem;
+      color: #bdf;
+      font-family: "carving";
+    }
+
+    #betaForm {
+      display: flex;
+      gap: 1rem;
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+
+    #betaForm button {
+      padding: 0.75rem 1.2rem;
+      background: #107be6;
+      color: white;
+      font-family: "carving";
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #successMsg {
+      margin-top: 1rem;
+      color: #107be6;
+      display: none;
+    }
+
+    #betaForm input {
+      flex: 1 1 100%;
+      padding: 0.75rem;
+      background-color: rgba(0, 15, 47, 0.5);
+      border: 2px solid #444;
+      color: #fff;
+      border-radius: 8px;
+      font-family: "carving";
+      font-size: 1rem;
+    }
+
+    #betaForm select {
+      flex: 1 1 100%;
+      padding: 0.75rem;
+      background-color: rgba(0, 15, 47, 0.5);
+      border: 2px solid #444;
+      color: #b0b0b0;
+      border-radius: 8px;
+      font-family: "carving";
+      font-size: 1rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    #betaForm select option:first-child {
+      color: #b0b0b0;
+    }
+
+    #betaForm select option:not(:first-child) {
+      color: #fff;
+    }
+
+    #betaForm select:focus,
+    #betaForm select option {
+      background-color: rgba(0, 15, 47, 0.5);
+      color: #fff;
+    }
+
+    #betaForm select {
+      position: relative;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='%23b0b0b0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+    }
+
+    #betaForm select::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #betaForm select::-webkit-scrollbar-track {
+      background: rgba(0, 15, 47, 0.5);
+    }
+
+    #betaForm select::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 4px;
+    }
+
+    #betaForm input::placeholder {
+      color: #b0b0b0;
+      opacity: 1;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem;
+      
+    }
+
+    .feedback-link {
+      color: #bdf;
+      text-decoration: none;
+      font-family: "carving";
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .feedback-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .hero-lamp {
+      width: 8rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <section id="beta-tester">
+    <div class="beta-tester-container">
+      <img src="images/unwindTexto.png" alt="Unwind Logo" class="hero-lamp">
+      <h2>Participe do Beta Fechado!</h2>
+      <p>Quer testar nosso app antes do lançamento oficial? Insira seu e-mail abaixo e enviaremos o link exclusivo!</p>
+      <form id="betaForm">
+        <input type="text" id="name" placeholder="Seu nome completo" required />
+        <input type="email" id="email" placeholder="Seu e-mail" required />
+        <select id="device" required>
+          <option value="">Selecione seu dispositivo</option>
+          <option value="Android">Android</option>
+          <option value="iOS">iOS</option>
+        </select>
+        <div class="form-actions">
+          <button type="submit">Participar</button>
+          <a href="https://docs.google.com/forms/d/1Z6gk1LUzWpDXU-F7KbFjOOKXYuV4m2PSgoevS4iZZOI/edit" class="feedback-link" target="_blank">Nos conte o que você achou da experiência!</a>
+        </div>
+      </form>
+      <p id="successMsg">✅ Obrigado! Verifique seu e-mail em breve.</p>
+    </div>
+  </section>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAaME5zv_QRKkhQan4-sWhWJHMPg3heaeI",
+      authDomain: "unwind2-217e6.firebaseapp.com",
+      databaseURL: "https://unwind2-217e6-default-rtdb.firebaseio.com",
+      projectId: "unwind2-217e6",
+      storageBucket: "unwind2-217e6.appspot.com",
+      messagingSenderId: "468984874404",
+      appId: "1:468984874404:web:b4689cc95afb4efec7ad31",
+      measurementId: "G-MRJP2D3S5M"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById('betaForm');
+    const emailInput = document.getElementById('email');
+    const nameInput = document.getElementById('name');
+    const deviceSelect = document.getElementById('device');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const email = emailInput.value.trim();
+      const name = nameInput.value.trim();
+      const device = deviceSelect.value;
+
+      if (!validateEmail(email)) {
+        alert('Por favor, insira um e-mail válido.');
+        return;
+      }
+
+      if (!name || !device) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, 'betaUsers'), {
+          name: name,
+          email: email,
+          device: device,
+          timestamp: serverTimestamp()
+        });
+        console.log('Dados salvos com sucesso:', { name, email, device });
+        form.reset();
+        deviceSelect.style.color = '#b0b0b0';
+        successMsg.style.display = 'block';
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 5000);
+      } catch (error) {
+        console.error('Erro ao salvar dados:', error);
+        alert('Ocorreu um erro ao enviar seus dados. Tente novamente.');
+      }
+    });
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    const select = document.getElementById('device');
+    select.addEventListener('change', function() {
+      if (this.value === '') {
+        this.style.color = '#b0b0b0';
+      } else {
+        this.style.color = '#fff';
+      }
+    });
+    select.style.color = '#b0b0b0';
+  </script>
+</body>
+</html>
