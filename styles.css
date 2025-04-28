@@ -321,7 +321,7 @@ h2 {
 }
 
 .content-wrapper {
-  max-width: 1200px;
+
   margin: auto;
 }
 
@@ -331,31 +331,31 @@ h2 {
 }
 
 .midias-bg h2 {
-  margin-bottom: 1rem;
-  max-width: 40%;
+  margin-bottom: 2vh;
+  width: 40vw;
   color: #fff;
 }
 
 .midias-bg p {
-  font-size: clamp(1rem, 1.2rem, 1.3rem);
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
   color: #ccc;
-  max-width: 70%;
-  margin-bottom: 2rem;
+  width: 70%;
+  margin-bottom: 4vh;
 }
 
 .video-number-row {
   display: flex;
+  gap: 5vw;
   flex-direction: row;
-  flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: space-evenly;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4vh;
 }
 
 .video-number-container {
   position: relative;
-  width: 300px;
+  width: 30vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -365,21 +365,20 @@ h2 {
   width: 100%;
   height: auto;
   aspect-ratio: 1/1; /* Standard video ratio */
-  border-radius: 10px;
+  border-radius: 1vw;
   z-index: 2;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .number-item {
   width: auto;
-  min-width: 150px; /* Fit content snugly */
   height: auto;
-  margin-top: -40px; /* Overlap video bottom by 30px */
-  border-radius: 8px;
+  margin-top: -8vh; /* Overlap video bottom by 30px */
+  border-radius: 1vw;
   border: 1px solid #444;
   background-color: rgba(20, 24, 28, 0.6);
   z-index: 3;
-  padding: 10px;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -391,11 +390,11 @@ h2 {
 .number-item:hover {
   background-color: rgba(0, 15, 47, 0.8);
   border-color: #107be6;
-  transform: translateY(-10px);
+  transform: translateY(-2vh);
 }
 
 .number-item h3 {
-  font-size: clamp(1.2rem, 1.5rem, 1.7rem);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
   color: #fff;
   margin: 0;
   line-height: 1.2;
@@ -407,9 +406,10 @@ h2 {
 }
 
 .number-item p {
-  font-size: clamp(0.8rem, 0.9rem, 1rem);
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
   color: #ccc;
   margin: 0;
+  text-align: center;
   line-height: 1.2;
   transition: color 0.3s ease;
 }
@@ -425,14 +425,14 @@ h2 {
 
 .estante h2 {
   color: #fff;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3.5vw;
+  margin-bottom: 2vh;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 2vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -440,20 +440,20 @@ h2 {
 .header-content p {
   flex: 1;
   color: #ccc;
-  font-size: 1.2rem;
+  font-size: 1.4vw;
   line-height: 1.5;
   margin: 0;
 }
 
 .header-content video {
   width: 40%;
-  border-radius: 8px;
+  border-radius: 1vw;
 }
 
 .estante-wrapper {
   display: flex;
   margin: -10vh auto 0 auto;
-  gap: 40px;
+  gap: 5vw;
 }
 
 .tabs-section {
@@ -465,9 +465,8 @@ h2 {
 
 .filter-buttons {
   display: flex;
-  gap: 10px;
   justify-content: space-evenly;
-  margin-bottom: 20px;
+  margin-bottom: 4vh;
 }
 
 .filter-btn {
@@ -476,7 +475,7 @@ h2 {
   background: none;
   border: 2px solid #ccc;
   border-radius: 1.2vw;
-  padding: 8px 16px;
+  padding: 1vh 2vw;
   cursor: pointer;
   color: #ccc;
   font-family: "carving";
@@ -490,15 +489,15 @@ h2 {
 }
 
 .filter-icon {
-  font-size: 16px;
-  margin-right: 8px;
+  font-size: 1.2vw;
+  margin-right: 0.6vw;
 }
 
 .estante-container {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2vw;
 }
 
 .estante-item:nth-child(1) {
@@ -523,8 +522,8 @@ h2 {
 
 .estante-item {
   background-color: #1c2227;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 1vw;
+  padding: 1.7vw;
   border: 1px solid #444;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -540,16 +539,16 @@ h2 {
 .estante-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 2vh;
 }
 
 .estante-icon {
-  font-size: 24px;
-  margin-right: 10px;
+  font-size: 2vw;
+  margin-right: 0.6vw;
 }
 
 .estante-mini-title {
-  font-size: 14px;
+  font-size: 1.2vw;
   font-weight: bold;
   color: #ccc;
   transition: color 0.3s ease;
@@ -560,8 +559,8 @@ h2 {
 }
 
 .estante-item h3 {
-  font-size: 20px;
-  margin: 0 0 10px;
+  font-size: 1.5vw;
+  margin-bottom: 2vh;
   color: #fff;
   transition: color 0.3s ease;
 }
@@ -571,7 +570,7 @@ h2 {
 }
 
 .estante-item p {
-  font-size: 16px;
+  font-size: 1.2vw;
   color: #ccc;
   line-height: 1.5;
   margin: 0;
@@ -592,13 +591,13 @@ h2 {
 .tab {
   background: none;
   border: none;
-  padding: 10px 20px;
+  padding: 2vh 2vw;
   cursor: pointer;
   outline: none;
 }
 
 .tab-icon {
-  font-size: 24px;
+  font-size: 2vw;
   color: transparent;
   -webkit-text-stroke: 1px #fff;
   transition: color 0.3s ease, -webkit-text-stroke 0.3s ease;
@@ -612,9 +611,9 @@ h2 {
 .tab-indicator {
   position: absolute;
   bottom: 0;
-  height: 3px;
+  height: 0.5vh;
   background-color: #107be6;
-  width: 60px;
+  width: 6vw;
   left: 0;
   transition: left 0.3s ease;
 }
@@ -630,20 +629,20 @@ h2 {
 .media-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-height: 600px;
+  gap: 2vw;
+ 
   overflow-y: auto;
-  padding: 10px;
+  padding: 1vw;
   scrollbar-width: thin;
 }
 
 .media-grid::-webkit-scrollbar {
-  width: 8px;
+  width: 1vw;
 }
 
 .media-grid::-webkit-scrollbar-thumb {
   background: #107be6;
-  border-radius: 4px;
+  border-radius: 1vw;
 }
 
 .media-item {
@@ -656,8 +655,8 @@ h2 {
 }
 
 .media-item img {
-  width: 90px;
-  height: 135px;
+  width: 9vw;
+  height: 14vw;
   object-fit: cover;
   border: 1px solid #444;
   border-radius: 1vw;
@@ -665,7 +664,7 @@ h2 {
 
 .media-rating {
   margin-top: 5px;
-  font-size: 1vw;
+  font-size: 1.3vw;
   color: #fff;
 }
 
@@ -992,8 +991,8 @@ h2 {
 }
 
 .rating-cover {
-  width: 90px;
-  height: 135px;
+  width: 9vw;
+  height: 14vw;
   object-fit: cover;
   border: solid 1px #444;
   border-radius: 8px;
@@ -1174,8 +1173,8 @@ h2 {
 }
 
 .exemplo-img {
-  width: 135px;
-  height: 202px;
+  width: 14vw;
+  height: 20vw;
   border: #444 solid 1px;
   border-radius: 12px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
@@ -1196,8 +1195,8 @@ h2 {
 }
 
 .exemplo-img.pequeno {
-  width: 135px;
-  height: 202px;
+  width: 14vw;
+  height: 20vw;
   margin-right: -2vw;
   border-radius: 12px;
   transform: rotate(-6deg);
