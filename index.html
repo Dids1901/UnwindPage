@@ -62,15 +62,6 @@
             <div class="cta-container">
               <a href="beta.html" class="cta-button" target="_blank">Entre no Beta</a>
                 
-                <!-- Redes Sociais -->
-                <div class="social-links">
-                  <a href="https://www.tiktok.com/@yourprofile" target="_blank" aria-label="TikTok">
-                      <i class="fab fa-tiktok"></i>
-                  </a>
-                  <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram">
-                      <i class="fab fa-instagram"></i>
-                  </a>
-              </div>
             </div>
         </div>
     
@@ -83,100 +74,1126 @@
 
     <section id="mockup">
       <img src="images/mockupDefinitivo.png" alt="Tela do app" class="mockup-img">
+    </section>
+    
+    <section class="midias-bg">
+      <div class="content-wrapper">
+        <div class="text-container">
+          <h2>Tudo o que você ama, em um só lugar.</h2>
+          <p>Navegue por milhares de jogos, filmes e séries. Explore títulos consagrados e novidades fresquinhas. Encontre desde produções premiadas até aquelas que viraram febre nas redes. Sua experiência de entretenimento, organizada, acessível e sempre atualizada.</p>
+          <div class="video-number-row">
+            <div class="video-number-container">
+              <video class="video-item" autoplay muted loop playsinline aria-label="Demonstração de jogos">
+                <source src="videos/videoGame.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="number-item">
+                <h3>+2.600 🎮</h3>
+                <p>Jogos</p>
+              </div>
+            </div>
+            <div class="video-number-container">
+              <video class="video-item" autoplay muted loop playsinline aria-label="Demonstração de filmes">
+                <source src="videos/movies.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="number-item">
+                <h3>+6.500 🎬</h3>
+                <p>Filmes</p>
+              </div>
+            </div>
+            <div class="video-number-container">
+              <video class="video-item" autoplay muted loop playsinline aria-label="Demonstração de séries">
+                <source src="videos/tvShow.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="number-item">
+                <h3>+3.300 📺</h3>
+                <p>Séries</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="estante">
+      <div class="header-content">
+        <div style="display: flex; flex-direction: column;">
+          <h2>Guarde Cada Emoção que Viveu e que vai Viver.</h2>
+          <p>No Unwind, cada filme assistido, série maratonada ou jogo zerado vira parte da sua história. Registre suas impressões, marque suas favoritas, salve o que ainda quer viver e acompanhe sua ansiedade pelos lançamentos mais esperados. Sua jornada no entretenimento começa aqui, do seu jeito.</p>
+        </div>
+        <video autoplay muted loop playsinline>
+          <source src="videos/cinema.mp4" type="video/mp4">
+          Seu navegador não suporta o elemento de vídeo.
+        </video>
+      </div>
+      <div class="estante-wrapper">
+        <div class="tabs-section">
+          <div style="display: flex;flex-direction: column;background-color: #1c2227; padding-top: 5vh;border-top-left-radius: 2vw;border-top-right-radius: 2vw;">
+            <div class="filter-buttons">
+              <button class="filter-btn active" data-type="game"><span class="filter-icon">🎮</span>Jogos</button>
+              <button class="filter-btn active" data-type="movie"><span class="filter-icon">🎬</span>Filmes</button>
+              <button class="filter-btn active" data-type="series"><span class="filter-icon">📺</span>Séries</button>
+            </div>
+            <div class="tabs">
+              <button class="tab active" data-tab="ratings"><span class="tab-icon">⭐</span></button>
+              <button class="tab" data-tab="liked"><span class="tab-icon">❤️</span></button>
+              <button class="tab" data-tab="saved"><span class="tab-icon">📑</span></button>
+              <button class="tab" data-tab="hype"><span class="tab-icon">🔥</span></button>
+              <div class="tab-indicator"></div>
+            </div>
+          </div>
+          
+  
+          <div class="tab-content" id="ratings">
+            <div class="media-grid">
+              <div class="media-item" data-type="movie">
+                <img src="images/prisoners.jpg" alt="Filme 1">
+                <div class="media-rating">⭐⭐⭐⭐</div>
+              </div>
+              <div class="media-item" data-type="movie">
+                <img src="images/interestellar.jpg" alt="Filme 2">
+                <div class="media-rating">⭐⭐⭐</div>
+              </div>
+              <div class="media-item" data-type="series">
+                <img src="images/invincible.jpg" alt="Série 1">
+                <div class="media-rating">⭐⭐⭐⭐⭐</div>
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/forzaV.webp" alt="Jogo 1">
+                <div class="media-rating">⭐⭐⭐⭐</div>
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/lol.webp" alt="Jogo 2">
+                <div class="media-rating">⭐⭐</div>
+              </div>
+              <div class="media-item" data-type="series">
+                <img src="images/theOffice.jpg" alt="Série 2">
+                <div class="media-rating">⭐⭐⭐⭐</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-content" id="liked">
+            <div class="media-grid">
+              <div class="media-item" data-type="series">
+                <img src="images/invincible.jpg" alt="Filme 3">
+              </div>
+              <div class="media-item" data-type="movie">
+                <img src="images/avengers.jpg" alt="Série 3">
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/batman.webp" alt="Jogo 3">
+              </div>
+              <div class="media-item" data-type="movie">
+                <img src="images/fightClub.jpg" alt="Filme 4">
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/minecraft.webp" alt="Série 4">
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/godWar.webp" alt="Jogo 4">
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-content" id="saved">
+            <div class="media-grid">
+              <div class="media-item" data-type="movie">
+                <img src="images/exMachina.webp" alt="Filme 5">
+              </div>
+              <div class="media-item" data-type="series">
+                <img src="images/friends.jpg" alt="Série 5">
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/hades.webp" alt="Jogo 5">
+              </div>
+              <div class="media-item" data-type="movie">
+                <img src="images/starWars.jpg" alt="Filme 6">
+              </div>
+              <div class="media-item" data-type="movie">
+                <img src="images/woldWallstreet.jpg" alt="Série 6">
+              </div>
+              <div class="media-item" data-type="series">
+                <img src="images/loveDeath.webp" alt="Jogo 6">
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-content" id="hype">
+            <div class="media-grid">
+              <div class="media-item" data-type="movie">
+                <img src="images/avatarFilme.webp" alt="Filme 7">
+                <div class="media-rating">🔥🔥🔥</div>
+              </div>
+              <div class="media-item" data-type="movie">
+                <img src="images/superman.jpeg" alt="Série 7">
+                <div class="media-rating">🔥🔥🔥🔥</div>
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/doomDark.webp" alt="Jogo 7">
+                <div class="media-rating">🔥🔥</div>
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/gta6.webp" alt="Filme 8">
+                <div class="media-rating">🔥🔥🔥🔥🔥</div>
+              </div>
+              <div class="media-item" data-type="series">
+                <img src="images/marvelZombies.webp" alt="Série 8">
+                <div class="media-rating">🔥🔥🔥</div>
+              </div>
+              <div class="media-item" data-type="game">
+                <img src="images/hollowSilk.webp" alt="Jogo 8">
+                <div class="media-rating">🔥🔥🔥🔥</div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="estante-container">
+          <div class="estante-item">
+            <div class="estante-header">
+              <span class="estante-icon">⭐</span>
+              <span class="estante-mini-title">Ratings</span>
+            </div>
+            <h3>Registre Suas Impressões</h3>
+            <p>Deixe suas avaliações em filmes, séries e jogos. Guarde como cada história fez você se sentir — e reviva essas emoções sempre que quiser.</p>
+          </div>
+  
+          <div class="estante-item">
+            <div class="estante-header">
+              <span class="estante-icon">❤️</span>
+              <span class="estante-mini-title">Liked</span>
+            </div>
+            <h3>Marque Seus Favoritos</h3>
+            <p>Dê um like nas mídias que mais tocaram você. Monte sua coleção pessoal das obras que marcaram sua jornada.</p>
+          </div>
+  
+          <div class="estante-item">
+            <div class="estante-header">
+              <span class="estante-icon">📑</span>
+              <span class="estante-mini-title">Saved</span>
+            </div>
+            <h3>Salve o que Quer Viver</h3>
+            <p>Crie listas de desejos e organize tudo o que ainda quer assistir, jogar ou descobrir. Nunca mais perca uma boa história.</p>
+          </div>
+  
+          <div class="estante-item">
+            <div class="estante-header">
+              <span class="estante-icon">🔥</span>
+              <span class="estante-mini-title">Hype</span>
+            </div>
+            <h3>Acompanhe o Hype</h3>
+            <p>Marque os lançamentos mais esperados e registre o quanto está ansioso. A contagem regressiva começa aqui — junto com quem sente como você.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section id="comunidade" class="comunidade">
+      <div class="comunidade-text">
+        <h2>Uma Comunidade que Vive o Entretenimento.</h2>
+        <p>Terminar uma série épica, zerar um jogo inesquecível ou assistir a um filme que muda tudo — é impossível guardar isso só pra si. No Unwind, você encontra quem sente como você, compartilha suas emoções e descobre novas histórias para se apaixonar.</p>
+        <div class="cta-comunidade">
+          <a href="beta.html" class="cta-button" target="_blank">Junte-se a Nós</a>
+            
+        </div>
+      </div>
+      <div class="comunidade-feed">
+        <div class="feed-content">
+          <!-- Review Post 1: Elden Ring (Fixo) -->
+          <div class="feed-post review" data-color="#00b7eb">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar1.png" alt="User avatar" class="post-avatar">
+                <h3>PlayerOne</h3>
+              </div>
+              <span class="post-timestamp">2 horas atrás</span>
+            </div>
+            <div class="post-content">
+              <div class="review-container">
+                <div class="review-left">
+                  <h4 class="review-title">Elden Ring</h4>
+                  <img src="images/eldenRing.webp" alt="Elden Ring cover" class="review-cover">
+                  <div class="review-stars">★★★★☆</div>
+                </div>
+                <div class="review-right">
+                  <span class="review-media-type">🎮 Jogo</span>
+                  <p class="review-text">Acabei de zerar *Elden Ring*! Que jogo incrível, alguém tem dicas pra NG+?</p>
+                </div>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">10K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">1.2K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">500</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">2K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 2: The Last of Us (Fixo) -->
+          <div class="feed-post publication" data-color="#00cccc">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar2.png" alt="User avatar" class="post-avatar">
+                <h3>SeriesFan</h3>
+              </div>
+              <span class="post-timestamp">5 horas atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/theLastHBO.jpg" alt="The Last of Us screenshot" class="publication-image">
+              <img src="images/theLastOfUs.jpeg" alt="The Last of Us cover" class="publication-cover">
+              <p class="publication-text">Maratonei *The Last of Us* na HBO. Que adaptação perfeita! O que acharam do episódio 3? 📺</p>
+              <div class="publication-tags">
+                <span class="tag">@JoelFan</span>
+                <span class="tag">@EllieLover</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">15K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">2.5K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">800</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">3K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Review Post 3: Oppenheimer -->
+          <div class="feed-post review" data-color="#ffd700">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
+                <h3>MovieBuff</h3>
+              </div>
+              <span class="post-timestamp">1 dia atrás</span>
+            </div>
+            <div class="post-content">
+              <div class="review-container">
+                <div class="review-left">
+                  <h4 class="review-title">Oppenheimer</h4>
+                  <img src="images/oppenheimer.jpg" alt="Oppenheimer cover" class="review-cover">
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-right">
+                  <span class="review-media-type">🎬 Filme</span>
+                  <p class="review-text">*Oppenheimer* me deixou sem palavras. A direção do Nolan é impecável! Alguém viu no IMAX?</p>
+                </div>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">8K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">900</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">400</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">1.5K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 4: Breaking Bad -->
+          <div class="feed-post publication" data-color="#00cc00">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar4.png" alt="User avatar" class="post-avatar">
+                <h3>UnwindFan</h3>
+              </div>
+              <span class="post-timestamp">10 horas atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/walterJesse.jpg" alt="Breaking Bad screenshot" class="publication-image">
+              <img src="images/breakingBad.jpg" alt="Breaking Bad cover" class="publication-cover">
+              <p class="publication-text">Revendo *Breaking Bad* pela terceira vez. A química entre Walt e Jesse é insana! Qual é o melhor episódio pra vocês? 📺</p>
+              <div class="publication-tags">
+                <span class="tag">@Heisenberg</span>
+                <span class="tag">@JesseFan</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">12K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">2K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">600</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">2.5K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Rating Block 1 -->
+          <div class="feed-post rating-block">
+            <div class="post-content">
+              <div class="rating-grid">
+                <div class="rating-item" data-color="#ff8c00">
+                  <div class="rating-user">
+                    <img src="images/avatar5.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">GamerX</h4>
+                  </div>
+                  <img src="images/cyberpunk2077.webp" alt="Cyberpunk 2077 cover" class="rating-cover">
+                  <div class="rating-stars">★★★☆☆</div>
+                </div>
+                <div class="rating-item" data-color="#ff0000">
+                  <div class="rating-user">
+                    <img src="images/avatar6.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">ShowLover</h4>
+                  </div>
+                  <img src="images/theBatmanMovie.webp" alt="The Batman cover" class="rating-cover">
+                  <div class="rating-stars">★★★★★</div>
+                </div>
+                <div class="rating-item" data-color="#ff69b4">
+                  <div class="rating-user">
+                    <img src="images/avatar7.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">AnimeFan</h4>
+                  </div>
+                  <img src="images/attackOnTitan.jpg" alt="Attack on Titan cover" class="rating-cover">
+                  <div class="rating-stars">★★★★☆</div>
+                </div>
+                <div class="rating-item" data-color="#800080">
+                  <div class="rating-user">
+                    <img src="images/avatar8.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">FilmNerd</h4>
+                  </div>
+                  <img src="images/superman.jpeg" alt="Superman cover" class="rating-cover">
+                  <div class="rating-fire">🔥🔥🔥🔥</div>
+                </div>
+                <div class="rating-item" data-color="#00b7eb">
+                  <div class="rating-user">
+                    <img src="images/avatar1.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">PlayerOne</h4>
+                  </div>
+                  <img src="images/rdd2.webp" alt="Red Dead Redemption 2 cover" class="rating-cover">
+                  <div class="rating-stars">★★★★★</div>
+                </div>
+                <div class="rating-item" data-color="#00cccc">
+                  <div class="rating-user">
+                    <img src="images/avatar2.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">SeriesFan</h4>
+                  </div>
+                  <img src="images/lucifer.jpg" alt="Lucifer cover" class="rating-cover">
+                  <div class="rating-stars">★★★★☆</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Review Post 6: Lucifer -->
+          <div class="feed-post review" data-color="#00cccc">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar2.png" alt="User avatar" class="post-avatar">
+                <h3>SeriesFan</h3>
+              </div>
+              <span class="post-timestamp">15 horas atrás</span>
+            </div>
+            <div class="post-content">
+              <div class="review-container">
+                <div class="review-left">
+                  <h4 class="review-title">Lucifer</h4>
+                  <img src="images/lucifer.jpg" alt="Lucifer cover" class="review-cover">
+                  <div class="review-stars">★★★★☆</div>
+                </div>
+                <div class="review-right">
+                  <span class="review-media-type">📺 Série</span>
+                  <p class="review-text">*Lucifer* é viciante! A última temporada fechou com chave de ouro. Qual é o melhor caso da série pra vocês?</p>
+                </div>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">9K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">1.5K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">700</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">2K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 7: Pulp Fiction -->
+          <div class="feed-post publication" data-color="#ffd700">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
+                <h3>MovieBuff</h3>
+              </div>
+              <span class="post-timestamp">1 dia atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/pulpFictionCena.jpg" alt="Pulp Fiction screenshot" class="publication-image">
+              <img src="images/pulpFiction.jpg" alt="Pulp Fiction cover" class="publication-cover">
+              <p class="publication-text">Assisti *Pulp Fiction* de novo e continua um clássico! Qual é a melhor cena do Tarantino pra vocês? 🎬</p>
+              <div class="publication-tags">
+                <span class="tag">@TarantinoFan</span>
+                <span class="tag">@VincentVega</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">11K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">1.8K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">900</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">2.3K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 8: GTA VI (Novo) -->
+          <div class="feed-post publication" data-color="#ff8c00">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar5.png" alt="User avatar" class="post-avatar">
+                <h3>GamerX</h3>
+              </div>
+              <span class="post-timestamp">12 horas atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/gta6Trailer.jpg" alt="GTA VI screenshot" class="publication-image">
+              <img src="images/gta6.webp" alt="GTA VI cover" class="publication-cover">
+              <p class="publication-text">O trailer de *GTA VI* tá insano! Vice City repaginada, parece épico. Qual é a expectativa de vocês? 🔥🎮</p>
+              <div class="publication-tags">
+                <span class="tag">@GTALover</span>
+                <span class="tag">@ViceCityFan</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">20K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">3K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">1.2K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">4K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Review Post 9: Zelda Ocarina of Time (Novo) -->
+          <div class="feed-post review" data-color="#00b7eb">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar1.png" alt="User avatar" class="post-avatar">
+                <h3>PlayerOne</h3>
+              </div>
+              <span class="post-timestamp">2 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <div class="review-container">
+                <div class="review-left">
+                  <h4 class="review-title">Zelda: Ocarina of Time</h4>
+                  <img src="images/zelda.webp" alt="Zelda Ocarina of Time cover" class="review-cover">
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-right">
+                  <span class="review-media-type">🎮 Jogo</span>
+                  <p class="review-text">Rejoguei *Zelda: Ocarina of Time* no N64. Ainda é uma obra-prima! Qual é o melhor templo pra vocês? 🛡️</p>
+                </div>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">6K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">700</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">300</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">1K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Rating Block 2 -->
+          <div class="feed-post rating-block">
+            <div class="post-content">
+              <div class="rating-grid">
+                <div class="rating-item" data-color="#ffd700">
+                  <div class="rating-user">
+                    <img src="images/avatar3.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">MovieBuff</h4>
+                  </div>
+                  <img src="images/whiplash.jpg" alt="Whiplash cover" class="rating-cover">
+                  <div class="rating-stars">★★★★★</div>
+                </div>
+                <div class="rating-item" data-color="#00cc00">
+                  <div class="rating-user">
+                    <img src="images/avatar4.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">UnwindFan</h4>
+                  </div>
+                  <img src="images/strangerThings.jpg" alt="Stranger Things cover" class="rating-cover">
+                  <div class="rating-stars">★★★★☆</div>
+                </div>
+                <div class="rating-item" data-color="#ff8c00">
+                  <div class="rating-user">
+                    <img src="images/avatar5.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">GamerX</h4>
+                  </div>
+                  <img src="images/gta6.webp" alt="GTA VI cover" class="rating-cover">
+                  <div class="rating-fire">🔥🔥🔥🔥🔥</div>
+                </div>
+                <div class="rating-item" data-color="#ff0000">
+                  <div class="rating-user">
+                    <img src="images/avatar6.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">ShowLover</h4>
+                  </div>
+                  <img src="images/simpsons.jpg" alt="Simpsons cover" class="rating-cover">
+                  <div class="rating-stars">★★★☆☆</div>
+                </div>
+                <div class="rating-item" data-color="#ff69b4">
+                  <div class="rating-user">
+                    <img src="images/avatar7.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">AnimeFan</h4>
+                  </div>
+                  <img src="images/jujutsuKaisen.webp" alt="Jujutsu Kaisen cover" class="rating-cover">
+                  <div class="rating-stars">★★★★☆</div>
+                </div>
+                <div class="rating-item" data-color="#800080">
+                  <div class="rating-user">
+                    <img src="images/avatar8.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">FilmNerd</h4>
+                  </div>
+                  <img src="images/pulpFiction.jpg" alt="Pulp Fiction cover" class="rating-cover">
+                  <div class="rating-stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 11: Avatar 3 (Novo) -->
+          <div class="feed-post publication" data-color="#ffd700">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
+                <h3>MovieBuff</h3>
+              </div>
+              <span class="post-timestamp">3 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/avatarCena.jpg" alt="Avatar 3 screenshot" class="publication-image">
+              <img src="images/avatarFilme.webp" alt="Avatar 3 cover" class="publication-cover">
+              <p class="publication-text">*Avatar 3* tá chegando em 2025! Ansioso pra voltar a Pandora. O que esperam dessa sequência? 🔥🎬</p>
+              <div class="publication-tags">
+                <span class="tag">@AvatarFan</span>
+                <span class="tag">@PandoraLover</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">14K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">2K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">1K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">3K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 12: Jujutsu Kaisen -->
+          <div class="feed-post publication" data-color="#ff69b4">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar7.png" alt="User avatar" class="post-avatar">
+                <h3>AnimeFan</h3>
+              </div>
+              <span class="post-timestamp">3 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/jujutsuCena.jpg" alt="Jujutsu Kaisen screenshot" class="publication-image">
+              <img src="images/jujutsuKaisen.webp" alt="Jujutsu Kaisen cover" class="publication-cover">
+              <p class="publication-text">*Jujutsu Kaisen* temporada 2 tá absurda! O arco do Shibuya é épico. Quem é o melhor feiticeiro pra vocês? 🧙‍♂️</p>
+              <div class="publication-tags">
+                <span class="tag">@GojoFan</span>
+                <span class="tag">@YujiLover</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">10K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">1.3K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">500</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">1.8K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Review Post 13: Whiplash -->
+          <div class="feed-post review" data-color="#ffd700">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
+                <h3>MovieBuff</h3>
+              </div>
+              <span class="post-timestamp">4 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <div class="review-container">
+                <div class="review-left">
+                  <h4 class="review-title">Whiplash</h4>
+                  <img src="images/whiplash.jpg" alt="Whiplash cover" class="review-cover">
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-right">
+                  <span class="review-media-type">🎬 Filme</span>
+                  <p class="review-text">*Whiplash* é intenso! A atuação do J.K. Simmons é de outro mundo. Alguém mais ficou tenso no final?</p>
+                </div>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">6K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">700</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">200</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">1K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 14: Minecraft -->
+          <div class="feed-post publication" data-color="#ff8c00">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar5.png" alt="User avatar" class="post-avatar">
+                <h3>GamerX</h3>
+              </div>
+              <span class="post-timestamp">5 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/minecraftGameplay.jpg" alt="Minecraft screenshot" class="publication-image">
+              <img src="images/minecraft.webp" alt="Minecraft cover" class="publication-cover">
+              <p class="publication-text">Finalmente voltei a jogar *Minecraft*! Bateu aquela vontade anual de criar um mundo com os amigos, jogar por uma semana sem parar e depois largar denovo. 🎮</p>
+              <div class="publication-tags">
+                <span class="tag">@MinecraftBuilder</span>
+                <span class="tag">@CreeperFan</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">8K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">1K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">400</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">1.5K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Rating Block 3 -->
+          <div class="feed-post rating-block">
+            <div class="post-content">
+              <div class="rating-grid">
+                <div class="rating-item" data-color="#00cccc">
+                  <div class="rating-user">
+                    <img src="images/avatar2.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">SeriesFan</h4>
+                  </div>
+                  <img src="images/theLastOfUs.jpeg" alt="The Last of Us cover" class="rating-cover">
+                  <div class="rating-stars">★★★★★</div>
+                </div>
+                <div class="rating-item" data-color="#ffd700">
+                  <div class="rating-user">
+                    <img src="images/avatar3.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">MovieBuff</h4>
+                  </div>
+                  <img src="images/avatarFilme.webp" alt="Avatar 3 cover" class="rating-cover">
+                  <div class="rating-fire">🔥🔥🔥🔥</div>
+                </div>
+                <div class="rating-item" data-color="#00cc00">
+                  <div class="rating-user">
+                    <img src="images/avatar4.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">UnwindFan</h4>
+                  </div>
+                  <img src="images/breakingBad.jpg" alt="Breaking Bad cover" class="rating-cover">
+                  <div class="rating-stars">★★★★☆</div>
+                </div>
+                <div class="rating-item" data-color="#ff8c00">
+                  <div class="rating-user">
+                    <img src="images/avatar5.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">GamerX</h4>
+                  </div>
+                  <img src="images/eldenRing.webp" alt="Elden Ring cover" class="rating-cover">
+                  <div class="rating-stars">★★★★☆</div>
+                </div>
+                <div class="rating-item" data-color="#00b7eb">
+                  <div class="rating-user">
+                    <img src="images/avatar1.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">PlayerOne</h4>
+                  </div>
+                  <img src="images/zelda.webp" alt="Zelda Ocarina of Time cover" class="rating-cover">
+                  <div class="rating-stars">★★★★★</div>
+                </div>
+                <div class="rating-item" data-color="#800080">
+                  <div class="rating-user">
+                    <img src="images/avatar8.png" alt="User avatar" class="rating-avatar">
+                    <h4 class="rating-username">FilmNerd</h4>
+                  </div>
+                  <img src="images/rickMorty.jpg" alt="Rick and Morty cover" class="rating-cover">
+                  <div class="rating-stars">★★★☆☆</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Review Post 16: Stranger Things -->
+          <div class="feed-post review" data-color="#00cc00">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar4.png" alt="User avatar" class="post-avatar">
+                <h3>UnwindFan</h3>
+              </div>
+              <span class="post-timestamp">6 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <div class="review-container">
+                <div class="review-left">
+                  <h4 class="review-title">Stranger Things</h4>
+                  <img src="images/strangerThings.jpg" alt="Stranger Things cover" class="review-cover">
+                  <div class="review-stars">★★★★☆</div>
+                </div>
+                <div class="review-right">
+                  <span class="review-media-type">📺 Série</span>
+                  <p class="review-text">*Stranger Things* temporada 4 foi épica! Vecna é o melhor vilão até agora. Qual temporada é a favorita de vocês?</p>
+                </div>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">9K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">1.2K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">500</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">1.7K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Publication Post 17: Red Dead Redemption 2 -->
+          <div class="feed-post publication" data-color="#00b7eb">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar1.png" alt="User avatar" class="post-avatar">
+                <h3>PlayerOne</h3>
+              </div>
+              <span class="post-timestamp">7 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <img src="images/rdd2Gameplay.webp" alt="Red Dead Redemption 2 screenshot" class="publication-image">
+              <img src="images/rdd2.webp" alt="Red Dead Redemption 2 cover" class="publication-cover">
+              <p class="publication-text">*Red Dead Redemption 2* tem o melhor mundo aberto! A história de Arthur Morgan é de partir o coração. Alguém terminou 100%? 🎮</p>
+              <div class="publication-tags">
+                <span class="tag">@ArthurFan</span>
+                <span class="tag">@RDR2Lover</span>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">13K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">2K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">800</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">2.5K</span>
+              </div>
+            </div>
+          </div>
+          <!-- Review Post 18: The Simpsons -->
+          <div class="feed-post review" data-color="#ff0000">
+            <div class="post-header">
+              <div class="post-header-left">
+                <img src="images/avatar6.png" alt="User avatar" class="post-avatar">
+                <h3>ShowLover</h3>
+              </div>
+              <span class="post-timestamp">8 dias atrás</span>
+            </div>
+            <div class="post-content">
+              <div class="review-container">
+                <div class="review-left">
+                  <h4 class="review-title">The Simpsons</h4>
+                  <img src="images/simpsons.jpg" alt="Simpsons cover" class="review-cover">
+                  <div class="review-stars">★★★☆☆</div>
+                </div>
+                <div class="review-right">
+                  <span class="review-media-type">📺 Animação</span>
+                  <p class="review-text">*The Simpsons* ainda é divertido, mas as primeiras temporadas são imbatíveis. Qual é o melhor episódio pra vocês?</p>
+                </div>
+              </div>
+            </div>
+            <div class="liked-by">
+              <span class="liked-heart">❤️</span>
+              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
+              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
+            </div>
+            <div class="post-actions">
+              <div class="action">
+                <span class="action-icon" aria-label="Like post">❤️</span>
+                <span class="action-count">5K</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Comment on post">💬</span>
+                <span class="action-count">600</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Share post">↗️</span>
+                <span class="action-count">200</span>
+              </div>
+              <div class="action">
+                <span class="action-icon" aria-label="Bookmark post">🔖</span>
+                <span class="action-count">800</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recomendacao" class="recomendacao-section">
+      <h2>Indicações que você realmente vai gostar.</h2>
+      <p>Nosso algoritmo analisa suas avaliações, identifica mídias semelhantes às que você amou e cria um universo de novas possibilidades para você descobrir, explorar e se apaixonar ainda mais pelo entretenimento.</p>
+      <div class="recomendacao-layout-top">
+       
+        <div class="linha-exemplo-horizontal">
+          <div class="input-bloco">
+            <img id="input-img" src="images/spiderMan2.jpg" alt="Input Mídia" class="exemplo-img" />
+            <div id="avaliacao-input" class="avaliacao"></div>
+          </div>
+          <div class="seta">→</div>
+          <div class="exemplo-grupo"></div>
+          <div class="coracao-container">
+            <i class="fas fa-heart coracao"></i>
+          </div>
+        </div>
+        <div class="exemplo-controle">
+          <div class="btn-container">
+            <svg class="progress-ring" width="60" height="60">
+              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+            </svg>
+            <button class="exemplo-btn ativo" onclick="mudarExemplo(0)">1</button>
+          </div>
+          <div class="btn-container">
+            <svg class="progress-ring" width="60" height="60">
+              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+            </svg>
+            <button class="exemplo-btn" onclick="mudarExemplo(1)">2</button>
+          </div>
+          <div class="btn-container">
+            <svg class="progress-ring" width="60" height="60">
+              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+            </svg>
+            <button class="exemplo-btn" onclick="mudarExemplo(2)">3</button>
+          </div>
+          <div class="btn-container">
+            <svg class="progress-ring" width="60" height="60">
+              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+            </svg>
+            <button class="exemplo-btn" onclick="mudarExemplo(3)">4</button>
+          </div>
+        </div>
+      </div>
       
     </section>
     
-    <section id="cross-media" class="cross-media">
-        <h2>Games, séries e filmes — temos todos</h2>
-        
-        <div class="media-container">
-          <!-- Bloco de Games -->
-          <div class="media-block">
-            <div class="overlay-container">
-              <div class="media-grid">
-                <img src="images/minecraft.webp" alt="Game 1">
-                <img src="images/eldenRing.webp" alt="Game 2">
-                <img src="images/cyberpunk2077.webp" alt="Game 3">
-                <img src="images/batman.webp" alt="Game 4">
-                <img src="images/re4.webp" alt="Game 5">
-                <img src="images/gtaV.webp" alt="Game 6">
-                <img src="images/lol.webp" alt="Game 7">
-                <img src="images/mario3D.webp" alt="Game 8">
-                <img src="images/godWar.webp" alt="Game 9">
-                <img src="images/hades.webp" alt="Game 10">
-                <img src="images/cod.webp" alt="Game 11">
-                <img src="images/ac2.webp" alt="Game 12">
-                <img src="images/legoMarvel.webp" alt="Game 13">
-                <img src="images/forzaV.webp" alt="Game 14">
-                <img src="images/mortalKombat.webp" alt="Game 15">
-                <img src="images/clashRoyale.webp" alt="Game 16">
-              </div>
-              <div class="overlay">
-                <h3><span class="icon"><i class="fas fa-gamepad"></i></span> Games</h3>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Bloco de Filmes -->
-          <div class="media-block">
-            <div class="overlay-container">
-              <div class="media-grid">
-                <img src="images/shining.jpg" alt="Filme 1">
-                <img src="images/fightClub.jpg" alt="Filme 2">
-                <img src="images/toyStory.jpg" alt="Filme 3">
-                <img src="images/matrix.jpg" alt="Filme 4">
-                <img src="images/avengers.jpg" alt="Filme 5">
-                <img src="images/woldWallstreet.jpg" alt="Filme 6">
-                <img src="images/pulpFiction.jpg" alt="Filme 7">
-                <img src="images/spiderverse.jpg" alt="Filme 8">
-                <img src="images/yourName.jpg" alt="Filme 9">
-                <img src="images/godfather.jpg" alt="Filme 10">
-                <img src="images/laLaLand.jpg" alt="Filme 11">
-                <img src="images/lordOfRings.jpg" alt="Filme 12">
-                <img src="images/whiplash.jpg" alt="Filme 13">
-                <img src="images/darkKnight.jpg" alt="Filme 14">
-                <img src="images/starWars.jpg" alt="Filme 15">
-                <img src="images/prisoners.jpg" alt="Filme 16">
-                
-              </div>
-              <div class="overlay">
-                <h3><span class="icon"><i class="fas fa-film"></i></span> Filmes</h3>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Bloco de Séries -->
-          <div class="media-block">
-            <div class="overlay-container">
-              <div class="media-grid">
-                <img src="images/gameOfThrones.jpg" alt="Série 1">
-                <img src="images/breakingBad.jpg" alt="Série 2">
-                <img src="images/attackOnTitan.jpg" alt="Série 3">
-                <img src="images/simpsons.jpg" alt="Série 4">
-                <img src="images/strangerThings.jpg" alt="Série 5">
-                <img src="images/theOffice.jpg" alt="Série 6">
-                <img src="images/laCasaPapel.jpg" alt="Série 7">
-                <img src="images/friends.jpg" alt="Série 8">
-                <img src="images/lucifer.jpg" alt="Série 9">
-                <img src="images/rickMorty.jpg" alt="Série 10">
-                <img src="images/vikings.jpg" alt="Série 11">
-                <img src="images/theBatman.jpg" alt="Série 12">
-                <img src="images/naruto.jpg" alt="Série 13">
-                <img src="images/walkingDead.jpg" alt="Série 14">
-                <img src="images/theBoys.jpg" alt="Série 15">
-                <img src="images/blackMirror.jpg" alt="Série 16">
-               
-              </div>
-              <div class="overlay">
-                <h3><span class="icon"><i class="fas fa-tv"></i></span> Séries</h3>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-    
       <section id="features" class="features">
+        <h2>
+          Dê o Play na Sua Nova Experiência.
+        </h2>
         <div class="features-layout">
           <!-- Coluna esquerda -->
           <div class="features-column left">
@@ -225,70 +1242,11 @@
           </div>
         </div>
       </section>
-      <section id="recomendacao" class="recomendacao-section">
-        <h2>Indicações que você realmente vai gostar</h2>
-        <div class="recomendacao-layout-top nova-linha">
-          <!-- Coluna esquerda com botões -->
-          <div class="exemplo-controle">
-            <button class="exemplo-btn ativo" onclick="mudarExemplo(0)">1</button>
-            <button class="exemplo-btn" onclick="mudarExemplo(1)">2</button>
-            <button class="exemplo-btn" onclick="mudarExemplo(2)">3</button>
-          </div>
       
-          <!-- Exemplo visual em linha -->
-          <div class="linha-exemplo-horizontal">
-            <div class="input-bloco">
-              <img id="input-img" src="images/spiderMan2.jpg" alt="Input Mídia" class="exemplo-img" />
-              <div id="avaliacao-input" class="avaliacao">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="seta">&#8594;</div>
-            <div class="exemplo-grupo">
-              <div class="output-item">
-                <img src="images/spiderMan.jpg" alt="Homem-Aranha Jogo" class="exemplo-img pequeno rotacionado" />
-              </div>
-              <div class="output-item">
-                <img src="images/spiderManGame.webp" alt="Homem-Aranha Série" class="exemplo-img pequeno rotacionado" />
-              </div>
-              <div class="output-item">
-                <img src="images/spetacularSpiderMan.webp" alt="Homem-Aranha Animação" class="exemplo-img pequeno rotacionado" />
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        <!-- Etapas abaixo -->
-        <div class="recomendacao-etapas">
-          <div class="etapa">
-            <div class="icone-bolinha">
-              <i class="fas fa-star"></i>
-            </div>
-            <p>Analisa suas avaliações e preferências</p>
-          </div>
-      
-          <div class="etapa">
-            <div class="icone-bolinha">
-              <i class="fas fa-link"></i>
-            </div>
-            <p>Compara com usuários e conteúdos semelhantes</p>
-          </div>
-      
-          <div class="etapa">
-            <div class="icone-bolinha">
-              <i class="fas fa-layer-group"></i>
-            </div>
-            <p>Entrega as melhores sugestões em todos os formatos</p>
-          </div>
-        </div>
-      </section>
 
     <section id="questions" class="faq-section">
         <div class="faq-content">
-            <h2>Respostas para suas perguntas</h2>
+            <h2>Respostas para suas perguntas.</h2>
             
             <div class="faq-container">
                 <div class="faq-item">
@@ -300,14 +1258,6 @@
                     </div>
                     
                     
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Como funciona nosso sistema de recomendação de mídias? <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>O Unwind analisa suas avaliações, preferências e interações para sugerir filmes, séries e jogos que você realmente vai gostar. Após a análise nós disponibilizamos um mar de possibilidade para voce explorar.</p>
-                    </div>
                 </div>
     
                 <div class="faq-item">
@@ -332,6 +1282,15 @@
                     
                 </div>
                 <div class="faq-item">
+                  <button class="faq-question">
+                    O que significa o 🔥 no Unwind? <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <div class="faq-answer">
+                    <p>No Unwind, o 🔥 simboliza toda a ansiedade e empolgação que sentimos por novos lançamentos. Ele marca as mídias que ainda não chegaram oficialmente, mas que já estão gerando expectativa. Assim, você consegue diferenciar o que já está disponível do que ainda está por vir — e entrar na contagem regressiva com a comunidade!</p>
+
+                  </div>
+              </div>
+                <div class="faq-item">
                     <button class="faq-question">
                         Como eu subo de nível? <i class="fas fa-chevron-down"></i>
                     </button>
@@ -349,6 +1308,7 @@
     
     <footer>
         <p>&copy; 2025 Unwind. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Uma produção de <a href="https://dids1901.github.io" target="_blank" style="color: #f0f0f0;">Diogo Coutinho</a></p>
     </footer>
     <script src="script.js"></script>
 
