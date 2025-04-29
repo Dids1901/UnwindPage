@@ -193,41 +193,67 @@ const midiasAprovadas = [
 
 let currentIndex = 0;
 const totalExemplos = 4;
-const timerDuration = 10000; // 5 segundos
+const timerDuration = 5000; // 5 segundos
+let autoSwitchTimeout;
+
+function startTimer() {
+  const circles = document.querySelectorAll('.progress-ring__circle');
+  circles.forEach(circle => circle.classList.remove('active'));
+  const activeCircle = circles[currentIndex];
+  activeCircle.offsetWidth; // Força reflow para reiniciar animação
+  activeCircle.classList.add('active');
+}
 
 function mudarExemplo(index) {
   const grupo = document.querySelector('.exemplo-grupo');
   const inputBloco = document.querySelector('.input-bloco');
   const seta = document.querySelector('.seta');
+  const linhaExemplo = document.querySelector('.linha-exemplo-horizontal');
+  const avaliacao = document.querySelector('#avaliacao-input');
+  const body = document.body;
 
-  // Animação de saída
+  // Aplica overflow-x: hidden durante a transição
+  body.classList.add('no-overflow-x');
+
+  // Remove classes de animação e seta-x
+  grupo.classList.remove('animate-in');
+  inputBloco.classList.remove('animate-in');
+  seta.classList.remove('animate-in');
   grupo.classList.add('animate-right');
   inputBloco.classList.add('animate-right');
   seta.classList.add('animate-right');
+  seta.classList.remove('seta-x');
+  avaliacao.classList.remove('avaliacao-rejeitada');
 
   setTimeout(() => {
     grupo.innerHTML = '';
     inputBloco.style.display = 'block';
     seta.style.display = 'block';
+    linhaExemplo.classList.remove('exemplo-4');
 
     if (index === 3) {
-      // Exemplo 4: Apenas mídias output
       inputBloco.style.display = 'none';
       seta.style.display = 'none';
+      linhaExemplo.classList.add('exemplo-4');
       midiasAprovadas.forEach((sugestao, i) => {
         const outputItem = document.createElement('div');
         outputItem.classList.add('output-item');
         outputItem.style.setProperty('--offset', `${-i * 20}px`);
-        outputItem.style.setProperty('--z', 7 - i);
+        outputItem.style.setProperty('--z', midiasAprovadas.length - i);
         const img = document.createElement('img');
         img.src = sugestao;
         img.alt = `Sugestão ${i + 1}`;
         img.classList.add('exemplo-img', 'pequeno');
         outputItem.appendChild(img);
+
+        const heartOverlay = document.createElement('div');
+        heartOverlay.classList.add('heart-overlay', 'show-heart');
+        heartOverlay.innerHTML = '<i class="fas fa-heart"></i>';
+        outputItem.appendChild(heartOverlay);
+
         grupo.appendChild(outputItem);
       });
     } else {
-      // Exemplos 1, 2, 3
       const data = exemplos[index];
       document.getElementById('input-img').src = data.origem;
 
@@ -242,23 +268,20 @@ function mudarExemplo(index) {
         img.classList.add('exemplo-img', 'pequeno');
         outputItem.appendChild(img);
 
-        if (index === 2) {
-          const xOverlay = document.createElement('div');
-          xOverlay.classList.add('x-overlay', 'show-x');
-          outputItem.appendChild(xOverlay);
-        }
-
         grupo.appendChild(outputItem);
       });
 
-      const avaliacao = document.getElementById('avaliacao-input');
       avaliacao.innerHTML = '';
       for (let i = 0; i < Math.floor(data.estrelas); i++) {
         avaliacao.innerHTML += '<i class="fas fa-star"></i>';
       }
+
+      if (index === 2) {
+        seta.classList.add('seta-x');
+        avaliacao.classList.add('avaliacao-rejeitada'); // Aplica borda vermelha
+      }
     }
 
-    // Remove animação de saída e adiciona animação de entrada
     grupo.classList.remove('animate-right');
     inputBloco.classList.remove('animate-right');
     seta.classList.remove('animate-right');
@@ -266,9 +289,19 @@ function mudarExemplo(index) {
     inputBloco.classList.add('animate-in');
     seta.classList.add('animate-in');
 
-    // Atualiza o botão ativo
     document.querySelectorAll('.exemplo-btn').forEach(btn => btn.classList.remove('ativo'));
     document.querySelectorAll('.exemplo-btn')[index].classList.add('ativo');
+
+    currentIndex = index;
+    startTimer();
+
+    clearTimeout(autoSwitchTimeout);
+    autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
+
+    // Remove overflow-x: hidden após a transição
+    setTimeout(() => {
+      body.classList.remove('no-overflow-x');
+    }, 500);
   }, 500);
 }
 
@@ -277,9 +310,17 @@ function autoMudarExemplo() {
   mudarExemplo(currentIndex);
 }
 
-// Inicializa o primeiro exemplo
-mudarExemplo(0);
-setInterval(autoMudarExemplo, timerDuration);
+document.addEventListener('DOMContentLoaded', function () {
+  const buttons = document.querySelectorAll('.exemplo-btn');
+  buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      clearTimeout(autoSwitchTimeout);
+      mudarExemplo(index);
+    });
+  });
+
+  mudarExemplo(0);
+});
 
 
   const form = document.getElementById('betaForm');
