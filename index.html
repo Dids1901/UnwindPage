@@ -27,9 +27,10 @@
         <nav class="nav-links">
             <ul>
                 <li><a href="#hero">Início</a></li>
-                <li><a href="#cross-media">Mídias</a></li>
-                <li><a href="#features">Recursos</a></li>
+                <li><a href="#midias-bg">Recursos</a></li>
                 <li><a href="#recomendacao">Recomendações</a></li>
+                <li><a href="#features">Showcase</a></li>
+                
                 <li><a href="#questions">Dúvidas</a></li>
             </ul>
         </nav>
@@ -43,9 +44,10 @@
     <div class="mobile-menu">
         <ul>
             <li><a href="#hero">Início</a></li>
-            <li><a href="#cross-media">Mídias</a></li>
-            <li><a href="#features">Recursos</a></li>
+            <li><a href="#midias-bg">Recursos</a></li>
             <li><a href="#recomendacao">Recomendações</a></li>
+            <li><a href="#features">Showcase</a></li>
+         
             <li><a href="#questions">Dúvidas</a></li>
         </ul>
         <button class="login-btn-mobile">Começar Agora</button>
@@ -76,7 +78,7 @@
       <img src="images/mockupDefinitivo.png" alt="Tela do app" class="mockup-img">
     </section>
     
-    <section class="midias-bg">
+    <section class="midias-bg" id="midias-bg">
       <div class="content-wrapper">
         <div class="text-container">
           <h2>Tudo o que você ama, em um só lugar.</h2>
@@ -118,7 +120,7 @@
     </section>
     <section class="estante">
       <div class="header-content">
-        <div style="display: flex; flex-direction: column;">
+        <div class="header-content-text">
           <h2>Guarde Cada Emoção que Viveu e que vai Viver.</h2>
           <p>No Unwind, cada filme assistido, série maratonada ou jogo zerado vira parte da sua história. Registre suas impressões, marque suas favoritas, salve o que ainda quer viver e acompanhe sua ansiedade pelos lançamentos mais esperados. Sua jornada no entretenimento começa aqui, do seu jeito.</p>
         </div>
@@ -129,7 +131,7 @@
       </div>
       <div class="estante-wrapper">
         <div class="tabs-section">
-          <div style="display: flex;flex-direction: column;background-color: #1c2227; padding-top: 5vh;border-top-left-radius: 2vw;border-top-right-radius: 2vw;">
+          <div class="tabs-buttons">
             <div class="filter-buttons">
               <button class="filter-btn active" data-type="game"><span class="filter-icon">🎮</span>Jogos</button>
               <button class="filter-btn active" data-type="movie"><span class="filter-icon">🎬</span>Filmes</button>
@@ -320,7 +322,7 @@
                 </div>
                 <div class="review-right">
                   <span class="review-media-type">🎮 Jogo</span>
-                  <p class="review-text">Acabei de zerar *Elden Ring*! Que jogo incrível, alguém tem dicas pra NG+?</p>
+                  <p class="review-text" id="pub-text">Acabei de zerar *Elden Ring*! Que jogo incrível, alguém tem dicas pra NG+?</p>
                 </div>
               </div>
             </div>
@@ -361,7 +363,7 @@
             <div class="post-content">
               <img src="images/theLastHBO.jpg" alt="The Last of Us screenshot" class="publication-image">
               <img src="images/theLastOfUs.jpeg" alt="The Last of Us cover" class="publication-cover">
-              <p class="publication-text">Maratonei *The Last of Us* na HBO. Que adaptação perfeita! O que acharam do episódio 3? 📺</p>
+              <p class="publication-text" id="pub-text">Maratonei *The Last of Us* na HBO. Que adaptação perfeita! O que acharam do episódio 3? 📺</p>
               <div class="publication-tags">
                 <span class="tag">@JoelFan</span>
                 <span class="tag">@EllieLover</span>
@@ -410,7 +412,7 @@
                 </div>
                 <div class="review-right">
                   <span class="review-media-type">🎬 Filme</span>
-                  <p class="review-text">*Oppenheimer* me deixou sem palavras. A direção do Nolan é impecável! Alguém viu no IMAX?</p>
+                  <p class="review-text" id="pub-text">*Oppenheimer* me deixou sem palavras. A direção do Nolan é impecável! Alguém viu no IMAX?</p>
                 </div>
               </div>
             </div>
@@ -451,7 +453,7 @@
             <div class="post-content">
               <img src="images/walterJesse.jpg" alt="Breaking Bad screenshot" class="publication-image">
               <img src="images/breakingBad.jpg" alt="Breaking Bad cover" class="publication-cover">
-              <p class="publication-text">Revendo *Breaking Bad* pela terceira vez. A química entre Walt e Jesse é insana! Qual é o melhor episódio pra vocês? 📺</p>
+              <p class="publication-text" id="pub-text">Revendo *Breaking Bad* pela terceira vez. A química entre Walt e Jesse é insana! Qual é o melhor episódio pra vocês? 📺</p>
               <div class="publication-tags">
                 <span class="tag">@Heisenberg</span>
                 <span class="tag">@JesseFan</span>
@@ -555,7 +557,7 @@
                 </div>
                 <div class="review-right">
                   <span class="review-media-type">📺 Série</span>
-                  <p class="review-text">*Lucifer* é viciante! A última temporada fechou com chave de ouro. Qual é o melhor caso da série pra vocês?</p>
+                  <p class="review-text" id="pub-text">*Lucifer* é viciante! A última temporada fechou com chave de ouro. Qual é o melhor caso da série pra vocês?</p>
                 </div>
               </div>
             </div>
@@ -596,7 +598,7 @@
             <div class="post-content">
               <img src="images/pulpFictionCena.jpg" alt="Pulp Fiction screenshot" class="publication-image">
               <img src="images/pulpFiction.jpg" alt="Pulp Fiction cover" class="publication-cover">
-              <p class="publication-text">Assisti *Pulp Fiction* de novo e continua um clássico! Qual é a melhor cena do Tarantino pra vocês? 🎬</p>
+              <p class="publication-text" id="pub-text">Assisti *Pulp Fiction* de novo e continua um clássico! Qual é a melhor cena do Tarantino pra vocês? 🎬</p>
               <div class="publication-tags">
                 <span class="tag">@TarantinoFan</span>
                 <span class="tag">@VincentVega</span>
@@ -639,7 +641,7 @@
             <div class="post-content">
               <img src="images/gta6Trailer.jpg" alt="GTA VI screenshot" class="publication-image">
               <img src="images/gta6.webp" alt="GTA VI cover" class="publication-cover">
-              <p class="publication-text">O trailer de *GTA VI* tá insano! Vice City repaginada, parece épico. Qual é a expectativa de vocês? 🔥🎮</p>
+              <p class="publication-text" id="pub-text">O trailer de *GTA VI* tá insano! Vice City repaginada, parece épico. Qual é a expectativa de vocês? 🔥🎮</p>
               <div class="publication-tags">
                 <span class="tag">@GTALover</span>
                 <span class="tag">@ViceCityFan</span>
@@ -688,7 +690,7 @@
                 </div>
                 <div class="review-right">
                   <span class="review-media-type">🎮 Jogo</span>
-                  <p class="review-text">Rejoguei *Zelda: Ocarina of Time* no N64. Ainda é uma obra-prima! Qual é o melhor templo pra vocês? 🛡️</p>
+                  <p class="review-text" id="pub-text">Rejoguei *Zelda: Ocarina of Time* no N64. Ainda é uma obra-prima! Qual é o melhor templo pra vocês? 🛡️</p>
                 </div>
               </div>
             </div>
@@ -784,7 +786,7 @@
             <div class="post-content">
               <img src="images/avatarCena.jpg" alt="Avatar 3 screenshot" class="publication-image">
               <img src="images/avatarFilme.webp" alt="Avatar 3 cover" class="publication-cover">
-              <p class="publication-text">*Avatar 3* tá chegando em 2025! Ansioso pra voltar a Pandora. O que esperam dessa sequência? 🔥🎬</p>
+              <p class="publication-text" id="pub-text">*Avatar 3* tá chegando em 2025! Ansioso pra voltar a Pandora. O que esperam dessa sequência? 🔥🎬</p>
               <div class="publication-tags">
                 <span class="tag">@AvatarFan</span>
                 <span class="tag">@PandoraLover</span>
@@ -827,7 +829,7 @@
             <div class="post-content">
               <img src="images/jujutsuCena.jpg" alt="Jujutsu Kaisen screenshot" class="publication-image">
               <img src="images/jujutsuKaisen.webp" alt="Jujutsu Kaisen cover" class="publication-cover">
-              <p class="publication-text">*Jujutsu Kaisen* temporada 2 tá absurda! O arco do Shibuya é épico. Quem é o melhor feiticeiro pra vocês? 🧙‍♂️</p>
+              <p class="publication-text" id="pub-text">*Jujutsu Kaisen* temporada 2 tá absurda! O arco do Shibuya é épico. Quem é o melhor feiticeiro pra vocês? 🧙‍♂️</p>
               <div class="publication-tags">
                 <span class="tag">@GojoFan</span>
                 <span class="tag">@YujiLover</span>
@@ -876,7 +878,7 @@
                 </div>
                 <div class="review-right">
                   <span class="review-media-type">🎬 Filme</span>
-                  <p class="review-text">*Whiplash* é intenso! A atuação do J.K. Simmons é de outro mundo. Alguém mais ficou tenso no final?</p>
+                  <p class="review-text" id="pub-text">*Whiplash* é intenso! A atuação do J.K. Simmons é de outro mundo. Alguém mais ficou tenso no final?</p>
                 </div>
               </div>
             </div>
@@ -917,7 +919,7 @@
             <div class="post-content">
               <img src="images/minecraftGameplay.jpg" alt="Minecraft screenshot" class="publication-image">
               <img src="images/minecraft.webp" alt="Minecraft cover" class="publication-cover">
-              <p class="publication-text">Finalmente voltei a jogar *Minecraft*! Bateu aquela vontade anual de criar um mundo com os amigos, jogar por uma semana sem parar e depois largar denovo. 🎮</p>
+              <p class="publication-text" id="pub-text">Finalmente voltei a jogar *Minecraft*! Bateu aquela vontade anual de criar um mundo com os amigos, jogar por uma semana sem parar e depois largar denovo. 🎮</p>
               <div class="publication-tags">
                 <span class="tag">@MinecraftBuilder</span>
                 <span class="tag">@CreeperFan</span>
@@ -1021,7 +1023,7 @@
                 </div>
                 <div class="review-right">
                   <span class="review-media-type">📺 Série</span>
-                  <p class="review-text">*Stranger Things* temporada 4 foi épica! Vecna é o melhor vilão até agora. Qual temporada é a favorita de vocês?</p>
+                  <p class="review-text" id="pub-text">*Stranger Things* temporada 4 foi épica! Vecna é o melhor vilão até agora. Qual temporada é a favorita de vocês?</p>
                 </div>
               </div>
             </div>
@@ -1062,7 +1064,7 @@
             <div class="post-content">
               <img src="images/rdd2Gameplay.webp" alt="Red Dead Redemption 2 screenshot" class="publication-image">
               <img src="images/rdd2.webp" alt="Red Dead Redemption 2 cover" class="publication-cover">
-              <p class="publication-text">*Red Dead Redemption 2* tem o melhor mundo aberto! A história de Arthur Morgan é de partir o coração. Alguém terminou 100%? 🎮</p>
+              <p class="publication-text" id="pub-text">*Red Dead Redemption 2* tem o melhor mundo aberto! A história de Arthur Morgan é de partir o coração. Alguém terminou 100%? 🎮</p>
               <div class="publication-tags">
                 <span class="tag">@ArthurFan</span>
                 <span class="tag">@RDR2Lover</span>
@@ -1111,7 +1113,7 @@
                 </div>
                 <div class="review-right">
                   <span class="review-media-type">📺 Animação</span>
-                  <p class="review-text">*The Simpsons* ainda é divertido, mas as primeiras temporadas são imbatíveis. Qual é o melhor episódio pra vocês?</p>
+                  <p class="review-text" id="pub-text">*The Simpsons* ainda é divertido, mas as primeiras temporadas são imbatíveis. Qual é o melhor episódio pra vocês?</p>
                 </div>
               </div>
             </div>
@@ -1158,25 +1160,25 @@
         </div>
         <div class="exemplo-controle">
           <div class="btn-container">
-            <svg class="progress-ring" width="60" height="60">
+            <svg class="progress-ring" viewBox="0 0 60 60">
               <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
             </svg>
             <button class="exemplo-btn ativo">1</button>
           </div>
           <div class="btn-container">
-            <svg class="progress-ring" width="60" height="60">
+            <svg class="progress-ring" viewBox="0 0 60 60">
               <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
             </svg>
             <button class="exemplo-btn">2</button>
           </div>
           <div class="btn-container">
-            <svg class="progress-ring" width="60" height="60">
+            <svg class="progress-ring" viewBox="0 0 60 60">
               <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
             </svg>
             <button class="exemplo-btn">3</button>
           </div>
           <div class="btn-container">
-            <svg class="progress-ring" width="60" height="60">
+            <svg class="progress-ring" viewBox="0 0 60 60">
               <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
             </svg>
             <button class="exemplo-btn">4</button>

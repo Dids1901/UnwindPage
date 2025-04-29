@@ -195,6 +195,7 @@ let currentIndex = 0;
 const totalExemplos = 4;
 const timerDuration = 5000; // 5 segundos
 let autoSwitchTimeout;
+let isSectionVisible = false; // Controla se a seção está visível
 
 function startTimer() {
   const circles = document.querySelectorAll('.progress-ring__circle');
@@ -228,12 +229,11 @@ function mudarExemplo(index) {
   setTimeout(() => {
     grupo.innerHTML = '';
     inputBloco.style.display = 'block';
-    seta.style.display = 'block';
     linhaExemplo.classList.remove('exemplo-4');
 
     if (index === 3) {
       inputBloco.style.display = 'none';
-      seta.style.display = 'none';
+      seta.style.display = 'none'; // Oculta a seta no exemplo 4
       linhaExemplo.classList.add('exemplo-4');
       midiasAprovadas.forEach((sugestao, i) => {
         const outputItem = document.createElement('div');
@@ -256,6 +256,11 @@ function mudarExemplo(index) {
     } else {
       const data = exemplos[index];
       document.getElementById('input-img').src = data.origem;
+
+      // Garante que a seta seja visível no desktop (largura > 768px)
+      if (window.innerWidth > 768) {
+        seta.style.display = 'block';
+      }
 
       data.sugestoes.forEach((sugestao, i) => {
         const outputItem = document.createElement('div');
@@ -295,8 +300,11 @@ function mudarExemplo(index) {
     currentIndex = index;
     startTimer();
 
+    // Limpa o temporizador anterior e inicia um novo apenas se a seção estiver visível
     clearTimeout(autoSwitchTimeout);
-    autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
+    if (isSectionVisible) {
+      autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
+    }
 
     // Remove overflow-x: hidden após a transição
     setTimeout(() => {
@@ -306,8 +314,14 @@ function mudarExemplo(index) {
 }
 
 function autoMudarExemplo() {
-  currentIndex = (currentIndex + 1) % totalExemplos;
-  mudarExemplo(currentIndex);
+  if (isSectionVisible) {
+    currentIndex = (currentIndex + 1) % totalExemplos;
+    mudarExemplo(currentIndex);
+  } else {
+    // Se não estiver visível, agenda uma nova verificação
+    clearTimeout(autoSwitchTimeout);
+    autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -316,12 +330,40 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', () => {
       clearTimeout(autoSwitchTimeout);
       mudarExemplo(index);
+      // Inicia o temporizador apenas se a seção estiver visível
+      if (isSectionVisible) {
+        autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
+      }
     });
   });
 
+  // Configura o Intersection Observer
+  const section = document.querySelector('#recomendacao');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        isSectionVisible = entry.isIntersecting;
+        if (isSectionVisible) {
+          // Quando a seção se torna visível, inicia o temporizador
+          clearTimeout(autoSwitchTimeout);
+          autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
+        } else {
+          // Quando a seção sai da vista, pausa o temporizador
+          clearTimeout(autoSwitchTimeout);
+        }
+      });
+    },
+    {
+      threshold: 0.5 // 50% da seção precisa estar visível para considerá-la "centralizada"
+    }
+  );
+
+  // Inicia a observação da seção
+  observer.observe(section);
+
+  // Inicializa o primeiro exemplo
   mudarExemplo(0);
 });
-
 
   const form = document.getElementById('betaForm');
 const emailInput = document.getElementById('email');
