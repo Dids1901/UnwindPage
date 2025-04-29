@@ -316,10 +316,9 @@ h2 {
   left: 0;
   width: 100%;
   height: 60vh;
-  background: linear-gradient(180deg, #000f2f);
-  clip-path: polygon(0 0, 100% 20vh, 100% 60vh, 0 40vh); /* Cria a linha diagonal */
-      z-index: 0;
-      -webkit-clip-path: polygon(0 0, 100% 20vh, 100% 60vh, 0 40vh);
+  background: #000f2f;
+  transform: skewY(10deg);
+  z-index: 0;
 }
 
 .content-wrapper {
@@ -720,7 +719,7 @@ h2 {
   top: 80%;
   width: 100%;
   height: 50vh;
-  background: linear-gradient(180deg, #000f2f);
+  background: #000f2f;
   transform: skewY(10deg);
   z-index: 0;
 }
