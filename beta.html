@@ -61,7 +61,7 @@
     .beta-tester-container {
       padding: 2vw 2.5vw 4vh 2.5vw;
       background: rgba(0, 15, 47, 0.4);
-      border-radius: 20px;
+      border-radius: 1vw;
       border: solid 2px #444;
       max-width: 60%;
       margin: 0 auto;
@@ -76,7 +76,7 @@
     #beta-tester p {
       margin-bottom: 2vw;
       font-size: 1.4vw;
-      color: #bdf;
+      color: #ddd;
       font-family: "carving";
     }
 
@@ -182,7 +182,7 @@
       color: #bdf;
       text-decoration: none;
       font-family: "carving";
-      font-size: 0.9rem;
+      font-size: 1.3vw;
       transition: color 0.3s;
     }
 
@@ -194,6 +194,82 @@
     .hero-lamp {
       width: 11vw;
       margin-bottom: 2vh;
+    }
+
+    @media (max-width: 768px) {
+      .beta-tester-container {
+      padding: 4vh 5vw 4vh 5vw;
+      background: rgba(0, 15, 47, 0.4);
+      border-radius: 2vw;
+      border: solid 2px #444;
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #beta-tester p {
+      margin-bottom: 2vw;
+      font-size: 4vw;
+      color: #ddd;
+      font-family: "carving";
+    }
+    #beta-tester h2 {
+      font-size: 6vw;
+      margin-bottom: 1.5vh;
+    }
+    #successMsg {
+      margin-top: 2vh;
+      color: #107be6;
+      font-size: 4vw;
+      display: none;
+    }
+
+    #betaForm input {
+      flex: 1 1 100%;
+      padding: 2vh;
+      background-color: rgba(0, 15, 47, 0.5);
+      border: 2px solid #444;
+      color: #fff;
+      border-radius: 2vw;
+      font-family: "carving";
+      font-size: 4vw;
+    }
+
+    .feedback-link {
+      color: #bdf;
+      text-decoration: none;
+      font-family: "carving";
+      font-size: 3vw;
+      text-align: left;
+      transition: color 0.3s;
+    }
+    #betaForm select {
+      flex: 1 1 100%;
+      padding: 2vh;
+      background-color: rgba(0, 15, 47, 0.5);
+      border: 2px solid #444;
+      color: #b0b0b0;
+      border-radius: 2vw;
+      font-family: "carving";
+      font-size: 4vw;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+    #betaForm button {
+      padding: 1.5vh 3.6vw;
+      background: #107be6;
+      color: white;
+      font-family: "carving";
+      border: none;
+      border-radius: 2vw;
+      font-size: 4vw;
+      cursor: pointer;
+    }
+    .hero-lamp {
+      width: 25vw;
+      margin-bottom: 2vh;
+    }
     }
   </style>
 </head>
