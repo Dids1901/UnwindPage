@@ -1,419 +1,534 @@
-// Menu Mobile Toggle
+// -----------------------------------------------------------------------------
+// FUNÇÕES E DADOS GLOBAIS
+// -----------------------------------------------------------------------------
+
+// Função para alternar o menu mobile
 function toggleMenu() {
     let menu = document.querySelector(".mobile-menu");
     let button = document.querySelector(".menu-toggle");
 
+    if (!menu || !button) {
+        console.error("Elemento do menu mobile ou botão de toggle não encontrado.");
+        return;
+    }
+
     if (menu.style.display === "block") {
-        menu.style.display = "none"; 
+        menu.style.display = "none";
         button.innerHTML = "☰"; // Volta para o ícone de hambúrguer
     } else {
-        menu.style.display = "block"; 
+        menu.style.display = "block";
         button.innerHTML = "✖"; // Muda para o X
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const track = document.querySelector('.carousel-track');
-  const cards = document.querySelectorAll('.carousel-card');
-  const leftArrow = document.querySelector('.carousel-arrow.left');
-  const rightArrow = document.querySelector('.carousel-arrow.right');
-  let currentIndex = 0;
-  const cardCount = cards.length;
+// Função para validar e-mail
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-  function updateCarousel() {
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-  }
-
-  rightArrow.addEventListener('click', () => {
-    if (currentIndex < cardCount - 1) {
-      currentIndex++;
-      updateCarousel();
+// Dados para a seção de Exemplos de Recomendação
+const exemplos = [
+    {
+        origem: "images/spiderMan2.jpg",
+        sugestoes: [
+            "images/spiderMan.jpg",
+            "images/spiderManGame.webp",
+            "images/spetacularSpiderMan.webp"
+        ],
+        estrelas: 4
+    },
+    {
+        origem: "images/theWitcher3.jpg",
+        sugestoes: [
+            "images/theWitcher.jpg",
+            "images/skyrim.webp",
+            "images/eldenRing.jpeg",
+            "images/cyberpunk2077.webp"
+        ],
+        estrelas: 5
+    },
+    {
+        origem: "images/blackMirror.jpg",
+        sugestoes: [
+            "images/exMachina.webp",
+            "images/severance.webp",
+            "images/loveDeath.webp"
+        ],
+        estrelas: 2.5
     }
-  });
+];
 
-  leftArrow.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
+const midiasAprovadas = [
+    "images/spiderMan.jpg",
+    "images/spiderManGame.webp",
+    "images/spetacularSpiderMan.webp",
+    "images/eldenRing.jpeg",
+    "images/skyrim.webp",
+    "images/theWitcher.jpg",
+    "images/cyberpunk2077.webp"
+];
+
+// Variáveis de estado para a seção de Recomendação
+let currentIndexExemploRecomendacao = 0;
+const totalExemplosRecomendacao = 4; // Inclui o exemplo das mídias aprovadas
+const timerDurationExemploRecomendacao = 5000; // 5 segundos
+let autoSwitchTimeoutExemploRecomendacao;
+let isSectionVisibleExemploRecomendacao = false;
+
+// -----------------------------------------------------------------------------
+// FUNÇÕES DA SEÇÃO DE EXEMPLOS DE RECOMENDAÇÃO
+// -----------------------------------------------------------------------------
+
+function startTimerExemploRecomendacao() {
+    const recomendacaoSection = document.querySelector('#recomendacao');
+    if (!recomendacaoSection) return;
+
+    const circles = recomendacaoSection.querySelectorAll('.progress-ring__circle');
+    if (circles.length === 0) return;
+
+    circles.forEach(circle => circle.classList.remove('active'));
+
+    if (currentIndexExemploRecomendacao < circles.length && circles[currentIndexExemploRecomendacao]) {
+        const activeCircle = circles[currentIndexExemploRecomendacao];
+        activeCircle.offsetWidth; // Força reflow para reiniciar animação
+        activeCircle.classList.add('active');
     }
-  });
+}
 
-  window.addEventListener('resize', updateCarousel);
-  updateCarousel(); // Initial position
-});
+function mudarExemploRecomendacao(index) {
+    const recomendacaoSection = document.querySelector('#recomendacao');
+    if (!recomendacaoSection) return;
 
-const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const tabIndicator = document.querySelector('.tab-indicator');
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    const grupo = recomendacaoSection.querySelector('.exemplo-grupo');
+    const inputBloco = recomendacaoSection.querySelector('.input-bloco');
+    const seta = recomendacaoSection.querySelector('.seta');
+    const linhaExemplo = recomendacaoSection.querySelector('.linha-exemplo-horizontal');
+    const avaliacao = recomendacaoSection.querySelector('#avaliacao-input');
+    const inputImgElement = recomendacaoSection.querySelector('#input-img');
+    const body = document.body;
 
-    // Initialize filters
-    let activeFilters = ['game', 'movie', 'series'];
+    if (!grupo || !linhaExemplo || !avaliacao ) {
+        console.error("Elementos essenciais da seção de recomendação não encontrados para mudar exemplo.");
+        return;
+    }
+    
+    body.classList.add('no-overflow-x');
 
-    // Function to update media visibility based on active filters
-    function updateMediaVisibility() {
-      const mediaItems = document.querySelectorAll('.tab-content.active .media-item');
-      mediaItems.forEach(item => {
-        const type = item.dataset.type;
-        if (activeFilters.includes(type)) {
-          item.classList.add('visible');
-        } else {
-          item.classList.remove('visible');
+    if (grupo) grupo.classList.remove('animate-in');
+    if (inputBloco) inputBloco.classList.remove('animate-in');
+    if (seta) seta.classList.remove('animate-in');
+
+    if (grupo) grupo.classList.add('animate-right');
+    if (inputBloco) inputBloco.classList.add('animate-right');
+    if (seta) seta.classList.add('animate-right');
+
+    if (seta) seta.classList.remove('seta-x');
+    if (avaliacao) avaliacao.classList.remove('avaliacao-rejeitada');
+
+    setTimeout(() => {
+        if (grupo) grupo.innerHTML = '';
+        if (inputBloco) inputBloco.style.display = 'block';
+        if (linhaExemplo) linhaExemplo.classList.remove('exemplo-4');
+
+        if (index === 3) {
+            if (inputBloco) inputBloco.style.display = 'none';
+            if (seta) seta.style.display = 'none';
+            if (linhaExemplo) linhaExemplo.classList.add('exemplo-4');
+
+            midiasAprovadas.forEach((sugestao, i) => {
+                const outputItem = document.createElement('div');
+                outputItem.classList.add('output-item');
+                outputItem.style.setProperty('--offset', `${-i * 20}px`);
+                outputItem.style.setProperty('--z', midiasAprovadas.length - i);
+                const img = document.createElement('img');
+                img.src = sugestao;
+                img.alt = `Sugestão Aprovada ${i + 1}`;
+                img.classList.add('exemplo-img', 'pequeno');
+                outputItem.appendChild(img);
+                const heartOverlay = document.createElement('div');
+                heartOverlay.classList.add('heart-overlay', 'show-heart');
+                heartOverlay.innerHTML = '<i class="fas fa-heart"></i>';
+                outputItem.appendChild(heartOverlay);
+                if (grupo) grupo.appendChild(outputItem);
+            });
+        } else if (exemplos[index]) {
+            const data = exemplos[index];
+            if (inputImgElement && data.origem) inputImgElement.src = data.origem;
+            
+            if (seta) {
+                 if (window.innerWidth > 768) {
+                    seta.style.display = 'block';
+                } else {
+                    seta.style.display = 'none';
+                }
+            }
+
+            data.sugestoes.forEach((sugestao, i) => {
+                const outputItem = document.createElement('div');
+                outputItem.classList.add('output-item');
+                outputItem.style.setProperty('--offset', `${-i * 20}px`);
+                outputItem.style.setProperty('--z', data.sugestoes.length - i);
+                const img = document.createElement('img');
+                img.src = sugestao;
+                img.alt = `Sugestão ${i + 1}`;
+                img.classList.add('exemplo-img', 'pequeno');
+                outputItem.appendChild(img);
+                if (grupo) grupo.appendChild(outputItem);
+            });
+
+            if (avaliacao) {
+                avaliacao.innerHTML = '';
+                for (let i = 0; i < Math.floor(data.estrelas); i++) {
+                    avaliacao.innerHTML += '<i class="fas fa-star"></i>';
+                }
+                 if (data.estrelas % 1 !== 0 && data.estrelas % 1 >= 0.5) { // Para meia estrela
+                    // avaliacao.innerHTML += '<i class="fas fa-star-half-alt"></i>'; // Descomente se tiver ícone de meia estrela
+                }
+            }
+
+            if (index === 2) {
+                if (seta) seta.classList.add('seta-x');
+                if (avaliacao) avaliacao.classList.add('avaliacao-rejeitada');
+            }
         }
-      });
-    }
 
-    // Tab switching
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
+        if (grupo) grupo.classList.remove('animate-right');
+        if (inputBloco) inputBloco.classList.remove('animate-right');
+        if (seta) seta.classList.remove('animate-right');
 
-        tabContents.forEach(content => content.classList.remove('active'));
-        document.getElementById(tab.dataset.tab).classList.add('active');
+        if (grupo) grupo.classList.add('animate-in');
+        if (inputBloco) inputBloco.classList.add('animate-in');
+        if (seta) seta.classList.add('animate-in');
 
-        const tabWidth = tab.offsetWidth;
-        const tabLeft = tab.offsetLeft;
-        tabIndicator.style.width = `${tabWidth}px`;
-        tabIndicator.style.left = `${tabLeft}px`;
-
-        updateMediaVisibility();
-      });
-    });
-
-    // Filter button toggling
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const type = button.dataset.type;
-        if (activeFilters.includes(type)) {
-          activeFilters = activeFilters.filter(t => t !== type);
-          button.classList.remove('active');
-        } else {
-          activeFilters.push(type);
-          button.classList.add('active');
+        const buttons = recomendacaoSection.querySelectorAll('.exemplo-btn');
+        buttons.forEach(btn => btn.classList.remove('ativo'));
+        if (buttons[index]) {
+            buttons[index].classList.add('ativo');
         }
-        updateMediaVisibility();
-      });
-    });
 
-    // Initialize indicator position and active content
-    const activeTab = document.querySelector('.tab.active');
-    tabIndicator.style.width = `${activeTab.offsetWidth}px`;
-    tabIndicator.style.left = `${activeTab.offsetLeft}px`;
-    document.getElementById(activeTab.dataset.tab).classList.add('active');
-    updateMediaVisibility();
+        currentIndexExemploRecomendacao = index;
+        startTimerExemploRecomendacao();
 
-// FAQ Dropdown
-document.addEventListener("DOMContentLoaded", function () {
-    const faqItems = document.querySelectorAll(".faq-item");
+        clearTimeout(autoSwitchTimeoutExemploRecomendacao);
+        if (isSectionVisibleExemploRecomendacao) {
+            autoSwitchTimeoutExemploRecomendacao = setTimeout(autoMudarExemploRecomendacao, timerDurationExemploRecomendacao);
+        }
 
-    faqItems.forEach((item) => {
-        const question = item.querySelector(".faq-question");
+        setTimeout(() => {
+            body.classList.remove('no-overflow-x');
+        }, 500);
+    }, 500);
+}
 
-        question.addEventListener("click", () => {
-            item.classList.toggle("active");
-        });
-    });
-});
+function autoMudarExemploRecomendacao() {
+    if (isSectionVisibleExemploRecomendacao) {
+        currentIndexExemploRecomendacao = (currentIndexExemploRecomendacao + 1) % totalExemplosRecomendacao;
+        mudarExemploRecomendacao(currentIndexExemploRecomendacao);
+    } else {
+        clearTimeout(autoSwitchTimeoutExemploRecomendacao);
+        autoSwitchTimeoutExemploRecomendacao = setTimeout(autoMudarExemploRecomendacao, timerDurationExemploRecomendacao);
+    }
+}
 
-
-
-// Troca de vídeos na seção de Recursos
+// -----------------------------------------------------------------------------
+// EVENTO DOMCONTENTLOADED PRINCIPAL
+// -----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', function () {
-    const featureItems = document.querySelectorAll('.feature-item');
-    const featureVideo = document.getElementById('feature-video');
 
-    featureItems.forEach(item => {
-        item.addEventListener('click', function () {
-            featureItems.forEach(i => i.classList.remove('active'));
-            this.classList.add('active');
+    // --- MENU MOBILE ---
+    // O botão menu-toggle já tem onclick="toggleMenu()" no HTML,
+    // então não precisamos adicionar outro event listener para ele aqui.
 
-            const videoSrc = this.getAttribute('data-video');
-
-            if (videoSrc && videoSrc.trim() !== "") {
-                const sourceElement = featureVideo.querySelector('source');
-                sourceElement.setAttribute('src', videoSrc);
-                featureVideo.load();
-                featureVideo.play().catch(err => console.log("Erro ao tentar reproduzir: ", err));
-            } else {
-                featureVideo.pause();
+    // Adiciona listeners aos links DENTRO do menu mobile para fechá-lo ao clicar
+    const mobileMenuLinks = document.querySelectorAll(".mobile-menu ul li a");
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            let menu = document.querySelector(".mobile-menu");
+            // Verifica se o menu está visível antes de tentar fechá-lo
+            if (menu && menu.style.display === "block") {
+                toggleMenu(); // Chama a função para fechar o menu
             }
         });
     });
 
-    // Seleciona automaticamente o item "shelf" (vídeo default)
-    const defaultItem = document.querySelector('.feature-item[data-video="videos/estante.mp4"]');
-    if (defaultItem) {
-        defaultItem.click();
-        featureVideo.play().catch(err => console.log("Erro ao tentar reproduzir: ", err));
-    }
-});
+    // --- CARROSSEL (Exemplo, se você tiver um) ---
+    const carouselTrack = document.querySelector('.carousel-track');
+    if (carouselTrack) {
+        const cards = carouselTrack.querySelectorAll('.carousel-card');
+        const leftArrow = document.querySelector('.carousel-arrow.left');
+        const rightArrow = document.querySelector('.carousel-arrow.right');
+        let currentCarouselIndex = 0;
 
-const exemplos = [
-  {
-    origem: "images/spiderMan2.jpg",
-    sugestoes: [
-      "images/spiderMan.jpg",
-      "images/spiderManGame.webp",
-      "images/spetacularSpiderMan.webp"
-    ],
-    estrelas: 4
-  },
-  {
-    origem: "images/theWitcher3.jpg",
-    sugestoes: [
-      "images/theWitcher.jpg",
-      "images/skyrim.webp",
-      "images/eldenRing.jpeg",
-      "images/cyberpunk2077.webp"
-    ],
-    estrelas: 5
-  },
-  {
-    origem: "images/blackMirror.jpg",
-    sugestoes: [
-      "images/exMachina.webp",
-      "images/severance.webp",
-      "images/loveDeath.webp"
-    ],
-    estrelas: 2.5
-  }
-];
-
-const midiasAprovadas = [
-  "images/spiderMan.jpg",
-  "images/spiderManGame.webp",
-  "images/spetacularSpiderMan.webp",
-  "images/eldenRing.jpeg",
-  "images/skyrim.webp",
-  "images/theWitcher.jpg",
-  "images/cyberpunk2077.webp"
-];
-
-let currentIndex = 0;
-const totalExemplos = 4;
-const timerDuration = 5000; // 5 segundos
-let autoSwitchTimeout;
-let isSectionVisible = false; // Controla se a seção está visível
-
-function startTimer() {
-  const circles = document.querySelectorAll('.progress-ring__circle');
-  circles.forEach(circle => circle.classList.remove('active'));
-  const activeCircle = circles[currentIndex];
-  activeCircle.offsetWidth; // Força reflow para reiniciar animação
-  activeCircle.classList.add('active');
-}
-
-function mudarExemplo(index) {
-  const grupo = document.querySelector('.exemplo-grupo');
-  const inputBloco = document.querySelector('.input-bloco');
-  const seta = document.querySelector('.seta');
-  const linhaExemplo = document.querySelector('.linha-exemplo-horizontal');
-  const avaliacao = document.querySelector('#avaliacao-input');
-  const body = document.body;
-
-  // Aplica overflow-x: hidden durante a transição
-  body.classList.add('no-overflow-x');
-
-  // Remove classes de animação e seta-x
-  grupo.classList.remove('animate-in');
-  inputBloco.classList.remove('animate-in');
-  seta.classList.remove('animate-in');
-  grupo.classList.add('animate-right');
-  inputBloco.classList.add('animate-right');
-  seta.classList.add('animate-right');
-  seta.classList.remove('seta-x');
-  avaliacao.classList.remove('avaliacao-rejeitada');
-
-  setTimeout(() => {
-    grupo.innerHTML = '';
-    inputBloco.style.display = 'block';
-    linhaExemplo.classList.remove('exemplo-4');
-
-    if (index === 3) {
-      inputBloco.style.display = 'none';
-      seta.style.display = 'none'; // Oculta a seta no exemplo 4
-      linhaExemplo.classList.add('exemplo-4');
-      midiasAprovadas.forEach((sugestao, i) => {
-        const outputItem = document.createElement('div');
-        outputItem.classList.add('output-item');
-        outputItem.style.setProperty('--offset', `${-i * 20}px`);
-        outputItem.style.setProperty('--z', midiasAprovadas.length - i);
-        const img = document.createElement('img');
-        img.src = sugestao;
-        img.alt = `Sugestão ${i + 1}`;
-        img.classList.add('exemplo-img', 'pequeno');
-        outputItem.appendChild(img);
-
-        const heartOverlay = document.createElement('div');
-        heartOverlay.classList.add('heart-overlay', 'show-heart');
-        heartOverlay.innerHTML = '<i class="fas fa-heart"></i>';
-        outputItem.appendChild(heartOverlay);
-
-        grupo.appendChild(outputItem);
-      });
-    } else {
-      const data = exemplos[index];
-      document.getElementById('input-img').src = data.origem;
-
-      // Garante que a seta seja visível no desktop (largura > 768px)
-      if (window.innerWidth > 768) {
-        seta.style.display = 'block';
-      }
-
-      data.sugestoes.forEach((sugestao, i) => {
-        const outputItem = document.createElement('div');
-        outputItem.classList.add('output-item');
-        outputItem.style.setProperty('--offset', `${-i * 20}px`);
-        outputItem.style.setProperty('--z', data.sugestoes.length - i);
-        const img = document.createElement('img');
-        img.src = sugestao;
-        img.alt = `Sugestão ${i + 1}`;
-        img.classList.add('exemplo-img', 'pequeno');
-        outputItem.appendChild(img);
-
-        grupo.appendChild(outputItem);
-      });
-
-      avaliacao.innerHTML = '';
-      for (let i = 0; i < Math.floor(data.estrelas); i++) {
-        avaliacao.innerHTML += '<i class="fas fa-star"></i>';
-      }
-
-      if (index === 2) {
-        seta.classList.add('seta-x');
-        avaliacao.classList.add('avaliacao-rejeitada'); // Aplica borda vermelha
-      }
-    }
-
-    grupo.classList.remove('animate-right');
-    inputBloco.classList.remove('animate-right');
-    seta.classList.remove('animate-right');
-    grupo.classList.add('animate-in');
-    inputBloco.classList.add('animate-in');
-    seta.classList.add('animate-in');
-
-    document.querySelectorAll('.exemplo-btn').forEach(btn => btn.classList.remove('ativo'));
-    document.querySelectorAll('.exemplo-btn')[index].classList.add('ativo');
-
-    currentIndex = index;
-    startTimer();
-
-    // Limpa o temporizador anterior e inicia um novo apenas se a seção estiver visível
-    clearTimeout(autoSwitchTimeout);
-    if (isSectionVisible) {
-      autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
-    }
-
-    // Remove overflow-x: hidden após a transição
-    setTimeout(() => {
-      body.classList.remove('no-overflow-x');
-    }, 500);
-  }, 500);
-}
-
-function autoMudarExemplo() {
-  if (isSectionVisible) {
-    currentIndex = (currentIndex + 1) % totalExemplos;
-    mudarExemplo(currentIndex);
-  } else {
-    // Se não estiver visível, agenda uma nova verificação
-    clearTimeout(autoSwitchTimeout);
-    autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const buttons = document.querySelectorAll('.exemplo-btn');
-  buttons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      clearTimeout(autoSwitchTimeout);
-      mudarExemplo(index);
-      // Inicia o temporizador apenas se a seção estiver visível
-      if (isSectionVisible) {
-        autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
-      }
-    });
-  });
-
-  // Configura o Intersection Observer
-  const section = document.querySelector('#recomendacao');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        isSectionVisible = entry.isIntersecting;
-        if (isSectionVisible) {
-          // Quando a seção se torna visível, inicia o temporizador
-          clearTimeout(autoSwitchTimeout);
-          autoSwitchTimeout = setTimeout(autoMudarExemplo, timerDuration);
-        } else {
-          // Quando a seção sai da vista, pausa o temporizador
-          clearTimeout(autoSwitchTimeout);
+        if (cards.length > 0 && leftArrow && rightArrow) {
+            const cardCount = cards.length;
+            function updateCarousel() {
+                if (cards.length === 0) return;
+                const cardWidth = cards[0].getBoundingClientRect().width;
+                carouselTrack.style.transform = `translateX(-${currentCarouselIndex * cardWidth}px)`;
+            }
+            rightArrow.addEventListener('click', () => {
+                if (currentCarouselIndex < cardCount - 1) {
+                    currentCarouselIndex++;
+                    updateCarousel();
+                }
+            });
+            leftArrow.addEventListener('click', () => {
+                if (currentCarouselIndex > 0) {
+                    currentCarouselIndex--;
+                    updateCarousel();
+                }
+            });
+            window.addEventListener('resize', updateCarousel);
+            updateCarousel();
         }
-      });
-    },
-    {
-      threshold: 0.5 // 50% da seção precisa estar visível para considerá-la "centralizada"
     }
-  );
 
-  // Inicia a observação da seção
-  observer.observe(section);
+    // --- TABS E FILTROS ---
+    const tabsSection = document.querySelector('.tabs-section');
+    if (tabsSection) {
+        const tabs = tabsSection.querySelectorAll('.tab');
+        const tabContents = tabsSection.querySelectorAll('.tab-content'); // Estes devem ser irmãos dos .tabs ou em um container previsível
+        const tabIndicator = tabsSection.querySelector('.tab-indicator');
+        const filterButtons = tabsSection.querySelectorAll('.filter-btn');
 
-  // Inicializa o primeiro exemplo
-  mudarExemplo(0);
-});
+        if (tabs.length > 0 && tabContents.length > 0 && tabIndicator) {
+            let activeFilters = [];
+            // Inicializa activeFilters com base nos botões que já têm a classe 'active'
+            filterButtons.forEach(btn => {
+                if (btn.classList.contains('active')) {
+                    activeFilters.push(btn.dataset.type);
+                }
+            });
 
-  const form = document.getElementById('betaForm');
-const emailInput = document.getElementById('email');
-const successMsg = document.getElementById('successMsg');
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+            function updateMediaVisibility() {
+                const activeTabContent = tabsSection.querySelector('.tab-content.active');
+                if (!activeTabContent) return;
 
-  const email = emailInput.value.trim();
+                const mediaItems = activeTabContent.querySelectorAll('.media-item');
+                mediaItems.forEach(item => {
+                    const type = item.dataset.type;
+                    if (activeFilters.includes(type)) {
+                        item.classList.add('visible');
+                         item.style.display = 'block'; // Ou o display original, como 'grid' ou 'flex' se for o caso
+                    } else {
+                        item.classList.remove('visible');
+                        item.style.display = 'none';
+                    }
+                });
+            }
 
-  if (!validateEmail(email)) {
-    alert('Por favor, insira um e-mail válido.');
-    return;
-  }
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    const targetContentId = tab.dataset.tab;
+                    const targetContent = document.getElementById(targetContentId); // IDs devem ser únicos na página
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                    const tabWidth = tab.offsetWidth;
+                    const tabLeft = tab.offsetLeft;
+                    tabIndicator.style.width = `${tabWidth}px`;
+                    tabIndicator.style.left = `${tabLeft}px`;
+                    updateMediaVisibility();
+                });
+            });
 
-  // Aqui você pode integrar com Firebase ou outro backend
-  console.log('Email enviado:', email);
+            if (filterButtons.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const type = button.dataset.type;
+                        button.classList.toggle('active');
+                        if (activeFilters.includes(type)) {
+                            activeFilters = activeFilters.filter(t => t !== type);
+                        } else {
+                            activeFilters.push(type);
+                        }
+                        updateMediaVisibility();
+                    });
+                });
+            }
 
-  emailInput.value = '';
-  successMsg.style.display = 'block';
+            const activeTab = tabsSection.querySelector('.tab.active');
+            if (activeTab) {
+                tabIndicator.style.width = `${activeTab.offsetWidth}px`;
+                tabIndicator.style.left = `${activeTab.offsetLeft}px`;
+                const initialContentId = activeTab.dataset.tab;
+                const initialContent = document.getElementById(initialContentId);
+                if (initialContent) {
+                    initialContent.classList.add('active');
+                }
+            }
+            updateMediaVisibility();
+        }
+    }
 
-  setTimeout(() => {
-    successMsg.style.display = 'none';
-  }, 5000);
-});
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-const select = document.getElementById('device');
-    select.addEventListener('change', function() {
-      if (this.value === '') {
-        this.style.color = '#b0b0b0'; // Cor do placeholder
-      } else {
-        this.style.color = '#fff'; // Cor das opções Android/iOS
-      }
+    // --- FAQ DROPDOWN ---
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        if (question) {
+            question.addEventListener("click", () => {
+                item.classList.toggle("active");
+            });
+        }
     });
-    // Definir cor inicial ao carregar a página
-    select.style.color = '#b0b0b0';
-    const loginBtn = document.querySelector('.login-btn');
-    loginBtn.addEventListener('click', () => {
-      document.getElementById('beta-tester').scrollIntoView({ behavior: 'smooth' });
-    });
+
+    // --- TROCA DE VÍDEOS NA SEÇÃO DE RECURSOS ---
+    const featuresSection = document.querySelector('.features');
+    if (featuresSection) {
+        const featureItems = featuresSection.querySelectorAll('.feature-item');
+        const featureVideo = featuresSection.querySelector('#feature-video');
+
+        if (featureItems.length > 0 && featureVideo) {
+            featureItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    featureItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    const videoSrc = this.getAttribute('data-video');
+                    const sourceElement = featureVideo.querySelector('source');
+                    if (sourceElement && videoSrc && videoSrc.trim() !== "") {
+                        sourceElement.setAttribute('src', videoSrc);
+                        featureVideo.load();
+                        featureVideo.play().catch(err => console.log("Erro ao tentar reproduzir vídeo de recurso: ", err));
+                    } else if (featureVideo && (!videoSrc || videoSrc.trim() === "")) {
+                        featureVideo.pause();
+                    }
+                });
+            });
+            const defaultFeatureItem = featuresSection.querySelector('.feature-item[data-video="videos/estante.mp4"]');
+            if (defaultFeatureItem) {
+                defaultFeatureItem.click();
+            }
+        }
+    }
+
+    // --- INICIALIZAÇÃO DA SEÇÃO DE EXEMPLOS DE RECOMENDAÇÃO ---
+    const recomendacaoSection = document.querySelector('#recomendacao');
+    if (recomendacaoSection) {
+        const buttons = recomendacaoSection.querySelectorAll('.exemplo-btn');
+        buttons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                clearTimeout(autoSwitchTimeoutExemploRecomendacao);
+                mudarExemploRecomendacao(index);
+                if (isSectionVisibleExemploRecomendacao) {
+                    autoSwitchTimeoutExemploRecomendacao = setTimeout(autoMudarExemploRecomendacao, timerDurationExemploRecomendacao);
+                }
+            });
+        });
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    isSectionVisibleExemploRecomendacao = entry.isIntersecting;
+                    clearTimeout(autoSwitchTimeoutExemploRecomendacao);
+                    if (isSectionVisibleExemploRecomendacao) {
+                        autoSwitchTimeoutExemploRecomendacao = setTimeout(autoMudarExemploRecomendacao, timerDurationExemploRecomendacao);
+                    }
+                });
+            }, { threshold: 0.5 }
+        );
+        observer.observe(recomendacaoSection);
+        mudarExemploRecomendacao(0);
+    }
+
+    // --- FORMULÁRIO BETA TESTER ---
+    const betaForm = document.getElementById('betaForm');
+    if (betaForm) {
+        const emailInput = betaForm.querySelector('#email');
+        const deviceSelect = betaForm.querySelector('#device');
+        const successMsg = document.getElementById('successMsg'); // Pode estar fora do form, por isso getElementById
+
+        betaForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!emailInput) return;
+            const email = emailInput.value.trim();
+            if (!validateEmail(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+            console.log('Email para Beta Test:', email);
+            console.log('Dispositivo selecionado:', deviceSelect ? deviceSelect.value : 'N/A');
+            emailInput.value = '';
+            if (deviceSelect) {
+                deviceSelect.value = '';
+                deviceSelect.style.color = '#b0b0b0';
+            }
+            if (successMsg) {
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        if (deviceSelect) {
+            deviceSelect.style.color = deviceSelect.value === '' ? '#b0b0b0' : '#fff';
+            deviceSelect.addEventListener('change', function() {
+                this.style.color = this.value === '' ? '#b0b0b0' : '#fff';
+            });
+        }
+    }
+
+    // --- BOTÃO LOGIN (DESKTOP E MOBILE) SCROLL PARA SEÇÃO BETA ---
+    const loginBtnDesktop = document.querySelector('.login-btn'); // Botão do header desktop
+    if (loginBtnDesktop) {
+        // O seu HTML para este botão tem: onclick="window.open('beta.html', '_blank')"
+        // Se quiser que ele role para a seção #beta-tester NA MESMA PÁGINA,
+        // você precisará remover o onclick e adicionar o listener abaixo.
+        // Por enquanto, vou manter a lógica de scroll para o botão mobile.
+        // loginBtnDesktop.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     const betaTesterSection = document.getElementById('beta-tester'); // Assumindo que você terá essa seção na mesma página.
+        //     if (betaTesterSection) {
+        //         betaTesterSection.scrollIntoView({ behavior: 'smooth' });
+        //     }
+        // });
+    }
+
+    const loginBtnMobile = document.querySelector('.login-btn-mobile'); // Botão dentro do menu mobile
+    if (loginBtnMobile) {
+        loginBtnMobile.addEventListener('click', (e) => {
+            // Se beta.html for uma página separada, o comportamento abaixo não se aplicará diretamente.
+            // Se '#beta-tester' estiver na mesma página:
+            // e.preventDefault(); // Remova se for para abrir beta.html
+            const betaTesterSection = document.getElementById('beta-tester'); // ID da sua seção beta-tester
+            if (betaTesterSection) {
+                 betaTesterSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Se a seção beta-tester não estiver na página atual, abrir beta.html
+                 window.location.href = 'beta.html'; // Ou window.open('beta.html', '_self');
+            }
+
+
+            // Fecha o menu mobile se estiver aberto
+            let menu = document.querySelector(".mobile-menu");
+            if (menu && menu.style.display === "block") {
+                toggleMenu();
+            }
+        });
+    }
+
+    // --- SCROLL SUAVE PARA ÂNCORAS ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault(); // Previne o comportamento padrão do link
-        const targetId = this.getAttribute('href').substring(1); // Remove o '#'
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || this.closest('.tabs-section')) { // Ignora links vazios ou de tabs
+                return;
+            }
+            try {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    // O menu mobile será fechado pela lógica específica adicionada aos .mobile-menu ul li a
+                }
+            } catch (error) {
+                console.warn(`Elemento âncora não encontrado ou href inválido: ${href}`, error);
+            }
+        });
     });
+
+}); // Fim do DOMContentLoaded

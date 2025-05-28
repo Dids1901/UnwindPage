@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@100;400;700;900&family=Cal+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -25,15 +26,20 @@
 
         <!-- Navegação padrão -->
         <nav class="nav-links">
-            <ul>
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#midias-bg">Recursos</a></li>
-                <li><a href="#recomendacao">Recomendações</a></li>
-                <li><a href="#features">Showcase</a></li>
-                
-                <li><a href="#questions">Dúvidas</a></li>
+    <ul>
+        <li><a href="#hero">Início</a></li>
+        <li class="dropdown-li"> <a href="javascript:void(0);" class="dropdown-toggle">Recursos <i class="fas fa-chevron-down dropdown-icon"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="#midias-bg">Catálogo</a></li>
+                <li><a href="#estante">Estante</a></li>
+                <li><a href="#comunidade">Comunidade</a></li>
             </ul>
-        </nav>
+        </li>
+        <li><a href="#recomendacao">Recomendações</a></li>
+        <li><a href="#features">Showcase</a></li>
+        <li><a href="#questions">Dúvidas</a></li>
+    </ul>
+</nav>
     </div>
 
     <div class="header-right">
@@ -44,7 +50,9 @@
     <div class="mobile-menu">
         <ul>
             <li><a href="#hero">Início</a></li>
-            <li><a href="#midias-bg">Recursos</a></li>
+            <li><a href="#midias-bg">Catálogo</a></li>
+              <li><a href="#estante">Estante</a></li>
+              <li><a href="#comunidade">Comunidade</a></li>
             <li><a href="#recomendacao">Recomendações</a></li>
             <li><a href="#features">Showcase</a></li>
          
@@ -57,7 +65,7 @@
     
       <section id="hero" class="hero">
         <div class="hero-content">
-            <h2>O universo do entretenimento na sua mão</h2>
+            <h2>O universo do entretenimento na palma da sua mão</h2>
             <p>
                 Entre em uma comunidade vibrante e apaixonada por games, séries e filmes. Junte-se a nós e transforme a forma como você descobre e vive o entretenimento.
             </p>
@@ -118,7 +126,7 @@
         </div>
       </div>
     </section>
-    <section class="estante">
+    <section class="estante" id="estante">
       <div class="header-content">
         <div class="header-content-text">
           <h2>Guarde Cada Emoção que Viveu e que vai Viver.</h2>
