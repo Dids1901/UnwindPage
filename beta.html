@@ -434,32 +434,6 @@
       transform: none;
     }
 
-    .qr-card {
-      flex: 0 0 92px;
-      display: grid;
-      place-items: center;
-      gap: 6px;
-      padding: 9px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .qr-card img {
-      width: 68px;
-      height: 68px;
-      border-radius: 5px;
-      background: white;
-    }
-
-    .qr-card span {
-      color: var(--muted);
-      font-family: "carving", "opensans", Arial, sans-serif;
-      font-size: 0.66rem;
-      line-height: 1;
-      margin: 0;
-    }
-
     .status-message {
       display: none;
       margin-top: 16px;
@@ -537,7 +511,6 @@
       }
 
       .form-grid,
-      .submit-row,
       .card-top {
         grid-template-columns: 1fr;
         flex-direction: column;
@@ -546,28 +519,6 @@
 
       .access-badge {
         width: max-content;
-      }
-
-      .qr-card {
-        grid-template-columns: auto 1fr;
-        justify-content: start;
-        align-items: center;
-        width: 100%;
-        min-height: 0;
-        padding: 8px 11px;
-        gap: 10px;
-      }
-
-      .qr-card img {
-        width: 58px;
-        height: 58px;
-        display: block;
-      }
-
-      .qr-card span {
-        align-self: center;
-        display: block;
-        line-height: 1;
       }
     }
 
@@ -586,7 +537,7 @@
   <main class="beta-page">
     <section class="hero" aria-labelledby="beta-title">
       <span class="logo" aria-label="Unwind">Unwind</span>
-      <p class="kicker">Beta fechado do clube</p>
+      <p class="kicker">Beta fechado</p>
       <h1 id="beta-title">Seja um dos primeiros exploradores.</h1>
       <p class="hero-copy">
         O beta do Unwind vai abrir em ondas pequenas. A ideia não é chamar todo mundo,
@@ -596,8 +547,8 @@
 
       <div class="spots-panel" aria-label="Contador de vagas do beta">
         <div class="spots-top">
-          <strong><span id="spotsLeft">37</span> vagas restantes</strong>
-          <span id="spotsTaken">113 de 150 vagas preenchidas</span>
+          <strong><span id="spotsLeft">0</span> vagas restantes</strong>
+          <span id="spotsTaken">150 de 150 vagas preenchidas</span>
         </div>
         <div class="spots-bar" aria-hidden="true">
           <span id="spotsFill" class="spots-fill"></span>
@@ -701,12 +652,17 @@
               <textarea id="nerdAnswer" name="nerdAnswer" maxlength="700" placeholder="Pode ser um filme, série, jogo, anime ou livro que já te marcou, ou uma obra que ainda vai lançar e você está contando os dias para viver." required></textarea>
             </div>
 
+            <div class="field">
+              <label for="feedbackOptIn">Topa dar feedback do beta depois de usar?</label>
+              <select id="feedbackOptIn" name="feedbackOptIn" required>
+                <option value="">Escolha uma opção</option>
+                <option value="Sim">Sim, topo dar feedback</option>
+                <option value="Nao">Prefiro só testar</option>
+              </select>
+            </div>
+
             <div class="submit-row">
               <button id="submitButton" type="submit">Entrar na fila do beta</button>
-              <div class="qr-card" aria-label="QR code para abrir esta pagina">
-                <img id="qrCode" alt="QR code da fila de espera">
-                <span>QR da fila</span>
-              </div>
             </div>
           </form>
 
@@ -749,7 +705,6 @@
     const form = document.getElementById("betaForm");
     const submitButton = document.getElementById("submitButton");
     const successMsg = document.getElementById("successMsg");
-    const qrCode = document.getElementById("qrCode");
     const spotsLeft = document.getElementById("spotsLeft");
     const spotsTaken = document.getElementById("spotsTaken");
     const spotsFill = document.getElementById("spotsFill");
@@ -768,7 +723,6 @@
     const betaUrl = currentUrl.protocol === "file:"
       ? "https://www.unwind.com.br/beta.html?src=apresentacao"
       : currentUrl.toString();
-    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=10&data=${encodeURIComponent(betaUrl)}`;
     updateSpots();
     onSnapshot(statsRef, (snapshot) => {
       if (!snapshot.exists()) {
@@ -795,13 +749,14 @@
       const device = String(formData.get("device") || "").trim();
       const profile = String(formData.get("profile") || "").trim();
       const nerdAnswer = String(formData.get("nerdAnswer") || "").trim();
+      const feedbackOptIn = String(formData.get("feedbackOptIn") || "").trim();
 
       if (!validateEmail(email)) {
         showStatus("error", "Coloca um email valido para eu conseguir te chamar para o beta.");
         return;
       }
 
-      if (!name || !device || !profile || nerdAnswer.length < 2) {
+      if (!name || !device || !profile || !feedbackOptIn || nerdAnswer.length < 2) {
         showStatus("error", "Preenche tudo com carinho. A obra escolhida precisa ter pelo menos 2 caracteres.");
         return;
       }
@@ -823,6 +778,7 @@
           device,
           profile,
           nerdAnswer,
+          feedbackOptIn,
           inviteCode,
           source: new URLSearchParams(window.location.search).get("src") || "direct",
           pageUrl: betaUrl,
