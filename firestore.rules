@@ -1,0 +1,125 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /betaUsers/{docId} {
+      allow create: if !exists(/databases/$(database)/documents/betaUsers/$(docId))
+        && docId.matches('^[a-f0-9]{64}$')
+        && isValidBetaSignup();
+      allow read, update, delete: if false;
+    }
+
+    match /betaSignupEvents/{eventId} {
+      allow create: if isValidSignupEvent(eventId);
+      allow read, update, delete: if false;
+    }
+
+    match /betaStats/waitlist {
+      allow read: if true;
+      allow create: if isInitialStatsCreate();
+      allow delete: if false;
+      allow update: if isValidStatsUpdate();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidBetaSignup() {
+      return request.resource.data.keys().hasOnly([
+          'name',
+          'email',
+          'device',
+          'profile',
+          'nerdAnswer',
+          'inviteCode',
+          'source',
+          'pageUrl',
+          'userAgent',
+          'timestamp'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.email is string
+        && request.resource.data.email.size() >= 5
+        && request.resource.data.email.size() <= 120
+        && request.resource.data.email.matches('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$')
+        && request.resource.data.device in ['Android', 'iOS', 'Outro']
+        && request.resource.data.profile in [
+          'Filmes e series',
+          'Jogos',
+          'Anime e manga',
+          'Tudo ao mesmo tempo'
+        ]
+        && request.resource.data.nerdAnswer is string
+        && request.resource.data.nerdAnswer.size() >= 2
+        && request.resource.data.nerdAnswer.size() <= 700
+        && request.resource.data.inviteCode is string
+        && request.resource.data.inviteCode.matches('^UW-[A-Z0-9]{6}$')
+        && request.resource.data.source is string
+        && request.resource.data.source.size() <= 40
+        && request.resource.data.pageUrl is string
+        && request.resource.data.pageUrl.size() <= 220
+        && request.resource.data.userAgent is string
+        && request.resource.data.userAgent.size() <= 500
+        && request.resource.data.timestamp == request.time;
+    }
+
+    function isValidSignupEvent(eventId) {
+      return eventId.matches('^UW-[A-Z0-9]{6}$')
+        && request.resource.data.keys().hasOnly([
+          'signupId',
+          'timestamp'
+        ])
+        && request.resource.data.signupId is string
+        && request.resource.data.signupId.matches('^[a-f0-9]{64}$')
+        && request.resource.data.timestamp == request.time
+        && getAfter(/databases/$(database)/documents/betaUsers/$(request.resource.data.signupId)).data.inviteCode == eventId;
+    }
+
+    function isValidStatsUpdate() {
+      return request.resource.data.keys().hasOnly([
+          'total',
+          'reserved',
+          'applications',
+          'updatedAt',
+          'lastSignupToken'
+        ])
+        && resource.data.total is int
+        && resource.data.reserved is int
+        && request.resource.data.applications is int
+        && request.resource.data.total == resource.data.total
+        && request.resource.data.reserved == resource.data.reserved
+        && request.resource.data.reserved <= request.resource.data.total
+        && request.resource.data.applications == nextApplicationsCount()
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.lastSignupToken is string
+        && request.resource.data.lastSignupToken.matches('^UW-[A-Z0-9]{6}$')
+        && request.resource.data.lastSignupToken != resource.data.lastSignupToken
+        && !exists(/databases/$(database)/documents/betaSignupEvents/$(request.resource.data.lastSignupToken))
+        && getAfter(/databases/$(database)/documents/betaSignupEvents/$(request.resource.data.lastSignupToken)).data.timestamp == request.time;
+    }
+
+    function isInitialStatsCreate() {
+      return request.resource.data.keys().hasOnly([
+          'total',
+          'reserved',
+          'applications',
+          'updatedAt',
+          'lastSignupToken'
+        ])
+        && request.resource.data.total == 150
+        && request.resource.data.reserved == 113
+        && request.resource.data.applications == 113
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.lastSignupToken == 'INITIAL';
+    }
+
+    function nextApplicationsCount() {
+      return resource.data.keys().hasAny(['applications'])
+        ? resource.data.applications + 1
+        : resource.data.reserved + 1;
+    }
+  }
+}

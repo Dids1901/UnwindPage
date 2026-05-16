@@ -3,302 +3,724 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <title>O universo do entretenimento na palma da sua mão.</title>
-  <link rel="icon" type="image/png" href="images/trueUnwind.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Unwind Beta Fechado</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Angkor&family=Chango&family=Comfortaa:wght@300..700&family=Rammetto+One&display=swap" rel="stylesheet"><link rel="icon" type="image/png" href="images/trueUnwind.png">
   <style>
     @font-face {
-      font-family: 'carving';
-      src: url('fonts/MADECarvingSoftPERSONALUSE-Medium.otf') format('opentype');
+      font-family: "carving";
+      src: url("fonts/MADECarvingSoftPERSONALUSE-Medium.otf") format("opentype");
       font-weight: normal;
       font-style: normal;
+      font-display: swap;
     }
+
     @font-face {
-      font-family: 'opensans';
-      src: url('fonts/opensans.ttf') format('opentype');
+      font-family: "opensans";
+      src: url("fonts/opensans.ttf") format("opentype");
       font-weight: normal;
       font-style: normal;
+      font-display: swap;
     }
-    @font-face {
-  font-family: 'hamster';
-  src: url('fonts/Hamster.woff2') format('woff2'),
-       url('fonts/Hamster.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+
+    :root {
+      --night: #030714;
+      --deep: #071a3d;
+      --blue: #107be6;
+      --cyan: #55d7ff;
+      --pink: #ff4fd8;
+      --green: #7cffb2;
+      --ink: #eaf7ff;
+      --muted: #a8bad0;
+      --glass: rgba(4, 15, 39, 0.72);
+      --line: rgba(135, 215, 255, 0.24);
+    }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: #107be6;
     }
 
     body {
-      font-family: 'carving', sans-serif;
-      margin: 0;
-      background: linear-gradient(180deg, #000f2f 0%, #107be6 100%);
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow-x: hidden;
+      color: var(--ink);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      background: linear-gradient(180deg, #030714 0%, #061431 52%, #107be6 100%);
+      background-attachment: fixed;
     }
 
-    h2 {
-      font-size: 2vw;
-      color: #fff;
-      font-family: "opensans";
+    @supports (min-height: 100dvh) {
+      body {
+        min-height: 100dvh;
+      }
     }
 
-    #beta-tester {
-      padding: 0px 5% 0px 5%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    a {
+      color: inherit;
     }
 
-    .beta-tester-container {
-      padding: 2vw 2.5vw 4vh 2.5vw;
-      background: rgba(0, 15, 47, 0.4);
-      border-radius: 1vw;
-      border: solid 2px #444;
-      max-width: 60%;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    #beta-tester h2 {
-      font-size: 2.5vw;
-      margin-bottom: 1.5vh;
-    }
-
-    #beta-tester p {
-      margin-bottom: 2vw;
-      font-size: 1.4vw;
-      color: #ddd;
-      font-family: "carving";
-    }
-
-    #betaForm {
-      display: flex;
-      gap: 4vh;
-      max-width: 100%;
-      flex-wrap: wrap;
-    }
-
-    #betaForm button {
-      padding: 2vh 1.6vw;
-      background: #107be6;
-      color: white;
-      font-family: "carving";
-      border: none;
-      border-radius: 1vw;
-      font-size: 1.4vw;
-      cursor: pointer;
-    }
-
-    #successMsg {
-      margin-top: 2vh;
-      color: #107be6;
-      font-size: 1.4vw;
-      display: none;
-    }
-
-    #betaForm input {
-      flex: 1 1 100%;
-      padding: 2vh;
-      background-color: rgba(0, 15, 47, 0.5);
-      border: 2px solid #444;
-      color: #fff;
-      border-radius: 1vw;
-      font-family: "carving";
-      font-size: 1.4vw;
-    }
-
-    #betaForm select {
-      flex: 1 1 100%;
-      padding: 2vh;
-      background-color: rgba(0, 15, 47, 0.5);
-      border: 2px solid #444;
-      color: #b0b0b0;
-      border-radius: 1vw;
-      font-family: "carving";
-      font-size: 1.4vw;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      cursor: pointer;
-    }
-
-    #betaForm select option:first-child {
-      color: #b0b0b0;
-    }
-
-    #betaForm select option:not(:first-child) {
-      color: #fff;
-    }
-
-    #betaForm select:focus,
-    #betaForm select option {
-      background-color: rgba(0, 15, 47, 0.5);
-      color: #fff;
-    }
-
-    #betaForm select {
+    .beta-page {
       position: relative;
-      background-image: url("data:image/svg+xml;utf8,<svg fill='%23b0b0b0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-    }
-
-    #betaForm select::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    #betaForm select::-webkit-scrollbar-track {
-      background: rgba(0, 15, 47, 0.5);
-    }
-
-    #betaForm select::-webkit-scrollbar-thumb {
-      background: #444;
-      border-radius: 4px;
-    }
-
-    #betaForm input::placeholder {
-      color: #b0b0b0;
-      opacity: 1;
-    }
-
-    .form-actions {
-      display: flex;
+      z-index: 1;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.72fr);
+      gap: clamp(28px, 5vw, 80px);
       align-items: center;
-      flex-direction: row;
-      gap: 1rem;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 44px 0;
+    }
+
+    @supports (min-height: 100dvh) {
+      .beta-page {
+        min-height: 100dvh;
+      }
+    }
+
+    .hero {
+      min-width: 0;
+    }
+
+    .logo {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #107be6;
+      font-family: "Rammetto One", "opensans", Arial, sans-serif;
+      font-size: clamp(1.65rem, 3.4vw, 3.05rem);
+      font-weight: 700;
+      line-height: 0.95;
+      text-decoration: none;
       
     }
 
-    .feedback-link {
-      color: #bdf;
-      text-decoration: none;
-      font-family: "carving";
-      font-size: 1.3vw;
-      transition: color 0.3s;
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+      margin-bottom: 18px;
+      color: var(--green);
+      font-family: "opensans", Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
     }
 
-    .feedback-link:hover {
-      color: #fff;
-      text-decoration: underline;
+    .kicker::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
     }
 
-    .hero-lamp {
-      width: 11vw;
-      margin-bottom: 2vh;
+    h1 {
+      max-width: 780px;
+      font-family: "opensans", Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.35rem, 5.1vw, 4.85rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+      text-wrap: balance;
     }
 
-    @media (max-width: 768px) {
-      .beta-tester-container {
-      padding: 4vh 5vw 4vh 5vw;
-      background: rgba(0, 15, 47, 0.4);
-      border-radius: 2vw;
-      border: solid 2px #444;
-      max-width: 100%;
-      margin: 0 auto;
-      text-align: center;
-    }
-    #beta-tester p {
-      margin-bottom: 2vw;
-      font-size: 4vw;
-      color: #ddd;
-      font-family: "carving";
-    }
-    #beta-tester h2 {
-      font-size: 6vw;
-      margin-bottom: 1.5vh;
-    }
-    #successMsg {
-      margin-top: 2vh;
-      color: #107be6;
-      font-size: 4vw;
-      display: none;
+    .hero-copy {
+      max-width: 640px;
+      margin-top: 24px;
+      color: #c8d9ec;
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: clamp(1rem, 1.45vw, 1.18rem);
+      line-height: 1.65;
     }
 
-    #betaForm input {
-      flex: 1 1 100%;
-      padding: 2vh;
-      background-color: rgba(0, 15, 47, 0.5);
-      border: 2px solid #444;
-      color: #fff;
-      border-radius: 2vw;
-      font-family: "carving";
-      font-size: 4vw;
+    .spots-panel {
+      max-width: 660px;
+      margin-top: 28px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(9, 24, 56, 0.88), rgba(3, 9, 25, 0.86));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
     }
 
-    .feedback-link {
-      color: #bdf;
-      text-decoration: none;
-      font-family: "carving";
-      font-size: 3vw;
-      text-align: left;
-      transition: color 0.3s;
+    .spots-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 10px;
     }
-    #betaForm select {
-      flex: 1 1 100%;
-      padding: 2vh;
-      background-color: rgba(0, 15, 47, 0.5);
-      border: 2px solid #444;
-      color: #b0b0b0;
-      border-radius: 2vw;
-      font-family: "carving";
-      font-size: 4vw;
-      -webkit-appearance: none;
-      -moz-appearance: none;
+
+    .spots-top strong {
+      color: white;
+      font-family: "opensans", Arial, sans-serif;
+      font-size: clamp(1.28rem, 2.4vw, 1.9rem);
+      line-height: 1;
+    }
+
+    .spots-top strong span {
+      color: inherit;
+      font: inherit;
+      line-height: inherit;
+    }
+
+    .spots-top span {
+      color: var(--green);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.94rem;
+    }
+
+    .spots-bar {
+      overflow: hidden;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .spots-fill {
+      display: block;
+      width: 75%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .spots-caption {
+      margin-top: 9px;
+      color: var(--muted);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .spots-panel.is-full {
+      border-color: rgba(124, 255, 178, 0.34);
+    }
+
+    .spots-panel.is-full .spots-fill {
+      background: linear-gradient(90deg, var(--green), var(--cyan));
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 660px;
+      margin-top: 34px;
+    }
+
+    .signal {
+      min-height: 112px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(9, 24, 56, 0.88), rgba(3, 9, 25, 0.86));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .signal-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .signal-icon {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: #ffffff;
+      background: rgba(16, 123, 230, 0.22);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .signal-icon svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+    }
+
+    .signal strong {
+      display: block;
+      color: white;
+      font-family: "opensans", Arial, sans-serif;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      line-height: 1;
+    }
+
+    .signal span {
+      color: var(--muted);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.42;
+    }
+
+    .form-shell {
+      position: relative;
+      min-width: 0;
+    }
+
+    .waitlist-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(9, 24, 56, 0.88), rgba(3, 9, 25, 0.86));
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .card-inner {
+      position: relative;
+      padding: clamp(22px, 3.2vw, 34px);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .card-title {
+      min-width: 0;
+    }
+
+    .card-title h2 {
+      margin-bottom: 7px;
+      color: white;
+      font-family: "opensans", Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.65rem, 3vw, 2.3rem);
+      line-height: 1;
+    }
+
+    .card-title p {
+      color: var(--muted);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .access-badge {
+      flex: 0 0 auto;
+      padding: 10px 12px;
+      border: 1px solid rgba(124, 255, 178, 0.34);
+      border-radius: 999px;
+      color: var(--green);
+      background: rgba(124, 255, 178, 0.08);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    #betaForm {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      color: #dbefff;
+      font-family: "opensans", Arial, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(168, 186, 208, 0.28);
+      border-radius: 8px;
+      padding: 14px 15px;
+      color: white;
+      background: rgba(2, 8, 24, 0.68);
+      outline: none;
+      font: 500 0.98rem "carving", "opensans", Arial, sans-serif;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    }
+
+    .field textarea {
+      min-height: 118px;
+      resize: vertical;
+      line-height: 1.48;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(200, 217, 236, 0.58);
+    }
+
+    .field select {
       appearance: none;
       cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10L12 15L17 10' stroke='%23A8BAD0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 44px;
     }
-    #betaForm button {
-      padding: 1.5vh 3.6vw;
-      background: #107be6;
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(85, 215, 255, 0.82);
+      background: rgba(3, 14, 38, 0.86);
+      box-shadow: 0 0 0 4px rgba(85, 215, 255, 0.1);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .submit-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .submit-row button {
+      flex: 1 1 auto;
+      min-height: 52px;
+      border: 0;
+      border-radius: 8px;
       color: white;
-      font-family: "carving";
-      border: none;
-      border-radius: 2vw;
-      font-size: 4vw;
+      background: #107be6;
+      font-family: "opensans", Arial, sans-serif;
+      font-size: 0.98rem;
+      font-weight: 800;
       cursor: pointer;
+      box-shadow: 0 14px 32px rgba(16, 123, 230, 0.28);
+      transition: transform 0.22s ease, filter 0.22s ease, opacity 0.22s ease;
     }
-    .hero-lamp {
-      width: 25vw;
-      margin-bottom: 2vh;
+
+    .submit-row button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
     }
+
+    .submit-row button:disabled {
+      cursor: wait;
+      opacity: 0.64;
+      transform: none;
+    }
+
+    .qr-card {
+      flex: 0 0 92px;
+      display: grid;
+      place-items: center;
+      gap: 6px;
+      padding: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .qr-card img {
+      width: 68px;
+      height: 68px;
+      border-radius: 5px;
+      background: white;
+    }
+
+    .qr-card span {
+      color: var(--muted);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.66rem;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .status-message {
+      display: none;
+      margin-top: 16px;
+      padding: 14px;
+      border: 1px solid rgba(124, 255, 178, 0.32);
+      border-radius: 8px;
+      color: #dfffee;
+      background: rgba(124, 255, 178, 0.08);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .status-message.is-visible {
+      display: block;
+      animation: reveal 0.35s ease both;
+    }
+
+    .status-message strong {
+      color: var(--green);
+    }
+
+    .status-message.error {
+      border-color: rgba(255, 112, 112, 0.36);
+      color: #ffe1e1;
+      background: rgba(255, 79, 79, 0.1);
+    }
+
+    .tiny-note {
+      margin-top: 14px;
+      color: rgba(200, 217, 236, 0.62);
+      font-family: "carving", "opensans", Arial, sans-serif;
+      font-size: 0.74rem;
+      line-height: 1.5;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .beta-page {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding: 28px 0;
+      }
+
+      .hero {
+        padding-top: 10px;
+      }
+
+      .signal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .signal {
+        min-height: auto;
+      }
+
+    }
+
+    @media (max-width: 560px) {
+      .beta-page {
+        width: min(100% - 40px, 1180px);
+        gap: 24px;
+      }
+
+      h1 {
+        font-size: clamp(2.08rem, 11.5vw, 3.25rem);
+      }
+
+      .hero-copy {
+        font-size: 0.96rem;
+      }
+
+      .form-grid,
+      .submit-row,
+      .card-top {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .access-badge {
+        width: max-content;
+      }
+
+      .qr-card {
+        grid-template-columns: auto 1fr;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        min-height: 0;
+        padding: 8px 11px;
+        gap: 10px;
+      }
+
+      .qr-card img {
+        width: 58px;
+        height: 58px;
+        display: block;
+      }
+
+      .qr-card span {
+        align-self: center;
+        display: block;
+        line-height: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
-  <section id="beta-tester">
-    <div class="beta-tester-container">
-      <img src="images/unwindTexto.png" alt="Unwind Logo" class="hero-lamp">
-      <h2>Participe do Beta Fechado!</h2>
-      <p>Quer testar nosso app antes do lançamento oficial? Insira seu e-mail abaixo e enviaremos o link exclusivo!</p>
-      <form id="betaForm">
-        <input type="text" id="name" placeholder="Seu nome completo" required />
-        <input type="email" id="email" placeholder="Seu e-mail" required />
-        <select id="device" required>
-          <option value="">Selecione seu dispositivo</option>
-          <option value="Android">Android</option>
-          <option value="iOS">iOS</option>
-        </select>
-        <div class="form-actions">
-          <button type="submit">Participar</button>
-          <a href="https://docs.google.com/forms/d/1Z6gk1LUzWpDXU-F7KbFjOOKXYuV4m2PSgoevS4iZZOI/edit" class="feedback-link" target="_blank">Nos conte o que você achou da experiência!</a>
+  <main class="beta-page">
+    <section class="hero" aria-labelledby="beta-title">
+      <span class="logo" aria-label="Unwind">Unwind</span>
+      <p class="kicker">Beta fechado do clube</p>
+      <h1 id="beta-title">Seja um dos primeiros exploradores.</h1>
+      <p class="hero-copy">
+        O beta do Unwind vai abrir em ondas pequenas. A ideia não é chamar todo mundo,
+        e sim encontrar gente que ama filmes, series, jogos, animes e conversas boas o suficiente
+        para ajudar a moldar a rede desde o inicio.
+      </p>
+
+      <div class="spots-panel" aria-label="Contador de vagas do beta">
+        <div class="spots-top">
+          <strong><span id="spotsLeft">37</span> vagas restantes</strong>
+          <span id="spotsTaken">113 de 150 vagas preenchidas</span>
         </div>
-      </form>
-      <p id="successMsg">✅ Obrigado! Verifique seu e-mail em breve.</p>
-    </div>
-  </section>
+        <div class="spots-bar" aria-hidden="true">
+          <span id="spotsFill" class="spots-fill"></span>
+        </div>
+        <p id="spotsCaption" class="spots-caption">Entrar na fila não garante vaga. A primeira onda será escolhida entre os inscritos.</p>
+      </div>
+
+      <div class="signal-row" aria-label="Como a fila funciona">
+        <div class="signal">
+          <div class="signal-heading">
+            <span class="signal-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <strong>01</strong>
+          </div>
+          <span>Voce entra com dados basicos e seu sistema de celular.</span>
+        </div>
+        <div class="signal">
+          <div class="signal-heading">
+            <span class="signal-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"></path>
+                <path d="M10 22h4"></path>
+                <path d="M2 12h1"></path>
+                <path d="M21 12h1"></path>
+                <path d="M18.5 5.5l.7-.7"></path>
+                <path d="M4.8 4.8l.7.7"></path>
+                <path d="M8 14a6 6 0 1 1 8 0c-.8.7-1 1.4-1 2H9c0-.6-.2-1.3-1-2Z"></path>
+              </svg>
+            </span>
+            <strong>02</strong>
+          </div>
+          <span>A resposta ajuda a priorizar quem combina mais com a primeira onda.</span>
+        </div>
+        <div class="signal">
+          <div class="signal-heading">
+            <span class="signal-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path>
+                <path d="M9 7h7"></path>
+                <path d="M9 11h5"></path>
+              </svg>
+            </span>
+            <strong>03</strong>
+          </div>
+          <span>Os acessos chegam por ondas, com prioridade para quem topar dar feedback.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-shell" aria-label="Formulario da fila de espera">
+      <div class="waitlist-card">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="card-title">
+              <h2>Solicitar entrada</h2>
+            </div>
+            <span id="accessBadge" class="access-badge">Vagas em ondas</span>
+          </div>
+
+          <form id="betaForm">
+            <div class="field">
+              <label for="name">Nome</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Como devemos te chamar?" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="device">Celular</label>
+                <select id="device" name="device" required>
+                  <option value="">Escolha uma opcao</option>
+                  <option value="Android">Android</option>
+                  <option value="iOS">iOS</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="profile">Seu perfil</label>
+                <select id="profile" name="profile" required>
+                  <option value="">Escolha uma opcao</option>
+                  <option value="Filmes e series">Filmes e series</option>
+                  <option value="Jogos">Jogos</option>
+                  <option value="Anime e manga">Anime e manga</option>
+                  <option value="Tudo ao mesmo tempo">Tudo ao mesmo tempo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="nerdAnswer">Qual obra te prendeu de verdade ou qual lançamento você não vê a hora de experienciar?</label>
+              <textarea id="nerdAnswer" name="nerdAnswer" maxlength="700" placeholder="Pode ser um filme, série, jogo, anime ou livro que já te marcou, ou uma obra que ainda vai lançar e você está contando os dias para viver." required></textarea>
+            </div>
+
+            <div class="submit-row">
+              <button id="submitButton" type="submit">Entrar na fila do beta</button>
+              <div class="qr-card" aria-label="QR code para abrir esta pagina">
+                <img id="qrCode" alt="QR code da fila de espera">
+                <span>QR da fila</span>
+              </div>
+            </div>
+          </form>
+
+          <p id="successMsg" class="status-message" role="status" aria-live="polite"></p>
+          <p class="tiny-note">Usaremos seu email apenas para contato sobre o beta e feedback do Unwind.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
-    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check.js";
+    import { getFirestore, doc, setDoc, writeBatch, increment, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAaME5zv_QRKkhQan4-sWhWJHMPg3heaeI",
@@ -311,50 +733,129 @@
       measurementId: "G-MRJP2D3S5M"
     };
 
-    // Inicializar Firebase
+    const appCheckSiteKey = "6Ldq6uksAAAAAMVsA5QzcjCYXdsQ-O4yd7Gg71WU";
+
     const app = initializeApp(firebaseConfig);
+
+    if (appCheckSiteKey !== "REPLACE_WITH_RECAPTCHA_ENTERPRISE_SITE_KEY") {
+      initializeAppCheck(app, {
+        provider: new ReCaptchaEnterpriseProvider(appCheckSiteKey),
+        isTokenAutoRefreshEnabled: true
+      });
+    }
+
     const db = getFirestore(app);
 
-    const form = document.getElementById('betaForm');
-    const emailInput = document.getElementById('email');
-    const nameInput = document.getElementById('name');
-    const deviceSelect = document.getElementById('device');
-    const successMsg = document.getElementById('successMsg');
+    const form = document.getElementById("betaForm");
+    const submitButton = document.getElementById("submitButton");
+    const successMsg = document.getElementById("successMsg");
+    const qrCode = document.getElementById("qrCode");
+    const spotsLeft = document.getElementById("spotsLeft");
+    const spotsTaken = document.getElementById("spotsTaken");
+    const spotsFill = document.getElementById("spotsFill");
+    const spotsPanel = document.querySelector(".spots-panel");
+    const spotsCaption = document.getElementById("spotsCaption");
+    const accessBadge = document.getElementById("accessBadge");
+    const betaSpots = {
+      total: 150,
+      filled: 113,
+      applications: 113
+    };
+    const statsRef = doc(db, "betaStats", "waitlist");
 
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
+    const currentUrl = new URL(window.location.href);
+    currentUrl.hash = "";
+    const betaUrl = currentUrl.protocol === "file:"
+      ? "https://www.unwind.com.br/beta.html?src=apresentacao"
+      : currentUrl.toString();
+    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=10&data=${encodeURIComponent(betaUrl)}`;
+    updateSpots();
+    onSnapshot(statsRef, (snapshot) => {
+      if (!snapshot.exists()) {
+        initializeStatsDoc();
+        return;
+      }
 
-      const email = emailInput.value.trim();
-      const name = nameInput.value.trim();
-      const device = deviceSelect.value;
+      const stats = snapshot.data();
+
+      if (Number.isFinite(stats.total) && Number.isFinite(stats.reserved)) {
+        betaSpots.total = stats.total;
+        betaSpots.filled = stats.reserved;
+        betaSpots.applications = Number.isFinite(stats.applications) ? stats.applications : stats.reserved;
+        updateSpots();
+      }
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim().toLowerCase();
+      const device = String(formData.get("device") || "").trim();
+      const profile = String(formData.get("profile") || "").trim();
+      const nerdAnswer = String(formData.get("nerdAnswer") || "").trim();
 
       if (!validateEmail(email)) {
-        alert('Por favor, insira um e-mail válido.');
+        showStatus("error", "Coloca um email valido para eu conseguir te chamar para o beta.");
         return;
       }
 
-      if (!name || !device) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
+      if (!name || !device || !profile || nerdAnswer.length < 2) {
+        showStatus("error", "Preenche tudo com carinho. A obra escolhida precisa ter pelo menos 2 caracteres.");
         return;
       }
+
+      const inviteCode = createInviteCode(name, email);
+      const signupId = await createEmailDocId(email);
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Abrindo portal...";
 
       try {
-        await addDoc(collection(db, 'betaUsers'), {
-          name: name,
-          email: email,
-          device: device,
+        const batch = writeBatch(db);
+        const signupRef = doc(db, "betaUsers", signupId);
+        const signupEventRef = doc(db, "betaSignupEvents", inviteCode);
+
+        batch.set(signupRef, {
+          name,
+          email,
+          device,
+          profile,
+          nerdAnswer,
+          inviteCode,
+          source: new URLSearchParams(window.location.search).get("src") || "direct",
+          pageUrl: betaUrl,
+          userAgent: navigator.userAgent,
           timestamp: serverTimestamp()
         });
-        console.log('Dados salvos com sucesso:', { name, email, device });
+
+        batch.set(signupEventRef, {
+          signupId,
+          timestamp: serverTimestamp()
+        });
+
+        batch.update(statsRef, {
+          applications: increment(1),
+          updatedAt: serverTimestamp(),
+          lastSignupToken: inviteCode
+        });
+
+        await batch.commit();
+
+        localStorage.setItem("unwindBetaInvite", inviteCode);
         form.reset();
-        deviceSelect.style.color = '#b0b0b0';
-        successMsg.style.display = 'block';
-        setTimeout(() => {
-          successMsg.style.display = 'none';
-        }, 5000);
+        showStatus("success", `Inscricao recebida. Seu codigo de entrada e <strong>${inviteCode}</strong>. Se sua resposta combinar com a primeira onda, voce recebe o acesso por email.`);
       } catch (error) {
-        console.error('Erro ao salvar dados:', error);
-        alert('Ocorreu um erro ao enviar seus dados. Tente novamente.');
+        console.error("Erro ao salvar inscricao do beta:", error);
+        if (error.code === "permission-denied") {
+          showStatus("error", "Esse email ja entrou na fila ou os dados nao passaram na validacao.");
+        } else {
+          showStatus("error", "Nao consegui salvar agora. Tenta de novo em alguns segundos.");
+        }
+      } finally {
+        submitButton.disabled = false;
+        updateSpots();
       }
     });
 
@@ -362,15 +863,62 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    const select = document.getElementById('device');
-    select.addEventListener('change', function() {
-      if (this.value === '') {
-        this.style.color = '#b0b0b0';
-      } else {
-        this.style.color = '#fff';
+    function createInviteCode(name, email) {
+      const base = `${name}:${email}:${Date.now()}`;
+      let hash = 0;
+
+      for (let index = 0; index < base.length; index += 1) {
+        hash = ((hash << 5) - hash) + base.charCodeAt(index);
+        hash |= 0;
       }
-    });
-    select.style.color = '#b0b0b0';
+
+      return `UW-${Math.abs(hash).toString(36).toUpperCase().slice(0, 6).padStart(6, "0")}`;
+    }
+
+    async function createEmailDocId(email) {
+      const data = new TextEncoder().encode(email);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      const bytes = Array.from(new Uint8Array(digest));
+
+      return bytes.map((byte) => byte.toString(16).padStart(2, "0")).join("");
+    }
+
+    function updateSpots() {
+      const left = Math.max(betaSpots.total - betaSpots.filled, 0);
+      const percent = Math.min((betaSpots.filled / betaSpots.total) * 100, 100);
+      const isFull = left === 0;
+
+      spotsLeft.textContent = isFull ? "0" : left;
+      spotsTaken.textContent = isFull
+        ? `${betaSpots.applications} inscritos na lista de prioridade`
+        : `${betaSpots.filled} de ${betaSpots.total} vagas preenchidas`;
+      spotsFill.style.width = `${percent}%`;
+      spotsPanel.classList.toggle("is-full", isFull);
+      accessBadge.textContent = isFull ? "Lista de prioridade" : "Vagas em ondas";
+      submitButton.textContent = isFull ? "Entrar na lista de prioridade" : "Entrar na fila do beta";
+      spotsCaption.textContent = isFull
+        ? "A primeira onda está cheia, mas a fila continua aberta para próximas liberações."
+        : "Entrar na fila não garante vaga. A primeira onda será escolhida entre os inscritos.";
+    }
+
+    async function initializeStatsDoc() {
+      try {
+        await setDoc(statsRef, {
+          total: betaSpots.total,
+          reserved: betaSpots.filled,
+          applications: betaSpots.applications,
+          updatedAt: serverTimestamp(),
+          lastSignupToken: "INITIAL"
+        });
+      } catch (error) {
+        console.warn("Contador do beta ainda nao inicializado:", error);
+      }
+    }
+
+    function showStatus(type, message) {
+      successMsg.className = `status-message is-visible ${type}`;
+      successMsg.innerHTML = message;
+    }
   </script>
 </body>
 </html>
