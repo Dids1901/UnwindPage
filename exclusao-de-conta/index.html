@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unwind - Exclusão de conta e dados</title>
+  <meta name="description" content="Como excluir sua conta do Unwind e os dados associados, pelo app ou por solicitação.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #14181c;
+      --paper: #14181c;
+      --text: #ffffff;
+      --muted: #ffffff;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #107be6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 32px auto;
+      padding: 40px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+
+    h2 {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-size: 21px;
+    }
+
+    h3 {
+      margin-top: 22px;
+      font-size: 17px;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .updated {
+      margin: 0 0 28px;
+      color: var(--muted);
+    }
+
+    ol.steps li {
+      margin-bottom: 8px;
+    }
+
+    .langbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .langbar button {
+      padding: 6px 14px;
+      font: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .langbar button[aria-current="true"] {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    [data-lang] {
+      display: none;
+    }
+
+    [data-lang].is-active {
+      display: block;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        width: 100%;
+        margin: 0;
+        padding: 24px 18px;
+        border: 0;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="langbar">
+      <button type="button" data-set-lang="pt" aria-current="true">Português</button>
+      <button type="button" data-set-lang="en" aria-current="false">English</button>
+    </nav>
+
+    <section data-lang="pt" class="is-active">
+      <h1>Exclusão de conta e dados</h1>
+      <p class="updated"><strong>Última atualização:</strong> 28 de julho de 2026</p>
+
+      <p>
+        Esta página explica como excluir sua conta do Unwind e os dados associados a ela.
+        O aplicativo é desenvolvido por Diogo Musso Coutinho, sob o nome Unwind.
+      </p>
+
+      <h2 id="pt-app">Excluir pelo aplicativo</h2>
+      <p>
+        A exclusão está disponível dentro do próprio aplicativo e é o caminho mais rápido.
+      </p>
+      <ol class="steps">
+        <li>Abra o Unwind e vá até a aba <strong>Perfil</strong>.</li>
+        <li>Toque em <strong>Configurações</strong>.</li>
+        <li>Role até o fim e toque em <strong>Apagar conta</strong>.</li>
+        <li>
+          Confirme sua identidade com o mesmo método usado para entrar (senha, Google ou
+          Apple) e digite a palavra de confirmação exibida na tela.
+        </li>
+      </ol>
+      <p>
+        Depois da confirmação, o acesso é encerrado imediatamente e a conta deixa de existir
+        para os demais usuários. A limpeza dos dados restantes continua em segundo plano.
+      </p>
+
+      <h2 id="pt-solicitacao">Solicitar sem o aplicativo</h2>
+      <p>
+        Se você não tem mais acesso ao aplicativo ou ao seu login, envie um e-mail para
+        <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a> com o assunto
+        <strong>Exclusão de conta</strong>, informando o nome de usuário e o e-mail cadastrado.
+      </p>
+      <p>
+        Para proteger sua conta, a solicitação precisa partir do e-mail cadastrado ou ser
+        confirmada por ele. Respondemos em até 15 dias.
+      </p>
+
+      <h2 id="pt-dados">Quais dados são excluídos</h2>
+      <p>
+        A exclusão remove ou desvincula os dados da conta e os rastros sociais associados,
+        incluindo:
+      </p>
+      <ul>
+        <li>perfil, nome de usuário, avatar e imagem de fundo;</li>
+        <li>publicações, comentários, curtidas, diamantes e reações;</li>
+        <li>avaliações, biblioteca de mídias, status e fotos de status;</li>
+        <li>seguidores, seguindo, bloqueios e solicitações;</li>
+        <li>conversas e referências de chat, notificações e denúncias enviadas;</li>
+        <li>pontuação, conquistas e registros de engajamento;</li>
+        <li>credenciais de login e tokens de notificação.</li>
+      </ul>
+
+      <h2 id="pt-retencao">O que pode ser mantido</h2>
+      <p>
+        Podemos reter um conjunto limitado de informações quando necessário para segurança,
+        prevenção a fraude e abuso, cumprimento de obrigação legal, exercício de direitos em
+        processos, registros de auditoria e para concluir o próprio processo de exclusão.
+      </p>
+      <p>
+        Cópias de segurança são rotativas e sobrescritas dentro do ciclo de retenção. Um dado
+        já excluído do serviço ativo pode permanecer em uma cópia de segurança até que ela
+        seja descartada.
+      </p>
+      <p>
+        Conteúdo que outras pessoas publicaram e que apenas mencionava você permanece com
+        elas, sem o vínculo com a sua conta.
+      </p>
+
+      <h2 id="pt-prazo">Prazos</h2>
+      <ul>
+        <li><strong>Imediato:</strong> encerramento do acesso e remoção do perfil público.</li>
+        <li><strong>Em segundo plano:</strong> limpeza dos dados e índices restantes.</li>
+        <li><strong>Até 15 dias:</strong> resposta a solicitações enviadas por e-mail.</li>
+      </ul>
+
+      <h2 id="pt-mais">Mais informações</h2>
+      <p>
+        <a href="/privacidade/">Política de Privacidade</a> ·
+        <a href="/termos/">Termos de Uso</a> ·
+        <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>
+      </p>
+    </section>
+
+    <section data-lang="en">
+      <h1>Account and data deletion</h1>
+      <p class="updated"><strong>Last updated:</strong> July 28, 2026</p>
+
+      <p>
+        This page explains how to delete your Unwind account and the data associated with it.
+        The app is developed by Diogo Musso Coutinho, doing business as Unwind.
+      </p>
+
+      <h2 id="en-app">Delete in the app</h2>
+      <p>
+        Deletion is available inside the app itself, and it is the fastest route.
+      </p>
+      <ol class="steps">
+        <li>Open Unwind and go to the <strong>Profile</strong> tab.</li>
+        <li>Tap <strong>Settings</strong>.</li>
+        <li>Scroll to the bottom and tap <strong>Delete account</strong>.</li>
+        <li>
+          Confirm your identity with the same method you use to sign in (password, Google, or
+          Apple) and type the confirmation word shown on screen.
+        </li>
+      </ol>
+      <p>
+        After confirmation, access ends immediately and the account stops existing for other
+        users. Cleanup of the remaining data continues in the background.
+      </p>
+
+      <h2 id="en-request">Request without the app</h2>
+      <p>
+        If you no longer have access to the app or to your login, email
+        <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a> with the subject
+        <strong>Account deletion</strong>, including your username and registered email address.
+      </p>
+      <p>
+        To protect your account, the request must come from, or be confirmed by, the registered
+        email address. We reply within 15 days.
+      </p>
+
+      <h2 id="en-data">What gets deleted</h2>
+      <p>
+        Deletion removes or unlinks your account data and the associated social traces,
+        including:
+      </p>
+      <ul>
+        <li>profile, username, avatar, and background image;</li>
+        <li>posts, comments, likes, diamonds, and reactions;</li>
+        <li>ratings, media library, statuses, and status photos;</li>
+        <li>followers, following, blocks, and requests;</li>
+        <li>conversations and chat references, notifications, and reports you submitted;</li>
+        <li>score, achievements, and engagement records;</li>
+        <li>login credentials and notification tokens.</li>
+      </ul>
+
+      <h2 id="en-retention">What may be retained</h2>
+      <p>
+        We may retain a limited set of information where necessary for security, fraud and
+        abuse prevention, legal obligations, exercise of rights in proceedings, audit logs,
+        and to complete the deletion process.
+      </p>
+      <p>
+        Backups are rotating and are overwritten within the retention cycle. Data already
+        deleted from active systems may remain in a backup until that backup is discarded.
+      </p>
+      <p>
+        Content published by other people that merely mentioned you remains with them,
+        unlinked from your account.
+      </p>
+
+      <h2 id="en-timing">Timing</h2>
+      <ul>
+        <li><strong>Immediate:</strong> access ends and the public profile is removed.</li>
+        <li><strong>In the background:</strong> cleanup of remaining data and indexes.</li>
+        <li><strong>Within 15 days:</strong> reply to requests sent by email.</li>
+      </ul>
+
+      <h2 id="en-more">More information</h2>
+      <p>
+        <a href="/privacidade/?lang=en">Privacy Policy</a> ·
+        <a href="/termos/?lang=en">Terms of Use</a> ·
+        <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var sections = document.querySelectorAll('[data-lang]');
+      var buttons = document.querySelectorAll('[data-set-lang]');
+      var htmlLang = { pt: 'pt-BR', en: 'en' };
+
+      function apply(lang) {
+        if (lang !== 'pt' && lang !== 'en') lang = 'pt';
+        sections.forEach(function (section) {
+          section.classList.toggle('is-active', section.getAttribute('data-lang') === lang);
+        });
+        buttons.forEach(function (button) {
+          button.setAttribute('aria-current', String(button.getAttribute('data-set-lang') === lang));
+        });
+        document.documentElement.lang = htmlLang[lang];
+      }
+
+      function requested() {
+        var param = new URLSearchParams(window.location.search).get('lang');
+        if (param) return param.slice(0, 2).toLowerCase();
+        var hash = window.location.hash.replace('#', '');
+        if (hash === 'en' || hash === 'pt') return hash;
+        return 'pt';
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          apply(button.getAttribute('data-set-lang'));
+        });
+      });
+
+      apply(requested());
+    })();
+  </script>
+</body>
+</html>

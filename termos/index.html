@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unwind - Terms of Use</title>
+  <title>Unwind - Termos de Uso</title>
   <style>
     :root {
       color-scheme: dark;
@@ -67,13 +67,49 @@
     }
 
     .updated {
-      margin: 0 0 28px;
+      margin: 0 0 8px;
       color: var(--muted);
+    }
+
+    .prevalence {
+      margin: 0 0 28px;
+      font-size: 13px;
+      opacity: 0.75;
     }
 
     .toc {
       columns: 2;
       padding-left: 20px;
+    }
+
+    .langbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .langbar button {
+      padding: 6px 14px;
+      font: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .langbar button[aria-current="true"] {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    [data-lang] {
+      display: none;
+    }
+
+    [data-lang].is-active {
+      display: block;
     }
 
     @media (max-width: 700px) {
@@ -93,215 +129,510 @@
 </head>
 <body>
   <main>
-    <h1>Terms of Use</h1>
-    <p class="updated"><strong>Last updated:</strong> May 18, 2026</p>
+    <nav class="langbar">
+      <button type="button" data-set-lang="pt" aria-current="true">Português</button>
+      <button type="button" data-set-lang="en" aria-current="false">English</button>
+    </nav>
 
-    <p>
-      These Terms of Use govern your access to and use of Unwind, a social entertainment
-      application operated by Diogo Musso Coutinho, doing business as Unwind ("Unwind",
-      "we", "us", or "our"). By creating an account, accessing, or using Unwind, you
-      agree to these Terms.
-    </p>
+    <section data-lang="pt" class="is-active">
+      <h1>Termos de Uso</h1>
+      <p class="updated"><strong>Última atualização:</strong> 28 de julho de 2026</p>
+      <p class="prevalence">
+        Estes Termos são publicados em português e em inglês. Em caso de divergência entre as
+        versões, prevalece a versão em português.
+      </p>
 
-    <p>
-      Unwind lets users discover, organize, rate, and share experiences with movies,
-      TV shows, and games. The app includes profiles, posts, comments, ratings, media
-      status tracking, social interactions, chat, notifications, moderation tools, and
-      gamified engagement features.
-    </p>
+      <p>
+        Estes Termos de Uso regem o seu acesso e o seu uso do Unwind, um aplicativo social de
+        entretenimento operado por Diogo Musso Coutinho, atuando sob o nome Unwind ("Unwind",
+        "nós"). Ao criar uma conta, acessar ou usar o Unwind, você concorda com estes Termos.
+      </p>
 
-    <h2>Table of Contents</h2>
-    <ol class="toc">
-      <li><a href="#eligibility">Eligibility</a></li>
-      <li><a href="#accounts">Accounts</a></li>
-      <li><a href="#service">Use of the Service</a></li>
-      <li><a href="#content">User Content</a></li>
-      <li><a href="#conduct">Prohibited Conduct</a></li>
-      <li><a href="#moderation">Moderation and Safety</a></li>
-      <li><a href="#gamification">Gamification</a></li>
-      <li><a href="#third-party-media">Third-Party Media Data</a></li>
-      <li><a href="#mobile">Mobile App Terms</a></li>
-      <li><a href="#privacy">Privacy</a></li>
-      <li><a href="#availability">Changes and Availability</a></li>
-      <li><a href="#termination">Termination</a></li>
-      <li><a href="#disclaimer">Disclaimers</a></li>
-      <li><a href="#liability">Limitation of Liability</a></li>
-      <li><a href="#law">Governing Law</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ol>
+      <p>
+        O Unwind permite descobrir, organizar, avaliar e compartilhar experiências com filmes,
+        séries e jogos. O aplicativo inclui perfis, publicações, comentários, avaliações,
+        acompanhamento de status de mídia, interações sociais, conversas, notificações,
+        ferramentas de moderação e recursos de engajamento com elementos de jogo.
+      </p>
 
-    <h2 id="eligibility">1. Eligibility</h2>
-    <p>
-      Unwind is intended only for users who are at least 18 years old. Persons under
-      18 are not permitted to create an account or use the Service. By using Unwind,
-      you represent that you are at least 18 and that your use of the Service complies
-      with applicable law.
-    </p>
+      <h2>Sumário</h2>
+      <ol class="toc">
+        <li><a href="#pt-elegibilidade">Elegibilidade</a></li>
+        <li><a href="#pt-contas">Contas</a></li>
+        <li><a href="#pt-servico">Uso do serviço</a></li>
+        <li><a href="#pt-conteudo">Conteúdo do usuário</a></li>
+        <li><a href="#pt-conduta">Conduta proibida</a></li>
+        <li><a href="#pt-moderacao">Moderação e segurança</a></li>
+        <li><a href="#pt-gamificacao">Pontuação e recompensas</a></li>
+        <li><a href="#pt-midia-terceiros">Dados de mídia de terceiros</a></li>
+        <li><a href="#pt-aplicativo">Termos do aplicativo</a></li>
+        <li><a href="#pt-privacidade">Privacidade</a></li>
+        <li><a href="#pt-disponibilidade">Mudanças e disponibilidade</a></li>
+        <li><a href="#pt-encerramento">Encerramento</a></li>
+        <li><a href="#pt-garantias">Isenção de garantias</a></li>
+        <li><a href="#pt-responsabilidade">Limitação de responsabilidade</a></li>
+        <li><a href="#pt-lei">Lei aplicável e idioma</a></li>
+        <li><a href="#pt-contato">Contato</a></li>
+      </ol>
 
-    <h2 id="accounts">2. Accounts</h2>
-    <p>
-      You may need an account to use Unwind. You agree to provide accurate information,
-      keep your account information current, and maintain the confidentiality of your
-      login credentials. You are responsible for activity that occurs through your
-      account, except where caused by our failure to use reasonable security measures.
-    </p>
-    <p>
-      Unwind may support email/password login and third-party authentication providers
-      such as Google Sign-In and Sign in with Apple. Your use of those providers is
-      also governed by their own terms and policies.
-    </p>
+      <h2 id="pt-elegibilidade">1. Elegibilidade</h2>
+      <p>
+        O Unwind destina-se apenas a pessoas com pelo menos 18 anos. Menores de 18 anos não
+        podem criar conta nem usar o serviço. Ao usar o Unwind, você declara ter pelo menos 18
+        anos e que o seu uso do serviço está de acordo com a lei aplicável.
+      </p>
 
-    <h2 id="service">3. Use of the Service</h2>
-    <p>
-      We grant you a limited, non-exclusive, non-transferable, revocable license to use
-      Unwind for personal, non-commercial entertainment and social purposes. You may not
-      copy, modify, reverse engineer, resell, or exploit the Service except as allowed by
-      law or with our written permission.
-    </p>
+      <h2 id="pt-contas">2. Contas</h2>
+      <p>
+        Você precisa de uma conta para usar o Unwind. Você concorda em fornecer informações
+        corretas, manter os dados da conta atualizados e preservar o sigilo das suas
+        credenciais de acesso. Você é responsável pela atividade realizada por meio da sua
+        conta, exceto quando decorrente de falha nossa em adotar medidas de segurança
+        razoáveis.
+      </p>
+      <p>
+        O Unwind pode oferecer login por e-mail e senha e por provedores externos de
+        autenticação, como Google Sign-In e Sign in with Apple. O uso desses provedores também
+        é regido pelos termos e políticas deles.
+      </p>
 
-    <h2 id="content">4. User Content</h2>
-    <p>
-      You may create, upload, or share content through Unwind, including posts, comments,
-      ratings, reviews, profile information, images, chat messages, reports, and other
-      activity ("User Content"). You keep ownership of your User Content.
-    </p>
-    <p>
-      By submitting User Content, you grant us a worldwide, non-exclusive, royalty-free
-      license to host, store, reproduce, display, distribute, format, moderate, remove,
-      and otherwise use that content as needed to operate, protect, and improve
-      Unwind. This license ends when your content is deleted from our active systems,
-      except where retention is reasonably necessary for backups, legal obligations,
-      safety, fraud prevention, or dispute handling.
-    </p>
-    <p>
-      You are responsible for your User Content. Do not post content that you do not have
-      the right to share, and do not post illegal, infringing, abusive, harassing,
-      hateful, sexually explicit, deceptive, spammy, or harmful content.
-    </p>
+      <h2 id="pt-servico">3. Uso do serviço</h2>
+      <p>
+        Concedemos a você uma licença limitada, não exclusiva, intransferível e revogável para
+        usar o Unwind com finalidade pessoal e não comercial, de entretenimento e convívio
+        social. Você não pode copiar, modificar, fazer engenharia reversa, revender ou
+        explorar o serviço, salvo quando a lei permitir ou mediante nossa autorização por
+        escrito.
+      </p>
 
-    <h2 id="conduct">5. Prohibited Conduct</h2>
-    <p>You agree not to:</p>
-    <ul>
-      <li>use Unwind for unlawful, fraudulent, misleading, or abusive purposes;</li>
-      <li>harass, threaten, impersonate, dox, or harm another person;</li>
-      <li>upload malware, attempt unauthorized access, or disrupt the Service;</li>
-      <li>scrape, crawl, automate, or bulk collect data without permission;</li>
-      <li>evade bans, blocks, rate limits, moderation actions, or safety systems;</li>
-      <li>infringe copyrights, trademarks, privacy rights, or other rights;</li>
-      <li>manipulate rankings, points, ratings, likes, diamonds, hype, or engagement signals;</li>
-      <li>use the Service to advertise, sell, spam, or promote unrelated services without permission.</li>
-    </ul>
+      <h2 id="pt-conteudo">4. Conteúdo do usuário</h2>
+      <p>
+        Você pode criar, enviar ou compartilhar conteúdo no Unwind, incluindo publicações,
+        comentários, avaliações, resenhas, informações de perfil, imagens, mensagens de
+        conversa, denúncias e outras atividades ("Conteúdo do Usuário"). A titularidade do seu
+        Conteúdo do Usuário continua sendo sua.
+      </p>
+      <p>
+        Ao enviar Conteúdo do Usuário, você nos concede uma licença mundial, não exclusiva e
+        isenta de royalties para hospedar, armazenar, reproduzir, exibir, distribuir, formatar,
+        moderar, remover e de outras formas utilizar esse conteúdo conforme necessário para
+        operar, proteger e melhorar o Unwind. Essa licença termina quando o seu conteúdo é
+        excluído dos nossos sistemas ativos, exceto quando a retenção for razoavelmente
+        necessária para cópias de segurança, obrigações legais, segurança, prevenção a fraude
+        ou tratamento de disputas.
+      </p>
+      <p>
+        Você é responsável pelo seu Conteúdo do Usuário. Não publique conteúdo que você não
+        tenha o direito de compartilhar, nem conteúdo ilegal, que viole direitos, abusivo, de
+        assédio, de ódio, sexualmente explícito, enganoso, spam ou prejudicial.
+      </p>
 
-    <h2 id="moderation">6. Moderation and Safety</h2>
-    <p>
-      Unwind includes reporting, blocking, and moderation systems for posts, users, chat,
-      comments, notifications, and other social features. We may review, restrict, remove,
-      hide, or preserve content and account data when we believe it is necessary to enforce
-      these Terms, protect users, investigate abuse, comply with law, or maintain the Service.
-    </p>
-    <p>
-      We may suspend or terminate accounts that violate these Terms or create risk for
-      users, the Service, or third parties. We may also limit interactions between users,
-      remove follows or conversations after blocking, and prevent messages where a block
-      exists in either direction.
-    </p>
+      <h2 id="pt-conduta">5. Conduta proibida</h2>
+      <p>Você concorda em não:</p>
+      <ul>
+        <li>usar o Unwind para fins ilícitos, fraudulentos, enganosos ou abusivos;</li>
+        <li>assediar, ameaçar, se passar por outra pessoa, expor dados alheios ou causar dano a alguém;</li>
+        <li>enviar software malicioso, tentar acesso não autorizado ou perturbar o serviço;</li>
+        <li>raspar, rastrear, automatizar ou coletar dados em massa sem permissão;</li>
+        <li>burlar banimentos, bloqueios, limites de uso, ações de moderação ou sistemas de segurança;</li>
+        <li>violar direitos autorais, marcas, direitos de privacidade ou outros direitos;</li>
+        <li>manipular classificações, pontos, avaliações, curtidas, diamantes, hype ou sinais de engajamento;</li>
+        <li>usar o serviço para anunciar, vender, enviar spam ou promover serviços alheios sem permissão.</li>
+      </ul>
 
-    <h2 id="gamification">7. Gamification</h2>
-    <p>
-      Unwind may include points, XP, UP, diamonds, rankings, rewards, badges, levels,
-      scores, hype, or other engagement systems. These features are for entertainment
-      and engagement only. They have no cash value, are not property, and do not create
-      payment, redemption, transfer, or compensation rights. We may modify, reset,
-      suspend, remove, or limit these features at any time.
-    </p>
-    <p>
-      Unwind does not currently sell paid subscriptions, paid digital goods, or paid
-      in-app purchases. If paid features are introduced later, additional terms may apply.
-    </p>
+      <h2 id="pt-moderacao">6. Moderação e segurança</h2>
+      <p>
+        O Unwind inclui sistemas de denúncia, bloqueio e moderação para publicações, contas,
+        conversas, comentários, notificações e demais recursos sociais. Podemos revisar,
+        restringir, remover, ocultar ou preservar conteúdo e dados de conta quando entendermos
+        necessário para fazer cumprir estes Termos, proteger pessoas, investigar abusos,
+        cumprir a lei ou manter o serviço.
+      </p>
+      <p>
+        Podemos suspender ou encerrar contas que violem estes Termos ou criem risco para
+        pessoas, para o serviço ou para terceiros. Também podemos limitar interações entre
+        contas, remover relações de seguir ou conversas após um bloqueio e impedir mensagens
+        quando existir bloqueio em qualquer um dos sentidos.
+      </p>
 
-    <h2 id="third-party-media">8. Third-Party Media Data</h2>
-    <p>
-      Unwind displays information, images, logos, names, descriptions, metadata, release
-      information, companies, providers, and other content related to movies, TV shows,
-      games, and people from third-party sources, including TMDB and IGDB. That content
-      belongs to its respective owners. Unwind is not affiliated with, sponsored by, or
-      endorsed by those third parties unless expressly stated.
-    </p>
-    <p>
-      Third-party media data may contain errors, omissions, outdated information, or
-      availability changes. We do not guarantee its completeness or accuracy.
-    </p>
+      <h2 id="pt-gamificacao">7. Pontuação e recompensas</h2>
+      <p>
+        O Unwind pode incluir pontos, XP, UP, diamantes, classificações, recompensas,
+        distintivos, níveis, notas, hype e outros sistemas de engajamento. Esses recursos
+        existem apenas para entretenimento e engajamento. Não possuem valor monetário, não são
+        propriedade e não geram direito a pagamento, resgate, transferência ou compensação.
+        Podemos modificar, zerar, suspender, remover ou limitar esses recursos a qualquer
+        momento.
+      </p>
+      <p>
+        O Unwind não vende assinaturas pagas, bens digitais pagos ou compras dentro do
+        aplicativo. Se recursos pagos forem introduzidos no futuro, termos adicionais poderão
+        se aplicar.
+      </p>
 
-    <h2 id="mobile">9. Mobile App Terms</h2>
-    <p>
-      Unwind is provided as a mobile application. App stores, device manufacturers,
-      operating systems, and authentication providers may impose additional terms. You
-      are responsible for maintaining compatible devices, internet access, and software.
-    </p>
+      <h2 id="pt-midia-terceiros">8. Dados de mídia de terceiros</h2>
+      <p>
+        O Unwind exibe informações, imagens, logotipos, nomes, descrições, metadados, dados de
+        lançamento, empresas, provedores e outros conteúdos relacionados a filmes, séries,
+        jogos e pessoas, obtidos de fontes externas, incluindo TMDB e IGDB. Esse conteúdo
+        pertence aos seus respectivos titulares. O Unwind não é afiliado, patrocinado nem
+        endossado por esses terceiros, salvo quando indicado expressamente.
+      </p>
+      <p>
+        Dados de mídia de terceiros podem conter erros, omissões, informações desatualizadas ou
+        mudanças de disponibilidade. Não garantimos que sejam completos ou exatos.
+      </p>
 
-    <h2 id="privacy">10. Privacy</h2>
-    <p>
-      Our Privacy Policy explains how we collect, use, share, and retain personal
-      information. By using Unwind, you also agree to the practices described in the
-      Privacy Policy.
-    </p>
+      <h2 id="pt-aplicativo">9. Termos do aplicativo</h2>
+      <p>
+        O Unwind é oferecido como aplicativo para dispositivos móveis. Lojas de aplicativos,
+        fabricantes de aparelhos, sistemas operacionais e provedores de autenticação podem
+        impor termos adicionais. Você é responsável por manter aparelhos compatíveis, acesso à
+        internet e software atualizado.
+      </p>
 
-    <h2 id="availability">11. Changes and Availability</h2>
-    <p>
-      We may update, add, remove, suspend, or discontinue features at any time, including
-      beta or experimental features. We may update these Terms from time to time. If a
-      change is material, we will provide reasonable notice when required by law or when
-      practical. Continued use after changes become effective means you accept the updated
-      Terms.
-    </p>
-    <p>
-      We do not guarantee that Unwind will be uninterrupted, error-free, secure, or
-      available at all times.
-    </p>
+      <h2 id="pt-privacidade">10. Privacidade</h2>
+      <p>
+        Nossa <a href="/privacidade/">Política de Privacidade</a> explica como coletamos,
+        usamos, compartilhamos e retemos dados pessoais. A Política é um documento
+        informativo: ela descreve o tratamento, mas não funciona como um consentimento
+        genérico. Quando um tratamento específico depender de consentimento, ele será pedido
+        de forma separada, destacada e para aquela finalidade.
+      </p>
 
-    <h2 id="termination">12. Termination</h2>
-    <p>
-      You may stop using Unwind at any time and may request account deletion through the
-      app settings where available. When an account is deleted, active account data and
-      related social traces are removed or de-identified according to our deletion process,
-      while some limited data may remain where needed for legal, security, backup, abuse
-      prevention, or operational reasons.
-    </p>
-    <p>
-      We may suspend or terminate access if you violate these Terms, create risk, or use
-      the Service in a way that may harm users, Unwind, or third parties.
-    </p>
+      <h2 id="pt-disponibilidade">11. Mudanças e disponibilidade</h2>
+      <p>
+        Podemos atualizar, adicionar, remover, suspender ou descontinuar recursos a qualquer
+        momento, inclusive recursos em teste ou experimentais. Podemos atualizar estes Termos
+        de tempos em tempos.
+      </p>
+      <p>
+        Quando a alteração for material, ela é anunciada de forma destacada dentro do
+        aplicativo e passa a valer para você somente depois que você aceitar a nova versão —
+        o simples uso continuado não substitui esse aceite. Ajustes sem efeito material, como
+        correção de redação, passam a valer com a publicação da nova data.
+      </p>
+      <p>
+        Não garantimos que o Unwind funcione de forma ininterrupta, livre de erros, segura ou
+        disponível o tempo todo.
+      </p>
 
-    <h2 id="disclaimer">13. Disclaimers</h2>
-    <p>
-      Unwind is provided "as is" and "as available." To the fullest extent permitted by
-      law, we disclaim warranties of merchantability, fitness for a particular purpose,
-      non-infringement, accuracy, availability, and uninterrupted operation.
-    </p>
+      <h2 id="pt-encerramento">12. Encerramento</h2>
+      <p>
+        Você pode parar de usar o Unwind quando quiser e pode excluir a conta pelas
+        configurações do aplicativo. A página
+        <a href="/exclusao-de-conta/">unwind.com.br/exclusao-de-conta</a> explica o passo a
+        passo. Quando uma conta é excluída, os dados ativos e os rastros sociais associados são
+        removidos ou desvinculados conforme o nosso processo de exclusão, e um conjunto
+        limitado de dados pode permanecer quando necessário por razões legais, de segurança, de
+        cópia de segurança, de prevenção a abusos ou operacionais.
+      </p>
+      <p>
+        Podemos suspender ou encerrar o acesso caso você viole estes Termos, crie risco ou use
+        o serviço de forma que possa prejudicar pessoas, o Unwind ou terceiros.
+      </p>
 
-    <h2 id="liability">14. Limitation of Liability</h2>
-    <p>
-      To the fullest extent permitted by law, Unwind and its operator will not be liable
-      for indirect, incidental, special, consequential, exemplary, or punitive damages,
-      or for lost profits, data loss, reputational harm, or service interruption arising
-      from your use of the Service.
-    </p>
-    <p>
-      Nothing in these Terms limits liability where limitation is not permitted by
-      applicable law.
-    </p>
+      <h2 id="pt-garantias">13. Isenção de garantias</h2>
+      <p>
+        O Unwind é fornecido "como está" e "conforme disponível". Na máxima extensão permitida
+        pela lei, não oferecemos garantias de comercialização, adequação a uma finalidade
+        específica, não violação de direitos, exatidão, disponibilidade ou funcionamento
+        ininterrupto.
+      </p>
 
-    <h2 id="law">15. Governing Law</h2>
-    <p>
-      These Terms are governed by the laws of Brazil, without regard to conflict-of-law
-      rules, except where consumer protection or other mandatory law provides otherwise.
-    </p>
+      <h2 id="pt-responsabilidade">14. Limitação de responsabilidade</h2>
+      <p>
+        Na máxima extensão permitida pela lei, o Unwind e o seu operador não respondem por
+        danos indiretos, incidentais, especiais, consequenciais ou punitivos, nem por lucros
+        cessantes, perda de dados, dano à reputação ou interrupção do serviço decorrentes do
+        seu uso do serviço.
+      </p>
+      <p>
+        Nada nestes Termos limita responsabilidade nos casos em que a limitação não é permitida
+        pela lei aplicável, incluindo os direitos assegurados ao consumidor pelo Código de
+        Defesa do Consumidor.
+      </p>
 
-    <h2 id="contact">16. Contact</h2>
-    <p>
-      If you have questions about these Terms, contact us at
-      <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>.
-    </p>
+      <h2 id="pt-lei">15. Lei aplicável e idioma</h2>
+      <p>
+        Estes Termos são regidos pelas leis do Brasil, sem considerar regras de conflito de
+        leis, ressalvado o que a legislação de defesa do consumidor ou outra norma cogente
+        dispuser em contrário.
+      </p>
+      <p>
+        Estes Termos são publicados em português e em inglês. Em caso de divergência entre as
+        versões, prevalece a versão em português.
+      </p>
+
+      <h2 id="pt-contato">16. Contato</h2>
+      <p>
+        Em caso de dúvidas sobre estes Termos, escreva para
+        <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>.
+      </p>
+    </section>
+
+    <section data-lang="en">
+      <h1>Terms of Use</h1>
+      <p class="updated"><strong>Last updated:</strong> July 28, 2026</p>
+      <p class="prevalence">
+        These Terms are published in Portuguese and in English. In case of any discrepancy
+        between the versions, the Portuguese version prevails.
+      </p>
+
+      <p>
+        These Terms of Use govern your access to and use of Unwind, a social entertainment
+        application operated by Diogo Musso Coutinho, doing business as Unwind ("Unwind",
+        "we", "us", or "our"). By creating an account, accessing, or using Unwind, you
+        agree to these Terms.
+      </p>
+
+      <p>
+        Unwind lets users discover, organize, rate, and share experiences with movies,
+        TV shows, and games. The app includes profiles, posts, comments, ratings, media
+        status tracking, social interactions, chat, notifications, moderation tools, and
+        gamified engagement features.
+      </p>
+
+      <h2>Table of Contents</h2>
+      <ol class="toc">
+        <li><a href="#en-eligibility">Eligibility</a></li>
+        <li><a href="#en-accounts">Accounts</a></li>
+        <li><a href="#en-service">Use of the Service</a></li>
+        <li><a href="#en-content">User Content</a></li>
+        <li><a href="#en-conduct">Prohibited Conduct</a></li>
+        <li><a href="#en-moderation">Moderation and Safety</a></li>
+        <li><a href="#en-gamification">Gamification</a></li>
+        <li><a href="#en-third-party-media">Third-Party Media Data</a></li>
+        <li><a href="#en-mobile">Mobile App Terms</a></li>
+        <li><a href="#en-privacy">Privacy</a></li>
+        <li><a href="#en-availability">Changes and Availability</a></li>
+        <li><a href="#en-termination">Termination</a></li>
+        <li><a href="#en-disclaimer">Disclaimers</a></li>
+        <li><a href="#en-liability">Limitation of Liability</a></li>
+        <li><a href="#en-law">Governing Law and Language</a></li>
+        <li><a href="#en-contact">Contact</a></li>
+      </ol>
+
+      <h2 id="en-eligibility">1. Eligibility</h2>
+      <p>
+        Unwind is intended only for users who are at least 18 years old. Persons under
+        18 are not permitted to create an account or use the Service. By using Unwind,
+        you represent that you are at least 18 and that your use of the Service complies
+        with applicable law.
+      </p>
+
+      <h2 id="en-accounts">2. Accounts</h2>
+      <p>
+        You may need an account to use Unwind. You agree to provide accurate information,
+        keep your account information current, and maintain the confidentiality of your
+        login credentials. You are responsible for activity that occurs through your
+        account, except where caused by our failure to use reasonable security measures.
+      </p>
+      <p>
+        Unwind may support email/password login and third-party authentication providers
+        such as Google Sign-In and Sign in with Apple. Your use of those providers is
+        also governed by their own terms and policies.
+      </p>
+
+      <h2 id="en-service">3. Use of the Service</h2>
+      <p>
+        We grant you a limited, non-exclusive, non-transferable, revocable license to use
+        Unwind for personal, non-commercial entertainment and social purposes. You may not
+        copy, modify, reverse engineer, resell, or exploit the Service except as allowed by
+        law or with our written permission.
+      </p>
+
+      <h2 id="en-content">4. User Content</h2>
+      <p>
+        You may create, upload, or share content through Unwind, including posts, comments,
+        ratings, reviews, profile information, images, chat messages, reports, and other
+        activity ("User Content"). You keep ownership of your User Content.
+      </p>
+      <p>
+        By submitting User Content, you grant us a worldwide, non-exclusive, royalty-free
+        license to host, store, reproduce, display, distribute, format, moderate, remove,
+        and otherwise use that content as needed to operate, protect, and improve
+        Unwind. This license ends when your content is deleted from our active systems,
+        except where retention is reasonably necessary for backups, legal obligations,
+        safety, fraud prevention, or dispute handling.
+      </p>
+      <p>
+        You are responsible for your User Content. Do not post content that you do not have
+        the right to share, and do not post illegal, infringing, abusive, harassing,
+        hateful, sexually explicit, deceptive, spammy, or harmful content.
+      </p>
+
+      <h2 id="en-conduct">5. Prohibited Conduct</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>use Unwind for unlawful, fraudulent, misleading, or abusive purposes;</li>
+        <li>harass, threaten, impersonate, dox, or harm another person;</li>
+        <li>upload malware, attempt unauthorized access, or disrupt the Service;</li>
+        <li>scrape, crawl, automate, or bulk collect data without permission;</li>
+        <li>evade bans, blocks, rate limits, moderation actions, or safety systems;</li>
+        <li>infringe copyrights, trademarks, privacy rights, or other rights;</li>
+        <li>manipulate rankings, points, ratings, likes, diamonds, hype, or engagement signals;</li>
+        <li>use the Service to advertise, sell, spam, or promote unrelated services without permission.</li>
+      </ul>
+
+      <h2 id="en-moderation">6. Moderation and Safety</h2>
+      <p>
+        Unwind includes reporting, blocking, and moderation systems for posts, users, chat,
+        comments, notifications, and other social features. We may review, restrict, remove,
+        hide, or preserve content and account data when we believe it is necessary to enforce
+        these Terms, protect users, investigate abuse, comply with law, or maintain the Service.
+      </p>
+      <p>
+        We may suspend or terminate accounts that violate these Terms or create risk for
+        users, the Service, or third parties. We may also limit interactions between users,
+        remove follows or conversations after blocking, and prevent messages where a block
+        exists in either direction.
+      </p>
+
+      <h2 id="en-gamification">7. Gamification</h2>
+      <p>
+        Unwind may include points, XP, UP, diamonds, rankings, rewards, badges, levels,
+        scores, hype, or other engagement systems. These features are for entertainment
+        and engagement only. They have no cash value, are not property, and do not create
+        payment, redemption, transfer, or compensation rights. We may modify, reset,
+        suspend, remove, or limit these features at any time.
+      </p>
+      <p>
+        Unwind does not currently sell paid subscriptions, paid digital goods, or paid
+        in-app purchases. If paid features are introduced later, additional terms may apply.
+      </p>
+
+      <h2 id="en-third-party-media">8. Third-Party Media Data</h2>
+      <p>
+        Unwind displays information, images, logos, names, descriptions, metadata, release
+        information, companies, providers, and other content related to movies, TV shows,
+        games, and people from third-party sources, including TMDB and IGDB. That content
+        belongs to its respective owners. Unwind is not affiliated with, sponsored by, or
+        endorsed by those third parties unless expressly stated.
+      </p>
+      <p>
+        Third-party media data may contain errors, omissions, outdated information, or
+        availability changes. We do not guarantee its completeness or accuracy.
+      </p>
+
+      <h2 id="en-mobile">9. Mobile App Terms</h2>
+      <p>
+        Unwind is provided as a mobile application. App stores, device manufacturers,
+        operating systems, and authentication providers may impose additional terms. You
+        are responsible for maintaining compatible devices, internet access, and software.
+      </p>
+
+      <h2 id="en-privacy">10. Privacy</h2>
+      <p>
+        Our <a href="/privacidade/">Privacy Policy</a> explains how we collect, use, share,
+        and retain personal information. The Policy is an informational document: it
+        describes our processing, but it does not operate as blanket consent. Where a
+        specific processing activity requires consent, we ask for it separately, prominently,
+        and for that purpose.
+      </p>
+
+      <h2 id="en-availability">11. Changes and Availability</h2>
+      <p>
+        We may update, add, remove, suspend, or discontinue features at any time, including
+        beta or experimental features. We may update these Terms from time to time.
+      </p>
+      <p>
+        Where a change is material, it is announced prominently inside the app and applies to
+        you only after you accept the new version — continued use alone does not replace that
+        acceptance. Non-material adjustments, such as wording corrections, take effect when
+        the new date is published.
+      </p>
+      <p>
+        We do not guarantee that Unwind will be uninterrupted, error-free, secure, or
+        available at all times.
+      </p>
+
+      <h2 id="en-termination">12. Termination</h2>
+      <p>
+        You may stop using Unwind at any time and may delete your account through the app
+        settings. The page
+        <a href="/exclusao-de-conta/">unwind.com.br/exclusao-de-conta</a> describes the
+        steps. When an account is deleted, active account data and related social traces are
+        removed or de-identified according to our deletion process, while some limited data
+        may remain where needed for legal, security, backup, abuse prevention, or operational
+        reasons.
+      </p>
+      <p>
+        We may suspend or terminate access if you violate these Terms, create risk, or use
+        the Service in a way that may harm users, Unwind, or third parties.
+      </p>
+
+      <h2 id="en-disclaimer">13. Disclaimers</h2>
+      <p>
+        Unwind is provided "as is" and "as available." To the fullest extent permitted by
+        law, we disclaim warranties of merchantability, fitness for a particular purpose,
+        non-infringement, accuracy, availability, and uninterrupted operation.
+      </p>
+
+      <h2 id="en-liability">14. Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, Unwind and its operator will not be liable
+        for indirect, incidental, special, consequential, exemplary, or punitive damages,
+        or for lost profits, data loss, reputational harm, or service interruption arising
+        from your use of the Service.
+      </p>
+      <p>
+        Nothing in these Terms limits liability where limitation is not permitted by
+        applicable law, including the rights granted to consumers by the Brazilian Consumer
+        Protection Code.
+      </p>
+
+      <h2 id="en-law">15. Governing Law and Language</h2>
+      <p>
+        These Terms are governed by the laws of Brazil, without regard to conflict-of-law
+        rules, except where consumer protection or other mandatory law provides otherwise.
+      </p>
+      <p>
+        These Terms are published in Portuguese and in English. In case of any discrepancy
+        between the versions, the Portuguese version prevails.
+      </p>
+
+      <h2 id="en-contact">16. Contact</h2>
+      <p>
+        If you have questions about these Terms, contact us at
+        <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>.
+      </p>
+    </section>
   </main>
+
+  <script>
+    (function () {
+      var sections = document.querySelectorAll('[data-lang]');
+      var buttons = document.querySelectorAll('[data-set-lang]');
+      var htmlLang = { pt: 'pt-BR', en: 'en' };
+
+      function apply(lang) {
+        if (lang !== 'pt' && lang !== 'en') lang = 'pt';
+        sections.forEach(function (section) {
+          section.classList.toggle('is-active', section.getAttribute('data-lang') === lang);
+        });
+        buttons.forEach(function (button) {
+          button.setAttribute('aria-current', String(button.getAttribute('data-set-lang') === lang));
+        });
+        document.documentElement.lang = htmlLang[lang];
+      }
+
+      function requested() {
+        var param = new URLSearchParams(window.location.search).get('lang');
+        if (param) return param.slice(0, 2).toLowerCase();
+        var hash = window.location.hash.replace('#', '');
+        if (hash === 'en' || hash === 'pt') return hash;
+        return 'pt';
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          apply(button.getAttribute('data-set-lang'));
+        });
+      });
+
+      apply(requested());
+    })();
+  </script>
 </body>
 </html>
