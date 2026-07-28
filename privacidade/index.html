@@ -350,15 +350,40 @@
       <p>
         Guardamos dados pessoais pelo tempo razoavelmente necessário para fornecer o Unwind,
         manter contas, operar os recursos sociais, cumprir obrigações legais, resolver
-        disputas, aplicar os Termos, prevenir abusos, manter a segurança e manter cópias de
-        segurança. Os prazos variam conforme o tipo de dado e a razão pela qual precisamos
-        dele.
+        disputas, aplicar os Termos, prevenir abusos e manter a segurança. Os prazos variam
+        conforme o tipo de dado e a razão pela qual precisamos dele:
       </p>
-      <p>
-        As cópias de segurança são rotativas e descartadas dentro do ciclo de retenção. Um
-        dado já excluído do serviço ativo pode permanecer em uma cópia de segurança até que
-        ela seja descartada.
-      </p>
+      <ul>
+        <li>
+          <strong>Dados da conta e da sua atividade:</strong> enquanto a conta existir. A
+          exclusão da conta encerra esse prazo.
+        </li>
+        <li>
+          <strong>Cadastro iniciado e não concluído:</strong> 7 dias, depois é descartado
+          automaticamente.
+        </li>
+        <li>
+          <strong>Cópias de segurança:</strong> até 30 dias. São rotativas e descartadas
+          automaticamente ao fim desse prazo. Um dado já excluído do serviço ativo pode
+          permanecer em uma cópia de segurança até que ela seja descartada.
+        </li>
+        <li>
+          <strong>Logs operacionais</strong> (erros, desempenho, requisições): 30 dias.
+        </li>
+        <li>
+          <strong>Registros de auditoria de acesso administrativo:</strong> 400 dias. Esse
+          prazo é fixado pela infraestrutura do Google Cloud e não pode ser encurtado por nós.
+        </li>
+        <li>
+          <strong>Relatórios de falha do aplicativo:</strong> conforme o prazo do provedor de
+          diagnóstico, atualmente 90 dias no Firebase Crashlytics.
+        </li>
+        <li>
+          <strong>Denúncias e registros de moderação:</strong> mantidos enquanto necessários
+          para segurança, apuração e cumprimento das regras. As denúncias enviadas por uma
+          conta são apagadas junto com ela.
+        </li>
+      </ul>
 
       <h2 id="pt-exclusao">9. Exclusão da conta</h2>
       <p>
@@ -683,13 +708,40 @@
       <p>
         We keep personal information for as long as reasonably necessary to provide Unwind,
         maintain accounts, operate social features, comply with legal obligations, resolve
-        disputes, enforce terms, prevent abuse, maintain security, and keep backups. Retention
-        periods vary depending on the type of data and the reason we need it.
+        disputes, enforce terms, prevent abuse, and maintain security. Retention periods vary
+        depending on the type of data and the reason we need it:
       </p>
-      <p>
-        Backups are rotating and are discarded within the retention cycle. Data already
-        deleted from active systems may remain in a backup until that backup is discarded.
-      </p>
+      <ul>
+        <li>
+          <strong>Account data and your activity:</strong> for as long as the account exists.
+          Deleting the account ends this period.
+        </li>
+        <li>
+          <strong>Sign-up started but not completed:</strong> 7 days, then discarded
+          automatically.
+        </li>
+        <li>
+          <strong>Backups:</strong> up to 30 days. They are rotating and discarded
+          automatically at the end of that period. Data already deleted from active systems
+          may remain in a backup until that backup is discarded.
+        </li>
+        <li>
+          <strong>Operational logs</strong> (errors, performance, requests): 30 days.
+        </li>
+        <li>
+          <strong>Administrative access audit records:</strong> 400 days. This period is set
+          by Google Cloud infrastructure and cannot be shortened by us.
+        </li>
+        <li>
+          <strong>App crash reports:</strong> as set by the diagnostics provider, currently
+          90 days on Firebase Crashlytics.
+        </li>
+        <li>
+          <strong>Reports and moderation records:</strong> kept for as long as necessary for
+          safety, investigation, and enforcement. Reports submitted by an account are deleted
+          along with it.
+        </li>
+      </ul>
 
       <h2 id="en-deletion">9. Account Deletion</h2>
       <p>
