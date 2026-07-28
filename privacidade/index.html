@@ -858,6 +858,7 @@
       var sections = document.querySelectorAll('[data-lang]');
       var buttons = document.querySelectorAll('[data-set-lang]');
       var htmlLang = { pt: 'pt-BR', en: 'en' };
+      var titles = { pt: 'Unwind - Política de Privacidade', en: 'Unwind - Privacy Policy' };
 
       function apply(lang) {
         if (lang !== 'pt' && lang !== 'en') lang = 'pt';
@@ -868,6 +869,7 @@
           button.setAttribute('aria-current', String(button.getAttribute('data-set-lang') === lang));
         });
         document.documentElement.lang = htmlLang[lang];
+        document.title = titles[lang];
       }
 
       function requested() {
