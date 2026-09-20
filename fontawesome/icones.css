@@ -1,0 +1,61 @@
+/*!
+ * Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2023 Fonticons, Inc.
+ */
+/* Recorte local do Font Awesome Free 6.4.2: so os icones que o site usa.
+   Pra adicionar um icone, gere de novo a partir do all.min.css e das webfonts
+   originais da mesma versao. */
+.fa-brands,.fa-regular,.fa-solid{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:var(--fa-display,inline-block);font-style:normal;font-variant:normal;line-height:1;text-rendering:auto}
+.fa-regular,.fa-solid{font-family:"Font Awesome 6 Free"}
+.fa-brands{font-family:"Font Awesome 6 Brands"}
+.fa-compass:before{content:"\f14e"}
+.fa-swatchbook:before{content:"\f5c3"}
+.fa-heart-crack:before{content:"\f7a9"}
+.fa-film:before{content:"\f008"}
+.fa-gamepad:before{content:"\f11b"}
+.fa-lock:before{content:"\f023"}
+.fa-bookmark:before{content:"\f02e"}
+.fa-bullseye:before{content:"\f140"}
+.fa-chart-simple:before{content:"\e473"}
+.fa-wand-magic-sparkles:before{content:"\e2ca"}
+.fa-star:before{content:"\f005"}
+.fa-fire:before{content:"\f06d"}
+.fa-gem:before{content:"\f3a5"}
+.fa-circle-play:before{content:"\f144"}
+.fa-circle-check:before{content:"\f058"}
+.fa-palette:before{content:"\f53f"}
+.fa-layer-group:before{content:"\f5fd"}
+.fa-couch:before{content:"\f4b8"}
+.fa-puzzle-piece:before{content:"\f12e"}
+.fa-arrow-right:before{content:"\f061"}
+.fa-heart:before{content:"\f004"}
+.fa-arrow-left:before{content:"\f060"}
+.fa-comment:before{content:"\f075"}
+.fa-clock:before{content:"\f017"}
+.fa-arrow-down:before{content:"\f063"}
+.fa-ranking-star:before{content:"\e561"}
+.fa-arrow-up:before{content:"\f062"}
+.fa-tv:before{content:"\f26c"}
+.fa-rocket:before{content:"\f135"}
+.fa-trophy:before{content:"\f091"}
+.fa-award:before{content:"\f559"}
+.fa-user-plus:before{content:"\f234"}
+.fa-check:before{content:"\f00c"}
+.fa-image-portrait:before{content:"\f3e0"}
+:host,:root{--fa-style-family-brands:"Font Awesome 6 Brands";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}
+@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url(fa-brands-400.woff2) format("woff2")}
+.fa-brands{font-weight:400}
+.fa-linkedin-in:before{content:"\f0e1"}
+.fa-spotify:before{content:"\f1bc"}
+.fa-x-twitter:before{content:"\e61b"}
+.fa-tiktok:before{content:"\e07b"}
+.fa-instagram:before{content:"\f16d"}
+.fa-youtube:before{content:"\f167"}
+.fa-strava:before{content:"\f428"}
+:host,:root{--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Free"}
+@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:400;font-display:block;src:url(fa-regular-400.woff2) format("woff2")}
+.fa-regular{font-weight:400}
+:host,:root{--fa-style-family-classic:"Font Awesome 6 Free";--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Free"}
+@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:block;src:url(fa-solid-900.woff2) format("woff2")}
+.fa-solid{font-weight:900}

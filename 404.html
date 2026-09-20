@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unwind — Página não encontrada</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#021033">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=4">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png?v=4">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=4">
+  <!-- Caminhos absolutos: o GitHub Pages serve esta pagina em qualquer URL,
+       inclusive dentro de "pastas" que nao existem. -->
+  <style>
+    @font-face {
+      font-family: 'carving';
+      src: url('/fonts/carving.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Rammetto One';
+      src: url('/fonts/rammetto-one.woff2') format('woff2');
+      font-display: swap;
+    }
+    :root {
+      --brand-navy: #021033;
+      --brand-blue: #107be6;
+      --texto: #f4f7fa;
+      --texto-suave: #a8bfe4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      display: grid;
+      place-items: center;
+      padding: 2rem 1rem;
+      font-family: 'carving', sans-serif;
+      color: var(--texto);
+      background-color: var(--brand-navy);
+      background-image:
+        radial-gradient(70rem 42rem at 50% -12rem, rgba(16, 123, 230, 0.30), transparent 62%),
+        radial-gradient(40rem 30rem at 100% 100%, rgba(16, 123, 230, 0.12), transparent 70%);
+      -webkit-font-smoothing: antialiased;
+      text-align: center;
+    }
+    main { max-width: 34rem; }
+    .marca {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+      text-decoration: none;
+    }
+    .marca img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      mix-blend-mode: screen;
+    }
+    .marca span {
+      color: var(--brand-blue);
+      font-family: 'Rammetto One', sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      text-shadow: 0 0 1rem rgba(16, 123, 230, 0.28);
+    }
+    .codigo {
+      font-family: 'Rammetto One', sans-serif;
+      font-size: clamp(5rem, 18vw, 8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: rgba(244, 247, 250, 0.10);
+    }
+    h1 {
+      margin-top: -0.6em;
+      font-family: 'Rammetto One', sans-serif;
+      font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+    h1 em { font-style: normal; color: var(--brand-blue); }
+    p {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--texto-suave);
+    }
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 2rem;
+      padding: 13px 24px;
+      border-radius: 999px;
+      background: var(--brand-blue);
+      border: 1.5px solid var(--brand-blue);
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+    .botao:hover {
+      background: #2a8ff0;
+      border-color: #2a8ff0;
+      box-shadow: 0 8px 30px rgba(16, 123, 230, 0.35);
+      transform: translateY(-1px);
+    }
+    .botao svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .botao:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="marca" href="/" aria-label="Unwind — ir para o início">
+      <img src="/images/unwind-portal-icone.png" alt="" width="44" height="44">
+      <span>Unwind</span>
+    </a>
+    <div class="codigo" aria-hidden="true">404</div>
+    <h1>Essa história <em>ainda não existe</em></h1>
+    <p>A página que você procurou não está no catálogo. Pode ter mudado de lugar ou o link veio com erro.</p>
+    <a class="botao" href="/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Voltar pro início
+    </a>
+  </main>
+</body>
+</html>

@@ -1,24 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>O universo do entretenimento na palma da sua mão.</title>
-    <link rel="icon" type="image/png" href="images/trueUnwind.png">
+    <!-- Font Awesome local, recortado so pros icones usados: antes eram 102 KB
+         de CSS de outro dominio travando a primeira pintura, mais as fontes. -->
+    <link rel="stylesheet" href="fontawesome/icones.css">
+    <title>Unwind — A rede social do entretenimento</title>
+    <meta name="description" content="Dê vida à sua coleção de jogos, séries e filmes. Compartilhe o que viveu e descubra qual história vem depois.">
+    <link rel="canonical" href="https://www.unwind.com.br/">
+    <!-- Cartao de compartilhamento (WhatsApp, Instagram, X, Discord). -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Unwind">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://www.unwind.com.br/">
+    <meta property="og:title" content="Unwind — A rede social do entretenimento">
+    <meta property="og:description" content="Dê vida à sua coleção de jogos, séries e filmes. Compartilhe o que viveu e descubra qual história vem depois.">
+    <meta property="og:image" content="https://www.unwind.com.br/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Unwind: só se vive uma vez? Aqui não. Três telas do app com a coleção de jogos, filmes e séries.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@useunwind">
+    <meta name="twitter:title" content="Unwind — A rede social do entretenimento">
+    <meta name="twitter:description" content="Dê vida à sua coleção de jogos, séries e filmes. Compartilhe o que viveu e descubra qual história vem depois.">
+    <meta name="twitter:image" content="https://www.unwind.com.br/images/og-image.png">
+    <meta name="theme-color" content="#021033">
+    <!-- Icone da aba: a arte inteira do portal, com o fundo navy preenchido.
+         O ?v= forca o navegador a trocar o icone que ja tinha guardado. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=4">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png?v=4">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=4">
     <link rel="stylesheet" href="styles.css">
+    <!-- As duas fontes da primeira tela (menu, marca e texto do hero): pedidas
+         junto com o HTML, sem esperar o navegador ler o CSS pra descobrir. -->
+    <link rel="preload" href="fonts/carving.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/rammetto-one.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@100;400;700;900&family=Cal+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
     <div class="header-left">
         <div class="logo">
-            <img src="images/logoTexto.png" alt="Unwind Logo" class="hero-lamp">
+            <a href="#hero" class="brand-lockup" aria-label="Unwind — ir para o início">
+                
+                <span class="brand-name">Unwind</span>
+            </a>
         </div>
 
         <!-- Ícone do Menu Hamburguer (visível apenas no mobile) -->
@@ -28,273 +58,360 @@
         <nav class="nav-links">
     <ul>
         <li><a href="#hero">Início</a></li>
-        <li class="dropdown-li"> <a href="javascript:void(0);" class="dropdown-toggle">Recursos <i class="fas fa-chevron-down dropdown-icon"></i></a>
-            <ul class="dropdown-menu">
-                <li><a href="#midias-bg">Catálogo</a></li>
-                <li><a href="#estante">Estante</a></li>
-                <li><a href="#comunidade">Comunidade</a></li>
-            </ul>
-        </li>
-        <li><a href="#recomendacao">Recomendações</a></li>
-        <li><a href="#features">Showcase</a></li>
-        <li><a href="#questions">Dúvidas</a></li>
+        <li><a href="#midias-bg">Perfil</a></li>
+        <li><a href="#comunidade">Comunidade</a></li>
+        <li><a href="#hype">Hype</a></li>
+        <li><a href="#gamificacao">Progresso</a></li>
+        <li><a href="#descoberta">Descoberta</a></li>
     </ul>
 </nav>
     </div>
 
     <div class="header-right">
-      <button class="login-btn" onclick="window.open('beta.html', '_blank')">Começar Agora</button>
+      <button class="login-btn" onclick="window.open('beta.html', '_blank')">Entrar no beta</button>
     </div>
 
     <!-- Menu Mobile -->
     <div class="mobile-menu">
         <ul>
             <li><a href="#hero">Início</a></li>
-            <li><a href="#midias-bg">Catálogo</a></li>
-              <li><a href="#estante">Estante</a></li>
+            <li><a href="#midias-bg">Perfil</a></li>
               <li><a href="#comunidade">Comunidade</a></li>
-            <li><a href="#recomendacao">Recomendações</a></li>
-            <li><a href="#features">Showcase</a></li>
+              <li><a href="#hype">Hype</a></li>
+              <li><a href="#gamificacao">Progresso</a></li>
+              <li><a href="#descoberta">Descoberta</a></li>
          
-            <li><a href="#questions">Dúvidas</a></li>
         </ul>
-        <button class="login-btn-mobile">Começar Agora</button>
+        <button class="login-btn-mobile">Entrar no beta</button>
     </div>
 </header>
 
     
       <section id="hero" class="hero">
         <div class="hero-content">
-            <h2>O universo do entretenimento na palma da sua mão</h2>
+            <h1>
+              <span>Só se vive uma vez?</span>
+              <span>Aqui não.</span>
+            </h1>
+            <div class="hero-media-types" aria-label="Conteúdos disponíveis no Unwind">
+              <span><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Jogos</span>
+              <span><i class="fa-solid fa-tv" aria-hidden="true"></i> Séries</span>
+              <span><i class="fa-solid fa-film" aria-hidden="true"></i> Filmes</span>
+            </div>
             <p>
-                Entre em uma comunidade vibrante e apaixonada por games, séries e filmes. Junte-se a nós e transforme a forma como você descobre e vive o entretenimento.
+                Dê vida à sua coleção de jogos, séries e filmes. Compartilhe o que viveu e descubra qual história vem depois.
             </p>
             <div class="cta-container">
-              <a href="beta.html" class="cta-button" target="_blank">Entre no Beta</a>
-                
+              <a href="beta.html" class="cta-button" target="_blank">Entrar no beta</a>
+
+              <ul class="hero-social">
+                <li><a class="hero-social-link" href="https://www.youtube.com/@useunwind" target="_blank" rel="noopener" aria-label="Unwind no YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+                <li><a class="hero-social-link" href="https://www.instagram.com/useunwind/" target="_blank" rel="noopener" aria-label="Unwind no Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a class="hero-social-link" href="https://www.tiktok.com/@useunwind" target="_blank" rel="noopener" aria-label="Unwind no TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a></li>
+                <li><a class="hero-social-link" href="https://x.com/useunwind" target="_blank" rel="noopener" aria-label="Unwind no X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+              </ul>
             </div>
         </div>
     
-        <!-- Grid de Imagens -->
+        <!-- Arte e luz compartilham as mesmas coordenadas para manter o alinhamento. -->
         <div class="hero-image-grid">
-            <img src="images/fundo.png" alt="Universe of Entertainment" class="grid-item">
-            
+            <img src="images/otimizadas/hero-portal.webp" alt="Pessoa atravessando um portal para diferentes universos do entretenimento" class="grid-item" fetchpriority="high">
+            <!-- Halo e trilhas ficam em SVGs separados. O halo tem forma parada e
+                 so a opacidade respira: sozinho numa camada, o desfoque grande e
+                 calculado uma vez em vez de a cada quadro. As defs daqui servem
+                 aos dois SVGs. -->
+            <svg class="hero-portal-halo" viewBox="0 0 1672 941" fill="none" aria-hidden="true" focusable="false">
+                <defs>
+                    <path id="hero-portal-orbit" pathLength="100" d="M 1217 109 C 1370 96 1472 254 1454 473 C 1439 665 1348 803 1205 796 C 1047 788 944 639 952 467 C 960 277 1059 122 1217 109 Z"/>
+                    <!-- Regioes justas ao aro (casco dos pontos de controle: x 944-1472,
+                         y 96-803), e nao -30%/160% da caixa: sobra menos pixel pra
+                         desfocar. A folga cobre meio traco mais 3x o desvio. -->
+                    <filter id="hero-portal-soft" filterUnits="userSpaceOnUse" x="894" y="46" width="628" height="807" color-interpolation-filters="sRGB">
+                        <feGaussianBlur stdDeviation="7"/>
+                    </filter>
+                    <filter id="hero-portal-halo" filterUnits="userSpaceOnUse" x="854" y="6" width="708" height="887" color-interpolation-filters="sRGB">
+                        <feGaussianBlur stdDeviation="18"/>
+                    </filter>
+                    <mask id="hero-portal-depth" maskUnits="userSpaceOnUse" x="840" y="0" width="740" height="941" style="mask-type: luminance">
+                        <rect width="1672" height="941" fill="white"/>
+                        <!-- Contorno na resolucao original, incluindo o vao sob o braco e as solas. -->
+                        <path fill="black" stroke="black" stroke-width="0.7" stroke-linejoin="round" d="
+                            M 1009 398
+                            C 1007 390 1033 390 1055 394
+                            L 1047 381 Q 1040 371 1044 361
+                            L 1040 362 Q 1044 357 1048 352
+                            Q 1051 342 1068 339 Q 1070 331 1081 329
+                            Q 1073 333 1075 337 Q 1090 327 1107 334
+                            Q 1128 342 1131 333 Q 1135 345 1126 345
+                            Q 1133 352 1137 347 Q 1140 355 1132 356
+                            Q 1145 369 1137 382 L 1131 386
+                            Q 1132 397 1126 406 L 1113 424
+                            Q 1120 431 1125 450 L 1131 475
+                            Q 1139 486 1139 496 Q 1145 498 1144 505
+                            Q 1153 506 1157 519 L 1167 529
+                            Q 1171 538 1170 545 Q 1178 550 1176 556
+                            Q 1192 560 1196 566 Q 1201 574 1199 581
+                            L 1195 575 Q 1198 584 1194 590
+                            L 1190 592 Q 1191 583 1184 581
+                            Q 1172 585 1167 569 Q 1160 569 1157 561
+                            Q 1144 566 1135 558 L 1113 539
+                            Q 1106 532 1096 507 L 1081 535
+                            Q 1074 551 1080 566 Q 1083 575 1074 580
+                            L 1072 593 Q 1080 611 1085 630
+                            L 1100 677 Q 1104 684 1104 695
+                            L 1112 763 Q 1114 770 1117 774
+                            Q 1121 783 1119 791
+                            Q 1128 792 1136 788 Q 1147 781 1153 789
+                            Q 1159 797 1158 809 Q 1158 819 1150 824
+                            L 1134 836 Q 1126 841 1121 849
+                            Q 1112 858 1094 855 Q 1088 854 1087 850
+                            L 1085 831 L 1084 820
+                            Q 1076 813 1074 803 Q 1072 797 1074 783
+                            Q 1062 755 1062 736 L 1061 708
+                            Q 1053 703 1056 692 L 1008 628
+                            Q 996 647 983 669 L 970 692
+                            Q 965 704 956 711 L 911 729
+                            Q 907 738 899 744 L 882 751
+                            Q 880 760 875 765 L 870 776
+                            L 866 799 Q 864 812 853 817
+                            Q 842 822 832 811 Q 817 795 817 780
+                            Q 816 768 821 747 L 824 724
+                            Q 827 710 839 709 Q 848 708 856 712
+                            L 864 701 Q 871 692 884 695
+                            Q 910 673 925 673 Q 924 669 932 664
+                            Q 940 639 949 609 Q 950 602 953 599
+                            Q 950 597 952 592 Q 952 582 957 574
+                            Q 953 568 956 562
+                            Q 957 559 954 553 Q 950 541 955 536
+                            L 970 519 L 981 486
+                            L 962 491 Q 957 492 954 499
+                            Q 947 508 935 516 Q 935 529 927 534
+                            Q 921 537 916 535 L 909 547
+                            Q 913 560 912 572 L 910 582
+                            Q 913 589 908 590 Q 903 591 903 584
+                            L 903 571 Q 894 574 893 580
+                            L 891 592 Q 887 596 884 592
+                            Q 881 595 879 591 Q 875 592 875 587
+                            L 874 575 Q 869 580 869 575
+                            L 872 560 Q 874 553 882 546
+                            L 888 538 Q 892 530 893 524
+                            Q 889 514 894 509 L 901 505
+                            Q 907 489 918 476 L 925 466
+                            Q 928 461 936 459 L 959 447
+                            Q 969 442 981 439 L 992 432 L 1002 426
+                            Q 1000 416 1009 409 Z"/>
+                    </mask>
+                </defs>
+                <use href="#hero-portal-orbit" class="hero-portal-glow" filter="url(#hero-portal-halo)" mask="url(#hero-portal-depth)"/>
+            </svg>
+            <svg class="hero-portal-light" viewBox="0 0 1672 941" fill="none" aria-hidden="true" focusable="false">
+                <g mask="url(#hero-portal-depth)">
+                    <!-- Um desfoque so pras quatro faixas largas, em vez de um por
+                         faixa. As duas correntes andam a meia volta uma da outra e
+                         nunca se cruzam, entao juntar nao muda o desenho. -->
+                    <g filter="url(#hero-portal-soft)">
+                        <g class="hero-portal-stream hero-portal-stream--first">
+                            <use href="#hero-portal-orbit" class="hero-portal-trail"/>
+                            <use href="#hero-portal-orbit" class="hero-portal-energy"/>
+                        </g>
+                        <g class="hero-portal-stream hero-portal-stream--second">
+                            <use href="#hero-portal-orbit" class="hero-portal-trail"/>
+                            <use href="#hero-portal-orbit" class="hero-portal-energy"/>
+                        </g>
+                    </g>
+                    <g class="hero-portal-stream hero-portal-stream--first">
+                        <use href="#hero-portal-orbit" class="hero-portal-core"/>
+                        <use href="#hero-portal-orbit" class="hero-portal-head"/>
+                    </g>
+                    <g class="hero-portal-stream hero-portal-stream--second">
+                        <use href="#hero-portal-orbit" class="hero-portal-core"/>
+                        <use href="#hero-portal-orbit" class="hero-portal-head"/>
+                    </g>
+                    <g class="hero-portal-stream hero-portal-stream--sparks" transform="translate(1205 452) scale(1.065) translate(-1205 -452)">
+                        <use href="#hero-portal-orbit" class="hero-portal-sparks"/>
+                    </g>
+                    <g class="hero-portal-stream hero-portal-stream--sparks hero-portal-stream--sparks-middle" transform="translate(1205 452) scale(1.14) translate(-1205 -452)">
+                        <use href="#hero-portal-orbit" class="hero-portal-sparks"/>
+                    </g>
+                    <g class="hero-portal-stream hero-portal-stream--sparks hero-portal-stream--sparks-outer" transform="translate(1205 452) scale(1.22) translate(-1205 -452)">
+                        <use href="#hero-portal-orbit" class="hero-portal-sparks"/>
+                    </g>
+                </g>
+            </svg>
         </div>
     </section>
 
-    <section id="mockup">
-      <img src="images/mockupDefinitivo.png" alt="Tela do app" class="mockup-img">
+    <section class="camadas">
+      <div class="camadas-wrap">
+        <h2 class="camadas-linhas">
+          <span class="soft">Cada camada da sua vida já tem uma rede.</span>
+          <span>Menos uma.</span>
+        </h2>
+
+        <ol class="camadas-grade">
+          <li class="camada camada--linkedin">
+            <span class="camada-ic" aria-hidden="true"><i class="fa-brands fa-linkedin-in"></i></span>
+            <span class="camada-rotulo">Profissional</span>
+            <span class="camada-rede">LinkedIn</span>
+            <span class="camada-oque">o que você faz</span>
+          </li>
+
+          <li class="camada camada--instagram">
+            <span class="camada-ic" aria-hidden="true"><i class="fa-brands fa-instagram"></i></span>
+            <span class="camada-rotulo">Social</span>
+            <span class="camada-rede">Instagram</span>
+            <span class="camada-oque">quem você é</span>
+          </li>
+
+          <li class="camada camada--vaga">
+            <span class="camada-ic" aria-hidden="true">
+              <img class="camada-portal" src="images/unwind-portal-icone.png" alt="">
+            </span>
+            <span class="camada-rotulo">Entretenimento</span>
+            <span class="camada-rede">
+              <span class="camada-interro" aria-hidden="true">?</span>
+              <span class="camada-marca">Unwind</span>
+            </span>
+            <span class="camada-oque">o que você viveu</span>
+          </li>
+
+          <li class="camada camada--spotify">
+            <span class="camada-ic" aria-hidden="true"><i class="fa-brands fa-spotify"></i></span>
+            <span class="camada-rotulo">Música</span>
+            <span class="camada-rede">Spotify</span>
+            <span class="camada-oque">o que você ouve</span>
+          </li>
+
+          <li class="camada camada--strava">
+            <span class="camada-ic" aria-hidden="true"><i class="fa-brands fa-strava"></i></span>
+            <span class="camada-rotulo">Esporte</span>
+            <span class="camada-rede">Strava</span>
+            <span class="camada-oque">até onde você foi</span>
+          </li>
+        </ol>
+
+        <p class="camadas-resposta">
+          Jogos, séries e filmes ocupam suas noites, seus fins de semana e
+          metade das suas conversas. <b>E nunca tiveram um lugar próprio.</b>
+        </p>
+      </div>
     </section>
-    
+
     <section class="midias-bg" id="midias-bg">
+      <div class="midias-luz diagonal-energy" aria-hidden="true">
+        <svg class="diagonal-energy-svg" viewBox="0 0 1600 120" preserveAspectRatio="none" fill="none" focusable="false">
+          <defs>
+            <path id="diagonal-perfil-line" pathLength="100" d="M 0 118 H 1600"/>
+            <!-- Regiao comeca em y=0: acima disso nao ha traco nenhum, e o SVG ja
+                 corta tudo fora do viewBox. Embaixo a folga continua cobrindo o
+                 traco inteiro que o desfoque precisa ler. -->
+            <filter id="diagonal-perfil-soft" filterUnits="userSpaceOnUse" x="-80" y="0" width="1760" height="200" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="5"/></filter>
+            <filter id="diagonal-perfil-halo" filterUnits="userSpaceOnUse" x="-80" y="0" width="1760" height="200" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="13"/></filter>
+            <!-- O brilho de fundo e uma linha reta de 34px desfocada com desvio 13:
+                 o perfil vertical disso tem conta fechada (erf), entao ele vira um
+                 gradiente pronto em vez de um desfoque refeito a cada quadro do
+                 respiro. Stops a cada 4px, gerados pela formula. -->
+            <linearGradient id="diagonal-perfil-bloom" gradientUnits="userSpaceOnUse" x1="0" y1="56" x2="0" y2="120">
+              <stop offset="0.0000" stop-color="#16bfff" stop-opacity="0.0003"/>
+              <stop offset="0.0625" stop-color="#16bfff" stop-opacity="0.0008"/>
+              <stop offset="0.1250" stop-color="#16bfff" stop-opacity="0.0022"/>
+              <stop offset="0.1875" stop-color="#16bfff" stop-opacity="0.0056"/>
+              <stop offset="0.2500" stop-color="#16bfff" stop-opacity="0.0128"/>
+              <stop offset="0.3125" stop-color="#16bfff" stop-opacity="0.0272"/>
+              <stop offset="0.3750" stop-color="#16bfff" stop-opacity="0.0531"/>
+              <stop offset="0.4375" stop-color="#16bfff" stop-opacity="0.0954"/>
+              <stop offset="0.5000" stop-color="#16bfff" stop-opacity="0.1585"/>
+              <stop offset="0.5625" stop-color="#16bfff" stop-opacity="0.2439"/>
+              <stop offset="0.6250" stop-color="#16bfff" stop-opacity="0.3489"/>
+              <stop offset="0.6875" stop-color="#16bfff" stop-opacity="0.4658"/>
+              <stop offset="0.7500" stop-color="#16bfff" stop-opacity="0.5827"/>
+              <stop offset="0.8125" stop-color="#16bfff" stop-opacity="0.6860"/>
+              <stop offset="0.8750" stop-color="#16bfff" stop-opacity="0.7628"/>
+              <stop offset="0.9375" stop-color="#16bfff" stop-opacity="0.8038"/>
+              <stop offset="1.0000" stop-color="#16bfff" stop-opacity="0.8038"/>
+            </linearGradient>
+          </defs>
+          <rect class="diagonal-bloom" x="0" y="56" width="100%" height="64" fill="url(#diagonal-perfil-bloom)"/>
+          <!-- Um desfoque por tipo de faixa, em vez de um por faixa: as duas
+               correntes andam a meia volta uma da outra e nunca se encostam. -->
+          <g filter="url(#diagonal-perfil-halo)">
+            <g class="diagonal-stream"><use href="#diagonal-perfil-line" class="diagonal-trail"/></g>
+            <g class="diagonal-stream diagonal-stream--second"><use href="#diagonal-perfil-line" class="diagonal-trail"/></g>
+          </g>
+          <g filter="url(#diagonal-perfil-soft)">
+            <g class="diagonal-stream"><use href="#diagonal-perfil-line" class="diagonal-flare"/></g>
+            <g class="diagonal-stream diagonal-stream--second"><use href="#diagonal-perfil-line" class="diagonal-flare"/></g>
+          </g>
+          <g class="diagonal-stream">
+            <use href="#diagonal-perfil-line" class="diagonal-core"/>
+            <use href="#diagonal-perfil-line" class="diagonal-head"/>
+          </g>
+          <g class="diagonal-stream diagonal-stream--second">
+            <use href="#diagonal-perfil-line" class="diagonal-core"/>
+            <use href="#diagonal-perfil-line" class="diagonal-head"/>
+          </g>
+          <path class="diagonal-sparks" pathLength="100" d="M 0 108 Q 200 100 400 108 T 800 108 T 1200 108 T 1600 108"/>
+          <path class="diagonal-sparks diagonal-sparks--middle" pathLength="100" d="M 0 88 Q 200 99 400 88 T 800 88 T 1200 88 T 1600 88"/>
+          <path class="diagonal-sparks diagonal-sparks--outer" pathLength="100" d="M 0 64 Q 200 80 400 64 T 800 64 T 1200 64 T 1600 64"/>
+        </svg>
+      </div>
       <div class="content-wrapper">
-        <div class="text-container">
-          <h2>Tudo o que você ama, em um só lugar.</h2>
-          <p>Navegue por milhares de jogos, filmes e séries. Explore títulos consagrados e novidades fresquinhas. Encontre desde produções premiadas até aquelas que viraram febre nas redes. Sua experiência de entretenimento, organizada, acessível e sempre atualizada.</p>
-          <div class="video-number-row">
-            <div class="video-number-container">
-              <video class="video-item" autoplay muted loop playsinline aria-label="Demonstração de jogos">
-                <source src="videos/videoGame.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="number-item">
-                <h3>+2.600 🎮</h3>
-                <p>Jogos</p>
+        <!-- Texto vem primeiro no DOM (h2 antes da midia); o row-reverse do CSS
+             e que joga o video pra esquerda no desktop. -->
+        <div class="midias-split">
+          <div class="midias-texto">
+            <h2>Um perfil pra tudo o que você já viveu.</h2>
+            <p>Não é uma lista. É a estante da sua história. Cada jogo zerado, cada série maratonada e cada filme que te marcou tem lugar, status e voz aqui.</p>
+
+            <div class="midias-secoes">
+              <div class="midias-secao midias-secao--andamento">
+                <span class="midias-secao-head">
+                  <span class="midias-secao-tick" aria-hidden="true"></span>
+                  <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+                  <span class="midias-secao-nome">Em andamento</span>
+                </span>
+                <span class="midias-secao-desc">o que você vive agora</span>
               </div>
-            </div>
-            <div class="video-number-container">
-              <video class="video-item" autoplay muted loop playsinline aria-label="Demonstração de filmes">
-                <source src="videos/movies.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="number-item">
-                <h3>+6.500 🎬</h3>
-                <p>Filmes</p>
+
+              <div class="midias-secao midias-secao--encerrados">
+                <span class="midias-secao-head">
+                  <span class="midias-secao-tick" aria-hidden="true"></span>
+                  <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
+                  <span class="midias-secao-nome">Encerrados</span>
+                </span>
+                <span class="midias-secao-desc">platinados, zerados e finalizados</span>
               </div>
-            </div>
-            <div class="video-number-container">
-              <video class="video-item" autoplay muted loop playsinline aria-label="Demonstração de séries">
-                <source src="videos/tvShow.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="number-item">
-                <h3>+3.300 📺</h3>
-                <p>Séries</p>
+
+              <div class="midias-secao midias-secao--radar">
+                <span class="midias-secao-head">
+                  <span class="midias-secao-tick" aria-hidden="true"></span>
+                  <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                  <span class="midias-secao-nome">No radar</span>
+                </span>
+                <span class="midias-secao-desc">sua fila e expectativas</span>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="estante" id="estante">
-      <div class="header-content">
-        <div class="header-content-text">
-          <h2>Guarde Cada Emoção que Viveu e que vai Viver.</h2>
-          <p>No Unwind, cada filme assistido, série maratonada ou jogo zerado vira parte da sua história. Registre suas impressões, marque suas favoritas, salve o que ainda quer viver e acompanhe sua ansiedade pelos lançamentos mais esperados. Sua jornada no entretenimento começa aqui, do seu jeito.</p>
-        </div>
-        <video autoplay muted loop playsinline>
-          <source src="videos/cinema.mp4" type="video/mp4">
-          Seu navegador não suporta o elemento de vídeo.
-        </video>
-      </div>
-      <div class="estante-wrapper">
-        <div class="tabs-section">
-          <div class="tabs-buttons">
-            <div class="filter-buttons">
-              <button class="filter-btn active" data-type="game"><span class="filter-icon">🎮</span>Jogos</button>
-              <button class="filter-btn active" data-type="movie"><span class="filter-icon">🎬</span>Filmes</button>
-              <button class="filter-btn active" data-type="series"><span class="filter-icon">📺</span>Séries</button>
-            </div>
-            <div class="tabs">
-              <button class="tab active" data-tab="ratings"><span class="tab-icon">⭐</span></button>
-              <button class="tab" data-tab="liked"><span class="tab-icon">❤️</span></button>
-              <button class="tab" data-tab="saved"><span class="tab-icon">📑</span></button>
-              <button class="tab" data-tab="hype"><span class="tab-icon">🔥</span></button>
-              <div class="tab-indicator"></div>
-            </div>
-          </div>
-          
-  
-          <div class="tab-content" id="ratings">
-            <div class="media-grid">
-              <div class="media-item" data-type="movie">
-                <img src="images/prisoners.jpg" alt="Filme 1">
-                <div class="media-rating">⭐⭐⭐⭐</div>
-              </div>
-              <div class="media-item" data-type="movie">
-                <img src="images/interestellar.jpg" alt="Filme 2">
-                <div class="media-rating">⭐⭐⭐</div>
-              </div>
-              <div class="media-item" data-type="series">
-                <img src="images/invincible.jpg" alt="Série 1">
-                <div class="media-rating">⭐⭐⭐⭐⭐</div>
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/forzaV.webp" alt="Jogo 1">
-                <div class="media-rating">⭐⭐⭐⭐</div>
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/lol.webp" alt="Jogo 2">
-                <div class="media-rating">⭐⭐</div>
-              </div>
-              <div class="media-item" data-type="series">
-                <img src="images/theOffice.jpg" alt="Série 2">
-                <div class="media-rating">⭐⭐⭐⭐</div>
+
+              <div class="midias-secao midias-secao--premiacoes">
+                <span class="midias-secao-head">
+                  <span class="midias-secao-tick" aria-hidden="true"></span>
+                  <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                  <span class="midias-secao-nome">Premiações</span>
+                </span>
+                <span class="midias-secao-desc">o melhor de cada ano</span>
               </div>
             </div>
           </div>
-  
-          <div class="tab-content" id="liked">
-            <div class="media-grid">
-              <div class="media-item" data-type="series">
-                <img src="images/invincible.jpg" alt="Filme 3">
-              </div>
-              <div class="media-item" data-type="movie">
-                <img src="images/avengers.jpg" alt="Série 3">
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/batman.webp" alt="Jogo 3">
-              </div>
-              <div class="media-item" data-type="movie">
-                <img src="images/fightClub.jpg" alt="Filme 4">
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/minecraft.webp" alt="Série 4">
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/godWar.webp" alt="Jogo 4">
+          <div class="midias-palco">
+            <div class="fone">
+              <div class="fone-tela">
+                <video muted loop playsinline preload="metadata" poster="videos/perfil-poster.webp" aria-label="Demonstração do perfil no Unwind: a coleção de jogos, filmes e séries, com o que está em andamento e o que já foi encerrado">
+                  <!-- AV1 (metade do peso) pra Chrome, Firefox, Edge, Android e
+                       iPhone 15 Pro+; quem nao decodifica AV1 cai no H.264. -->
+                  <source src="videos/perfil-av1.mp4" type="video/mp4; codecs=av01.0.05M.08">
+                  <source src="videos/perfil.mp4" type="video/mp4">
+                </video>
               </div>
             </div>
-          </div>
-  
-          <div class="tab-content" id="saved">
-            <div class="media-grid">
-              <div class="media-item" data-type="movie">
-                <img src="images/exMachina.webp" alt="Filme 5">
-              </div>
-              <div class="media-item" data-type="series">
-                <img src="images/friends.jpg" alt="Série 5">
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/hades.webp" alt="Jogo 5">
-              </div>
-              <div class="media-item" data-type="movie">
-                <img src="images/starWars.jpg" alt="Filme 6">
-              </div>
-              <div class="media-item" data-type="movie">
-                <img src="images/woldWallstreet.jpg" alt="Série 6">
-              </div>
-              <div class="media-item" data-type="series">
-                <img src="images/loveDeath.webp" alt="Jogo 6">
-              </div>
-            </div>
-          </div>
-  
-          <div class="tab-content" id="hype">
-            <div class="media-grid">
-              <div class="media-item" data-type="movie">
-                <img src="images/avatarFilme.webp" alt="Filme 7">
-                <div class="media-rating">🔥🔥🔥</div>
-              </div>
-              <div class="media-item" data-type="movie">
-                <img src="images/superman.jpeg" alt="Série 7">
-                <div class="media-rating">🔥🔥🔥🔥</div>
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/doomDark.webp" alt="Jogo 7">
-                <div class="media-rating">🔥🔥</div>
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/gta6.webp" alt="Filme 8">
-                <div class="media-rating">🔥🔥🔥🔥🔥</div>
-              </div>
-              <div class="media-item" data-type="series">
-                <img src="images/marvelZombies.webp" alt="Série 8">
-                <div class="media-rating">🔥🔥🔥</div>
-              </div>
-              <div class="media-item" data-type="game">
-                <img src="images/hollowSilk.webp" alt="Jogo 8">
-                <div class="media-rating">🔥🔥🔥🔥</div>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-        <div class="estante-container">
-          <div class="estante-item">
-            <div class="estante-header">
-              <span class="estante-icon">⭐</span>
-              <span class="estante-mini-title">Ratings</span>
-            </div>
-            <h3>Registre Suas Impressões</h3>
-            <p>Deixe suas avaliações em filmes, séries e jogos. Guarde como cada história fez você se sentir — e reviva essas emoções sempre que quiser.</p>
-          </div>
-  
-          <div class="estante-item">
-            <div class="estante-header">
-              <span class="estante-icon">❤️</span>
-              <span class="estante-mini-title">Liked</span>
-            </div>
-            <h3>Marque Seus Favoritos</h3>
-            <p>Dê um like nas mídias que mais tocaram você. Monte sua coleção pessoal das obras que marcaram sua jornada.</p>
-          </div>
-  
-          <div class="estante-item">
-            <div class="estante-header">
-              <span class="estante-icon">📑</span>
-              <span class="estante-mini-title">Saved</span>
-            </div>
-            <h3>Salve o que Quer Viver</h3>
-            <p>Crie listas de desejos e organize tudo o que ainda quer assistir, jogar ou descobrir. Nunca mais perca uma boa história.</p>
-          </div>
-  
-          <div class="estante-item">
-            <div class="estante-header">
-              <span class="estante-icon">🔥</span>
-              <span class="estante-mini-title">Hype</span>
-            </div>
-            <h3>Acompanhe o Hype</h3>
-            <p>Marque os lançamentos mais esperados e registre o quanto está ansioso. A contagem regressiva começa aqui — junto com quem sente como você.</p>
           </div>
         </div>
       </div>
@@ -302,1018 +419,956 @@
     
     
     <section id="comunidade" class="comunidade">
-      <div class="comunidade-text">
-        <h2>Uma Comunidade que Vive o Entretenimento.</h2>
-        <p>Terminar uma série épica, zerar um jogo inesquecível ou assistir a um filme que muda tudo — é impossível guardar isso só pra si. No Unwind, você encontra quem sente como você, compartilha suas emoções e descobre novas histórias para se apaixonar.</p>
-        <div class="cta-comunidade">
-          <a href="beta.html" class="cta-button" target="_blank">Junte-se a Nós</a>
-            
-        </div>
+      <div class="vitrine">
+          <button type="button" class="vitrine-card vitrine-card--reviews is-ativo" aria-pressed="true">
+            <span class="vitrine-icone"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Reviews</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Reviews</span>
+              <span class="vitrine-desc">Avaliar é só o começo da conversa.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--hot" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-fire" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Hot takes</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Hot takes</span>
+              <span class="vitrine-desc">A opinião impopular que você defende até o fim.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--tier" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-ranking-star" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Tier Lists</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Tier Lists</span>
+              <span class="vitrine-desc">Do S ao F, com a defesa de cada escolha.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--teorias" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Teorias</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Teorias</span>
+              <span class="vitrine-desc">O que aquele final realmente quis dizer.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--platina" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-trophy" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Platinados</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Platinados</span>
+              <span class="vitrine-desc">As 80 horas que couberam em um troféu.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--hype" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-rocket" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Hype</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Hype</span>
+              <span class="vitrine-desc">A contagem regressiva que você acompanha desde o anúncio.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--recomen" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-compass" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Recomendações</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Recomendações</span>
+              <span class="vitrine-desc">Se você viveu aquilo, o próximo é este.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--maratona" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-couch" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Maratonas</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Maratonas</span>
+              <span class="vitrine-desc">Três temporadas em um fim de semana só.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--desabafo" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-heart-crack" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Desabafos</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Desabafos</span>
+              <span class="vitrine-desc">O final que ninguém merecia.</span>
+            </span>
+          </button>
+
+          <button type="button" class="vitrine-card vitrine-card--backlog" aria-pressed="false">
+            <span class="vitrine-icone"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+            <span class="vitrine-vert"><span>Backlog</span></span>
+            <span class="vitrine-corpo">
+              <span class="vitrine-titulo">Backlog</span>
+              <span class="vitrine-desc">A pilha que cresce mais rápido que o tempo.</span>
+            </span>
+          </button>
       </div>
-      <div class="comunidade-feed">
-        <div class="feed-content">
-          <!-- Review Post 1: Elden Ring (Fixo) -->
-          <div class="feed-post review" data-color="#00b7eb">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar1.png" alt="User avatar" class="post-avatar">
-                <h3>PlayerOne</h3>
-              </div>
-              <span class="post-timestamp">2 horas atrás</span>
-            </div>
-            <div class="post-content">
-              <div class="review-container">
-                <div class="review-left">
-                  <h4 class="review-title">Elden Ring</h4>
-                  <img src="images/eldenRing.webp" alt="Elden Ring cover" class="review-cover">
-                  <div class="review-stars">★★★★☆</div>
-                </div>
-                <div class="review-right">
-                  <span class="review-media-type">🎮 Jogo</span>
-                  <p class="review-text" id="pub-text">Acabei de zerar *Elden Ring*! Que jogo incrível, alguém tem dicas pra NG+?</p>
-                </div>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">10K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">1.2K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">500</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">2K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 2: The Last of Us (Fixo) -->
-          <div class="feed-post publication" data-color="#00cccc">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar2.png" alt="User avatar" class="post-avatar">
-                <h3>SeriesFan</h3>
-              </div>
-              <span class="post-timestamp">5 horas atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/theLastHBO.jpg" alt="The Last of Us screenshot" class="publication-image">
-              <img src="images/theLastOfUs.jpeg" alt="The Last of Us cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">Maratonei *The Last of Us* na HBO. Que adaptação perfeita! O que acharam do episódio 3? 📺</p>
-              <div class="publication-tags">
-                <span class="tag">@JoelFan</span>
-                <span class="tag">@EllieLover</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">15K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">2.5K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">800</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">3K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Review Post 3: Oppenheimer -->
-          <div class="feed-post review" data-color="#ffd700">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
-                <h3>MovieBuff</h3>
-              </div>
-              <span class="post-timestamp">1 dia atrás</span>
-            </div>
-            <div class="post-content">
-              <div class="review-container">
-                <div class="review-left">
-                  <h4 class="review-title">Oppenheimer</h4>
-                  <img src="images/oppenheimer.jpg" alt="Oppenheimer cover" class="review-cover">
-                  <div class="review-stars">★★★★★</div>
-                </div>
-                <div class="review-right">
-                  <span class="review-media-type">🎬 Filme</span>
-                  <p class="review-text" id="pub-text">*Oppenheimer* me deixou sem palavras. A direção do Nolan é impecável! Alguém viu no IMAX?</p>
-                </div>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">8K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">900</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">400</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">1.5K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 4: Breaking Bad -->
-          <div class="feed-post publication" data-color="#00cc00">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar4.png" alt="User avatar" class="post-avatar">
-                <h3>UnwindFan</h3>
-              </div>
-              <span class="post-timestamp">10 horas atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/walterJesse.jpg" alt="Breaking Bad screenshot" class="publication-image">
-              <img src="images/breakingBad.jpg" alt="Breaking Bad cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">Revendo *Breaking Bad* pela terceira vez. A química entre Walt e Jesse é insana! Qual é o melhor episódio pra vocês? 📺</p>
-              <div class="publication-tags">
-                <span class="tag">@Heisenberg</span>
-                <span class="tag">@JesseFan</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">12K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">2K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">600</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">2.5K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Rating Block 1 -->
-          <div class="feed-post rating-block">
-            <div class="post-content">
-              <div class="rating-grid">
-                <div class="rating-item" data-color="#ff8c00">
-                  <div class="rating-user">
-                    <img src="images/avatar5.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">GamerX</h4>
-                  </div>
-                  <img src="images/cyberpunk2077.webp" alt="Cyberpunk 2077 cover" class="rating-cover">
-                  <div class="rating-stars">★★★☆☆</div>
-                </div>
-                <div class="rating-item" data-color="#ff0000">
-                  <div class="rating-user">
-                    <img src="images/avatar6.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">ShowLover</h4>
-                  </div>
-                  <img src="images/theBatmanMovie.webp" alt="The Batman cover" class="rating-cover">
-                  <div class="rating-stars">★★★★★</div>
-                </div>
-                <div class="rating-item" data-color="#ff69b4">
-                  <div class="rating-user">
-                    <img src="images/avatar7.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">AnimeFan</h4>
-                  </div>
-                  <img src="images/attackOnTitan.jpg" alt="Attack on Titan cover" class="rating-cover">
-                  <div class="rating-stars">★★★★☆</div>
-                </div>
-                <div class="rating-item" data-color="#800080">
-                  <div class="rating-user">
-                    <img src="images/avatar8.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">FilmNerd</h4>
-                  </div>
-                  <img src="images/superman.jpeg" alt="Superman cover" class="rating-cover">
-                  <div class="rating-fire">🔥🔥🔥🔥</div>
-                </div>
-                <div class="rating-item" data-color="#00b7eb">
-                  <div class="rating-user">
-                    <img src="images/avatar1.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">PlayerOne</h4>
-                  </div>
-                  <img src="images/rdd2.webp" alt="Red Dead Redemption 2 cover" class="rating-cover">
-                  <div class="rating-stars">★★★★★</div>
-                </div>
-                <div class="rating-item" data-color="#00cccc">
-                  <div class="rating-user">
-                    <img src="images/avatar2.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">SeriesFan</h4>
-                  </div>
-                  <img src="images/lucifer.jpg" alt="Lucifer cover" class="rating-cover">
-                  <div class="rating-stars">★★★★☆</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Review Post 6: Lucifer -->
-          <div class="feed-post review" data-color="#00cccc">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar2.png" alt="User avatar" class="post-avatar">
-                <h3>SeriesFan</h3>
-              </div>
-              <span class="post-timestamp">15 horas atrás</span>
-            </div>
-            <div class="post-content">
-              <div class="review-container">
-                <div class="review-left">
-                  <h4 class="review-title">Lucifer</h4>
-                  <img src="images/lucifer.jpg" alt="Lucifer cover" class="review-cover">
-                  <div class="review-stars">★★★★☆</div>
-                </div>
-                <div class="review-right">
-                  <span class="review-media-type">📺 Série</span>
-                  <p class="review-text" id="pub-text">*Lucifer* é viciante! A última temporada fechou com chave de ouro. Qual é o melhor caso da série pra vocês?</p>
-                </div>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">9K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">1.5K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">700</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">2K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 7: Pulp Fiction -->
-          <div class="feed-post publication" data-color="#ffd700">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
-                <h3>MovieBuff</h3>
-              </div>
-              <span class="post-timestamp">1 dia atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/pulpFictionCena.jpg" alt="Pulp Fiction screenshot" class="publication-image">
-              <img src="images/pulpFiction.jpg" alt="Pulp Fiction cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">Assisti *Pulp Fiction* de novo e continua um clássico! Qual é a melhor cena do Tarantino pra vocês? 🎬</p>
-              <div class="publication-tags">
-                <span class="tag">@TarantinoFan</span>
-                <span class="tag">@VincentVega</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">11K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">1.8K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">900</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">2.3K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 8: GTA VI (Novo) -->
-          <div class="feed-post publication" data-color="#ff8c00">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar5.png" alt="User avatar" class="post-avatar">
-                <h3>GamerX</h3>
-              </div>
-              <span class="post-timestamp">12 horas atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/gta6Trailer.jpg" alt="GTA VI screenshot" class="publication-image">
-              <img src="images/gta6.webp" alt="GTA VI cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">O trailer de *GTA VI* tá insano! Vice City repaginada, parece épico. Qual é a expectativa de vocês? 🔥🎮</p>
-              <div class="publication-tags">
-                <span class="tag">@GTALover</span>
-                <span class="tag">@ViceCityFan</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">20K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">3K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">1.2K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">4K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Review Post 9: Zelda Ocarina of Time (Novo) -->
-          <div class="feed-post review" data-color="#00b7eb">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar1.png" alt="User avatar" class="post-avatar">
-                <h3>PlayerOne</h3>
-              </div>
-              <span class="post-timestamp">2 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <div class="review-container">
-                <div class="review-left">
-                  <h4 class="review-title">Zelda: Ocarina of Time</h4>
-                  <img src="images/zelda.webp" alt="Zelda Ocarina of Time cover" class="review-cover">
-                  <div class="review-stars">★★★★★</div>
-                </div>
-                <div class="review-right">
-                  <span class="review-media-type">🎮 Jogo</span>
-                  <p class="review-text" id="pub-text">Rejoguei *Zelda: Ocarina of Time* no N64. Ainda é uma obra-prima! Qual é o melhor templo pra vocês? 🛡️</p>
-                </div>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">6K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">700</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">300</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">1K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Rating Block 2 -->
-          <div class="feed-post rating-block">
-            <div class="post-content">
-              <div class="rating-grid">
-                <div class="rating-item" data-color="#ffd700">
-                  <div class="rating-user">
-                    <img src="images/avatar3.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">MovieBuff</h4>
-                  </div>
-                  <img src="images/whiplash.jpg" alt="Whiplash cover" class="rating-cover">
-                  <div class="rating-stars">★★★★★</div>
-                </div>
-                <div class="rating-item" data-color="#00cc00">
-                  <div class="rating-user">
-                    <img src="images/avatar4.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">UnwindFan</h4>
-                  </div>
-                  <img src="images/strangerThings.jpg" alt="Stranger Things cover" class="rating-cover">
-                  <div class="rating-stars">★★★★☆</div>
-                </div>
-                <div class="rating-item" data-color="#ff8c00">
-                  <div class="rating-user">
-                    <img src="images/avatar5.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">GamerX</h4>
-                  </div>
-                  <img src="images/gta6.webp" alt="GTA VI cover" class="rating-cover">
-                  <div class="rating-fire">🔥🔥🔥🔥🔥</div>
-                </div>
-                <div class="rating-item" data-color="#ff0000">
-                  <div class="rating-user">
-                    <img src="images/avatar6.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">ShowLover</h4>
-                  </div>
-                  <img src="images/simpsons.jpg" alt="Simpsons cover" class="rating-cover">
-                  <div class="rating-stars">★★★☆☆</div>
-                </div>
-                <div class="rating-item" data-color="#ff69b4">
-                  <div class="rating-user">
-                    <img src="images/avatar7.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">AnimeFan</h4>
-                  </div>
-                  <img src="images/jujutsuKaisen.webp" alt="Jujutsu Kaisen cover" class="rating-cover">
-                  <div class="rating-stars">★★★★☆</div>
-                </div>
-                <div class="rating-item" data-color="#800080">
-                  <div class="rating-user">
-                    <img src="images/avatar8.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">FilmNerd</h4>
-                  </div>
-                  <img src="images/pulpFiction.jpg" alt="Pulp Fiction cover" class="rating-cover">
-                  <div class="rating-stars">★★★★★</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 11: Avatar 3 (Novo) -->
-          <div class="feed-post publication" data-color="#ffd700">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
-                <h3>MovieBuff</h3>
-              </div>
-              <span class="post-timestamp">3 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/avatarCena.jpg" alt="Avatar 3 screenshot" class="publication-image">
-              <img src="images/avatarFilme.webp" alt="Avatar 3 cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">*Avatar 3* tá chegando em 2025! Ansioso pra voltar a Pandora. O que esperam dessa sequência? 🔥🎬</p>
-              <div class="publication-tags">
-                <span class="tag">@AvatarFan</span>
-                <span class="tag">@PandoraLover</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">14K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">2K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">1K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">3K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 12: Jujutsu Kaisen -->
-          <div class="feed-post publication" data-color="#ff69b4">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar7.png" alt="User avatar" class="post-avatar">
-                <h3>AnimeFan</h3>
-              </div>
-              <span class="post-timestamp">3 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/jujutsuCena.jpg" alt="Jujutsu Kaisen screenshot" class="publication-image">
-              <img src="images/jujutsuKaisen.webp" alt="Jujutsu Kaisen cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">*Jujutsu Kaisen* temporada 2 tá absurda! O arco do Shibuya é épico. Quem é o melhor feiticeiro pra vocês? 🧙‍♂️</p>
-              <div class="publication-tags">
-                <span class="tag">@GojoFan</span>
-                <span class="tag">@YujiLover</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">10K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">1.3K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">500</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">1.8K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Review Post 13: Whiplash -->
-          <div class="feed-post review" data-color="#ffd700">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar3.png" alt="User avatar" class="post-avatar">
-                <h3>MovieBuff</h3>
-              </div>
-              <span class="post-timestamp">4 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <div class="review-container">
-                <div class="review-left">
-                  <h4 class="review-title">Whiplash</h4>
-                  <img src="images/whiplash.jpg" alt="Whiplash cover" class="review-cover">
-                  <div class="review-stars">★★★★★</div>
-                </div>
-                <div class="review-right">
-                  <span class="review-media-type">🎬 Filme</span>
-                  <p class="review-text" id="pub-text">*Whiplash* é intenso! A atuação do J.K. Simmons é de outro mundo. Alguém mais ficou tenso no final?</p>
-                </div>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">6K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">700</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">200</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">1K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 14: Minecraft -->
-          <div class="feed-post publication" data-color="#ff8c00">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar5.png" alt="User avatar" class="post-avatar">
-                <h3>GamerX</h3>
-              </div>
-              <span class="post-timestamp">5 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/minecraftGameplay.jpg" alt="Minecraft screenshot" class="publication-image">
-              <img src="images/minecraft.webp" alt="Minecraft cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">Finalmente voltei a jogar *Minecraft*! Bateu aquela vontade anual de criar um mundo com os amigos, jogar por uma semana sem parar e depois largar denovo. 🎮</p>
-              <div class="publication-tags">
-                <span class="tag">@MinecraftBuilder</span>
-                <span class="tag">@CreeperFan</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">8K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">1K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">400</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">1.5K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Rating Block 3 -->
-          <div class="feed-post rating-block">
-            <div class="post-content">
-              <div class="rating-grid">
-                <div class="rating-item" data-color="#00cccc">
-                  <div class="rating-user">
-                    <img src="images/avatar2.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">SeriesFan</h4>
-                  </div>
-                  <img src="images/theLastOfUs.jpeg" alt="The Last of Us cover" class="rating-cover">
-                  <div class="rating-stars">★★★★★</div>
-                </div>
-                <div class="rating-item" data-color="#ffd700">
-                  <div class="rating-user">
-                    <img src="images/avatar3.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">MovieBuff</h4>
-                  </div>
-                  <img src="images/avatarFilme.webp" alt="Avatar 3 cover" class="rating-cover">
-                  <div class="rating-fire">🔥🔥🔥🔥</div>
-                </div>
-                <div class="rating-item" data-color="#00cc00">
-                  <div class="rating-user">
-                    <img src="images/avatar4.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">UnwindFan</h4>
-                  </div>
-                  <img src="images/breakingBad.jpg" alt="Breaking Bad cover" class="rating-cover">
-                  <div class="rating-stars">★★★★☆</div>
-                </div>
-                <div class="rating-item" data-color="#ff8c00">
-                  <div class="rating-user">
-                    <img src="images/avatar5.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">GamerX</h4>
-                  </div>
-                  <img src="images/eldenRing.webp" alt="Elden Ring cover" class="rating-cover">
-                  <div class="rating-stars">★★★★☆</div>
-                </div>
-                <div class="rating-item" data-color="#00b7eb">
-                  <div class="rating-user">
-                    <img src="images/avatar1.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">PlayerOne</h4>
-                  </div>
-                  <img src="images/zelda.webp" alt="Zelda Ocarina of Time cover" class="rating-cover">
-                  <div class="rating-stars">★★★★★</div>
-                </div>
-                <div class="rating-item" data-color="#800080">
-                  <div class="rating-user">
-                    <img src="images/avatar8.png" alt="User avatar" class="rating-avatar">
-                    <h4 class="rating-username">FilmNerd</h4>
-                  </div>
-                  <img src="images/rickMorty.jpg" alt="Rick and Morty cover" class="rating-cover">
-                  <div class="rating-stars">★★★☆☆</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Review Post 16: Stranger Things -->
-          <div class="feed-post review" data-color="#00cc00">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar4.png" alt="User avatar" class="post-avatar">
-                <h3>UnwindFan</h3>
-              </div>
-              <span class="post-timestamp">6 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <div class="review-container">
-                <div class="review-left">
-                  <h4 class="review-title">Stranger Things</h4>
-                  <img src="images/strangerThings.jpg" alt="Stranger Things cover" class="review-cover">
-                  <div class="review-stars">★★★★☆</div>
-                </div>
-                <div class="review-right">
-                  <span class="review-media-type">📺 Série</span>
-                  <p class="review-text" id="pub-text">*Stranger Things* temporada 4 foi épica! Vecna é o melhor vilão até agora. Qual temporada é a favorita de vocês?</p>
-                </div>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar2.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar6.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar8.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">9K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">1.2K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">500</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">1.7K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Publication Post 17: Red Dead Redemption 2 -->
-          <div class="feed-post publication" data-color="#00b7eb">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar1.png" alt="User avatar" class="post-avatar">
-                <h3>PlayerOne</h3>
-              </div>
-              <span class="post-timestamp">7 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <img src="images/rdd2Gameplay.webp" alt="Red Dead Redemption 2 screenshot" class="publication-image">
-              <img src="images/rdd2.webp" alt="Red Dead Redemption 2 cover" class="publication-cover">
-              <p class="publication-text" id="pub-text">*Red Dead Redemption 2* tem o melhor mundo aberto! A história de Arthur Morgan é de partir o coração. Alguém terminou 100%? 🎮</p>
-              <div class="publication-tags">
-                <span class="tag">@ArthurFan</span>
-                <span class="tag">@RDR2Lover</span>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar3.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar5.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">13K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">2K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">800</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">2.5K</span>
-              </div>
-            </div>
-          </div>
-          <!-- Review Post 18: The Simpsons -->
-          <div class="feed-post review" data-color="#ff0000">
-            <div class="post-header">
-              <div class="post-header-left">
-                <img src="images/avatar6.png" alt="User avatar" class="post-avatar">
-                <h3>ShowLover</h3>
-              </div>
-              <span class="post-timestamp">8 dias atrás</span>
-            </div>
-            <div class="post-content">
-              <div class="review-container">
-                <div class="review-left">
-                  <h4 class="review-title">The Simpsons</h4>
-                  <img src="images/simpsons.jpg" alt="Simpsons cover" class="review-cover">
-                  <div class="review-stars">★★★☆☆</div>
-                </div>
-                <div class="review-right">
-                  <span class="review-media-type">📺 Animação</span>
-                  <p class="review-text" id="pub-text">*The Simpsons* ainda é divertido, mas as primeiras temporadas são imbatíveis. Qual é o melhor episódio pra vocês?</p>
-                </div>
-              </div>
-            </div>
-            <div class="liked-by">
-              <span class="liked-heart">❤️</span>
-              <img src="images/avatar1.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar4.png" alt="User avatar" class="liked-avatar">
-              <img src="images/avatar7.png" alt="User avatar" class="liked-avatar">
-            </div>
-            <div class="post-actions">
-              <div class="action">
-                <span class="action-icon" aria-label="Like post">❤️</span>
-                <span class="action-count">5K</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Comment on post">💬</span>
-                <span class="action-count">600</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Share post">↗️</span>
-                <span class="action-count">200</span>
-              </div>
-              <div class="action">
-                <span class="action-icon" aria-label="Bookmark post">🔖</span>
-                <span class="action-count">800</span>
-              </div>
-            </div>
-          </div>
+
+      <div class="vitrine-head">
+        <div class="vitrine-head-texto">
+          <h2 class="vitrine-titulo-secao">Muito além da nota</h2>
+          <p>Teoria, ranking, desabafo, opinião impopular. No Unwind cada história vira conversa.</p>
+        </div>
+        <div class="vitrine-setas">
+          <button type="button" class="vitrine-seta" data-dir="-1" aria-label="Ver o tipo de post anterior">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="vitrine-seta" data-dir="1" aria-label="Ver o próximo tipo de post">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="recomendacao" class="recomendacao-section">
-      <h2>Indicações que você realmente vai gostar.</h2>
-      <p>Nosso algoritmo analisa suas avaliações, identifica mídias semelhantes às que você amou e cria um universo de novas possibilidades para você descobrir, explorar e se apaixonar ainda mais pelo entretenimento.</p>
-      <div class="recomendacao-layout-top">
-        <div class="linha-exemplo-horizontal">
-          <div class="input-bloco">
-            <img id="input-img" src="images/spiderMan2.jpg" alt="Input Mídia" class="exemplo-img" />
-            <div id="avaliacao-input" class="avaliacao"></div>
-          </div>
-          <div class="seta">→</div>
-          <div class="exemplo-grupo"></div>
+    <section id="hype" class="hype">
+      <div class="hype-nivel" aria-hidden="true">
+        <span class="hype-nivel-rotulo">Hype da comunidade</span>
+        <i class="fa-solid fa-fire"></i>
+        <div class="hype-nivel-trilha"><span></span></div>
+        <span class="hype-nivel-valor">0%</span>
+      </div>
+
+      <div class="hype-conteudo">
+        <div class="hype-texto">
+          <h2>O que ainda não saiu já é seu. O futuro também faz parte da sua coleção.</h2>
         </div>
-        <div class="exemplo-controle">
-          <div class="btn-container">
-            <svg class="progress-ring" viewBox="0 0 60 60">
-              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
-            </svg>
-            <button class="exemplo-btn ativo">1</button>
-          </div>
-          <div class="btn-container">
-            <svg class="progress-ring" viewBox="0 0 60 60">
-              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
-            </svg>
-            <button class="exemplo-btn">2</button>
-          </div>
-          <div class="btn-container">
-            <svg class="progress-ring" viewBox="0 0 60 60">
-              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
-            </svg>
-            <button class="exemplo-btn">3</button>
-          </div>
-          <div class="btn-container">
-            <svg class="progress-ring" viewBox="0 0 60 60">
-              <circle class="progress-ring__circle" stroke="#107be6" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
-            </svg>
-            <button class="exemplo-btn">4</button>
-          </div>
+
+        <div class="hype-cards">
+          <article class="hype-card" data-lancamento="2026-11-19">
+            <div class="hype-capa">
+              <img src="images/gta6.jpeg" alt="Capa de Grand Theft Auto VI" loading="lazy">
+              <div class="hype-info">
+                <h3>Grand Theft Auto VI</h3>
+                <div class="hype-pills">
+                  <span class="hype-pill"><i class="fa-solid fa-gamepad" aria-hidden="true"></i>Jogo</span>
+                  <span class="hype-pill hype-pill--tempo" data-contador><i class="fa-regular fa-clock" aria-hidden="true"></i><span data-tempo>A anunciar</span></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hype-card" data-lancamento="2026-12-18">
+            <div class="hype-capa">
+              <img src="images/otimizadas/avDoomsday.webp" alt="Capa de Vingadores: Doomsday" loading="lazy">
+              <div class="hype-info">
+                <h3>Vingadores: Doomsday</h3>
+                <div class="hype-pills">
+                  <span class="hype-pill"><i class="fa-solid fa-film" aria-hidden="true"></i>Filme</span>
+                  <span class="hype-pill hype-pill--tempo" data-contador><i class="fa-regular fa-clock" aria-hidden="true"></i><span data-tempo>A anunciar</span></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hype-card" data-lancamento="2026-12-25">
+            <div class="hype-capa">
+              <img src="images/otimizadas/potter.webp" alt="Capa da série Harry Potter" loading="lazy">
+              <div class="hype-info">
+                <h3>Harry Potter</h3>
+                <div class="hype-pills">
+                  <span class="hype-pill"><i class="fa-solid fa-tv" aria-hidden="true"></i>Série</span>
+                  <span class="hype-pill hype-pill--tempo" data-contador><i class="fa-regular fa-clock" aria-hidden="true"></i><span data-tempo>A anunciar</span></span>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
-    
-      <section id="features" class="features">
-        <h2>
-          Dê o Play na Sua Nova Experiência.
-        </h2>
-        <div class="features-layout">
-          <!-- Coluna esquerda -->
-          <div class="features-column left">
-            
-            <div class="feature-item" data-video="videos/estante.mp4">
-              <h3><span class="icon"><i class="fas fa-book"></i></span> Estante de Mídias</h3>
-              <p>Registre, avalie e organize todas as mídias que você já consumiu. Construa seu próprio histórico.</p>
+
+    <section id="gamificacao" class="game" aria-labelledby="game-title">
+      <div class="game-top">
+        <div class="game-copy">
+          <h2 id="game-title">Seu próximo nível começa aqui.</h2>
+          <p>Ganhe UP, suba de nível e desbloqueie novas possibilidades no app. Resgate as recompensas das missões para experimentar.</p>
+        </div>
+
+        <div class="xp-progression">
+          <div class="xp-profile" role="group" aria-label="Prévia do perfil de NoobMaster69">
+            <div class="xp-identity">
+              <img class="xp-avatar" src="images/otimizadas/avatar1.webp" width="76" height="76" alt="" loading="lazy" decoding="async">
+              <b class="xp-username">NoobMaster69</b>
+              <div class="xp-level-badge" aria-label="Nível 5"><span>LV</span><b>5</b></div>
             </div>
-            <div class="feature-item" data-video="videos/social.mp4">
-              <h3><span class="icon"><i class="fas fa-users"></i></span> Interações Sociais</h3>
-              <p>Compartilhe coleções, veja postagens de amigos e descubra novas tendências na comunidade.</p>
+            <!-- Fichas: a moeda do Unwind, com a mesma ficha do app. O U e o
+                 portal da marca, desenhado em traco pra virar simbolo da moeda. -->
+            <div class="xp-carteira">
+              <span class="xp-saldo" role="img" title="Fichas" aria-label="6.250 fichas">
+                <span class="xp-moeda xp-moeda--ficha" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M6.4 4.4v6.7a5.6 5.6 0 0 0 11.2 0V4.4" fill="none" stroke="currentColor" stroke-width="4.3"/></svg>
+                </span>
+                <b class="xp-fichas">6.250</b>
+              </span>
+              <span class="xp-saldo xp-saldo--reconhecimento" role="img" title="Reconhecimento" aria-label="3 Reconhecimentos">
+                <span class="xp-moeda" aria-hidden="true"><i class="fa-solid fa-award"></i></span>
+                <b>3</b>
+              </span>
+              <span class="xp-saldo xp-saldo--diamante" role="img" title="Diamantes" aria-label="5 diamantes">
+                <span class="xp-moeda" aria-hidden="true"><i class="fa-solid fa-gem"></i></span>
+                <b>5</b>
+              </span>
+              <span class="xp-saldo xp-saldo--favorito" role="img" title="Moeda Favorito" aria-label="9 Favoritos" data-unlock-level="6" data-feature="Moeda Favorito" hidden>
+                <span class="xp-moeda" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
+                <b>9</b>
+              </span>
+              <span class="xp-saldo xp-saldo--hype" role="img" title="Moeda Hype" aria-label="4 Hypes" data-unlock-level="6" data-feature="Moeda Hype" hidden>
+                <span class="xp-moeda" aria-hidden="true"><i class="fa-solid fa-fire"></i></span>
+                <b>4</b>
+              </span>
             </div>
-            <div class="feature-item" data-video="videos/informacoes.mp4">
-              <h3>
-                <span class="icon"><i class="fas fa-info-circle"></i></span>
-                Informações Úteis
-              </h3>
-              <p>
-                Descubra informações completas para cada título, organizadas de forma clara e útil.
-              </p>
+            <div class="xp-progress-heading">
+              <span>Progresso do nível</span>
+              <span class="xp-readout" aria-hidden="true"><span aria-hidden="true">✦</span><span class="xp-current">0.600K</span><span class="xp-divider">/</span><span class="xp-total">2.500K</span><small>UP</small></span>
+              <span class="xp-profile-gain" aria-hidden="true"></span>
             </div>
+            <div class="xp-meter" role="progressbar" aria-label="Progresso do nível de NoobMaster69" aria-valuemin="0" aria-valuemax="2500" aria-valuenow="600" aria-valuetext="Nível 5: 600 de 2500 UP"><span class="xp-meter-fill"></span></div>
           </div>
-      
-          <!-- Vídeo central -->
-          <div class="video-container">
-            <video id="feature-video" controls autoplay muted loop>
-              <source src="videos/estante.mp4" type="video/mp4">
-              Seu navegador não suporta vídeos.
-            </video>
-          </div>
-      
-          <!-- Coluna direita -->
-          <div class="features-column right">
-            <div class="feature-item" data-video="videos/colecao.mp4">
-              <h3><span class="icon"><i class="fas fa-layer-group"></i></span> Crie Suas Coleções</h3>
-              <p>Monte coleções personalizadas para organizar suas mídias favoritas.</p>
-            </div>
-            <div class="feature-item" data-video="videos/busca.mp4">
-              <h3><span class="icon"><i class="fas fa-search"></i></span> Pesquisa Avançada</h3>
-              <p>Encontre a mídia que procura com filtros avançados por ano, gênero, nota e mais.</p>
-            </div>
-            <div class="feature-item" data-video="videos/futuros.mp4">
-              <h3><span class="icon"><i class="fas fa-calendar-alt"></i></span> Futuros Lançamentos</h3>
-              <p>Fique por dentro dos lançamentos mais aguardados e veja a empolgação da comunidade.</p>
-            </div>
+          <div class="xp-unlocks" role="group" aria-labelledby="xp-unlocks-title">
+            <p id="xp-unlocks-title">Novos níveis. Novas possibilidades.</p>
+            <ul class="xp-unlock-slots" aria-label="Desbloqueios por nível">
+              <li class="xp-slot xp-slot--favorite" data-unlock-level="6" data-feature="Moeda Favorito">
+                <span class="xp-slot-art xp-moeda xp-coin" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
+                <span class="xp-slot-name">Moeda Favorito</span>
+                <span class="xp-slot-status"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Nível 6</span></span>
+              </li>
+              <li class="xp-slot xp-slot--hype" data-unlock-level="6" data-feature="Moeda Hype">
+                <span class="xp-slot-art xp-moeda xp-coin" aria-hidden="true"><i class="fa-solid fa-fire"></i></span>
+                <span class="xp-slot-name">Moeda Hype</span>
+                <span class="xp-slot-status"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Nível 6</span></span>
+              </li>
+              <li class="xp-slot xp-slot--smart" data-unlock-level="7" data-feature="Recomendação inteligente">
+                <span class="xp-slot-art" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <span class="xp-slot-name">Recomendação inteligente</span>
+                <span class="xp-slot-status"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Nível 7</span></span>
+              </li>
+            </ul>
+            <!-- A fila nao acaba nos tres de cima. Estas so aparecem: somem no
+                 fim pra dizer que tem mais esperando dentro do app. -->
+            <ul class="xp-futuros" aria-hidden="true">
+              <li><i class="fa-solid fa-chart-simple"></i><span>Estatísticas avançadas</span><small>Nível 8</small></li>
+              <li><i class="fa-solid fa-palette"></i><span>Decorações de perfil</span><small>Nível 9</small></li>
+              <li><i class="fa-solid fa-image-portrait"></i><span>Molduras de avatar</span><small>Nível 10</small></li>
+              <li><i class="fa-solid fa-swatchbook"></i><span>Temas da estante</span><small>Nível 11</small></li>
+            </ul>
           </div>
         </div>
-      </section>
-      
+      </div>
 
-    <section id="questions" class="faq-section">
-        <div class="faq-content">
-            <h2>Respostas para suas perguntas.</h2>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Por que escolher o Unwind em vez de outros apps? <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>O Unwind valoriza todos os tipos de mídia, criando uma comunidade inclusiva. Além disso, temos o maior conjunto de interações sociais da categoria, permitindo que você descubra, comente e compartilhe suas experiências com amigos e outros apaixonados por entretenimento. E com nosso algoritmo avançado, você recebe recomendações incrivelmente precisas para suas próximas grandes descobertas.</p>
-                    </div>
-                    
-                    
-                </div>
-    
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Quais informações sobre as mídias consigo encontrar? <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>O Unwind reúne detalhes completos sobre cada mídia: trailers, datas, descrições, classificação etária, nota geral, duração e gêneros. Além disso, há informações específicas:  
-                        - 🎮 Games: Gameplay, plataformas e estúdios.  
-                        - 🎬 Filmes: Elenco, diretores e serviços de streaming.  
-                        - 📺 Séries: Temporadas, episódios e onde assistir.</p>
-                    </div>
-                    
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        O que não devo esperar do Unwind? <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>O Unwind não é uma plataforma de streaming ou emulação. Nosso foco está na descoberta, avaliação e interação sobre mídias, proporcionando a melhor experiência para explorar, compartilhar e discutir filmes, séries e games.</p>
-                    </div>
-                    
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question">
-                    O que significa o 🔥 no Unwind? <i class="fas fa-chevron-down"></i>
-                  </button>
-                  <div class="faq-answer">
-                    <p>No Unwind, o 🔥 simboliza toda a ansiedade e empolgação que sentimos por novos lançamentos. Ele marca as mídias que ainda não chegaram oficialmente, mas que já estão gerando expectativa. Assim, você consegue diferenciar o que já está disponível do que ainda está por vir — e entrar na contagem regressiva com a comunidade!</p>
-
-                  </div>
-              </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Como eu subo de nível? <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Você pode subir de nível avaliando mais mídias e interagindo ativamente com a comunidade. Quanto mais engajamento, mais títulos e personalizações você desbloqueia!</p>
-                    </div>
-                    
-                </div>
-                
-    
-                
-            </div>
+      <div class="xp-actions" aria-label="Ações que rendem UP">
+        <div class="xp-actions-top">
+          <span class="xp-claim-count">0 de 7 resgatados</span>
+          <div class="xp-arrows" aria-label="Navegar pelas ações">
+            <button class="xp-prev" type="button" aria-label="Ver ação anterior" disabled><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+            <button class="xp-next" type="button" aria-label="Ver próxima ação" disabled><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button>
+          </div>
         </div>
+        <div class="xp-panel">
+          <ol class="xp-action-track" aria-label="Recompensas para experimentar">
+            <li class="xp-action" data-reward="comment" data-up="150">
+              <span class="xp-action-icon" aria-hidden="true"><i class="fa-solid fa-comment"></i></span>
+              <h3>Entre na conversa.</h3>
+              <p>Comente em uma publicação da comunidade.</p>
+              <div class="xp-action-footer"><span class="xp-action-value">+150 <small>UP</small></span><button class="xp-claim" type="button" disabled aria-label="Resgatar 150 UP por comentar">Resgatar</button></div>
+              <span class="xp-card-gain" aria-hidden="true">+150 UP</span>
+            </li>
+            <li class="xp-action" data-reward="rate" data-up="1000">
+              <span class="xp-action-icon" aria-hidden="true"><i class="fa-solid fa-star"></i></span>
+              <h3>Avalie 75 mídias.</h3>
+              <p>Dê sua nota e ajude outras pessoas a encontrar a próxima história.</p>
+              <div class="xp-action-footer"><span class="xp-action-value">+1.000 <small>UP</small></span><button class="xp-claim" type="button" disabled aria-label="Resgatar 1000 UP por avaliar 75 mídias">Resgatar</button></div>
+              <span class="xp-card-gain" aria-hidden="true">+1.000 UP</span>
+            </li>
+            <li class="xp-action" data-reward="complete" data-up="1500">
+              <span class="xp-action-icon" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span>
+              <h3>Encerre 100 mídias.</h3>
+              <p>Marque como concluídos os jogos, filmes e séries que você terminou.</p>
+              <div class="xp-action-footer"><span class="xp-action-value">+1.500 <small>UP</small></span><button class="xp-claim" type="button" disabled aria-label="Resgatar 1500 UP por encerrar 100 mídias">Resgatar</button></div>
+              <span class="xp-card-gain" aria-hidden="true">+1.500 UP</span>
+            </li>
+            <li class="xp-action" data-reward="recognition" data-up="2000">
+              <span class="xp-action-icon" aria-hidden="true"><i class="fa-solid fa-award"></i></span>
+              <h3>Seja reconhecido.</h3>
+              <p>Receba um Reconhecimento da comunidade.</p>
+              <div class="xp-action-footer"><span class="xp-action-value">+2.000 <small>UP</small></span><button class="xp-claim" type="button" disabled aria-label="Resgatar 2000 UP por receber um Reconhecimento">Resgatar</button></div>
+              <span class="xp-card-gain" aria-hidden="true">+2.000 UP</span>
+            </li>
+            <li class="xp-action" data-reward="collections" data-up="750">
+              <span class="xp-action-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
+              <h3>Crie 5 coleções.</h3>
+              <p>Reúna suas mídias em coleções que têm a sua cara.</p>
+              <div class="xp-action-footer"><span class="xp-action-value">+750 <small>UP</small></span><button class="xp-claim" type="button" disabled aria-label="Resgatar 750 UP por criar 5 coleções">Resgatar</button></div>
+              <span class="xp-card-gain" aria-hidden="true">+750 UP</span>
+            </li>
+            <li class="xp-action" data-reward="follower" data-up="500">
+              <span class="xp-action-icon" aria-hidden="true"><i class="fa-solid fa-user-plus"></i></span>
+              <h3>Faça novas conexões.</h3>
+              <p>Ganhe um novo seguidor para acompanhar suas histórias.</p>
+              <div class="xp-action-footer"><span class="xp-action-value">+500 <small>UP</small></span><button class="xp-claim" type="button" disabled aria-label="Resgatar 500 UP por ganhar um seguidor">Resgatar</button></div>
+              <span class="xp-card-gain" aria-hidden="true">+500 UP</span>
+            </li>
+            <li class="xp-action" data-reward="diamond" data-up="1000">
+              <span class="xp-action-icon" aria-hidden="true"><i class="fa-solid fa-gem"></i></span>
+              <h3>Seu gosto tem valor.</h3>
+              <p>Receba um diamante pelo que você compartilha.</p>
+              <div class="xp-action-footer"><span class="xp-action-value">+1.000 <small>UP</small></span><button class="xp-claim" type="button" disabled aria-label="Resgatar 1000 UP por receber um diamante">Resgatar</button></div>
+              <span class="xp-card-gain" aria-hidden="true">+1.000 UP</span>
+            </li>
+
+          </ol>
+        </div>
+      </div>
+      <div class="desc-luz diagonal-energy" aria-hidden="true">
+        <svg class="diagonal-energy-svg" viewBox="0 0 1600 120" preserveAspectRatio="none" fill="none" focusable="false">
+          <defs>
+            <path id="diagonal-game-line" pathLength="100" d="M 0 118 H 1600"/>
+            <!-- Mesma montagem da faixa do perfil; os comentarios estao la. -->
+            <filter id="diagonal-game-soft" filterUnits="userSpaceOnUse" x="-80" y="0" width="1760" height="200" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="5"/></filter>
+            <filter id="diagonal-game-halo" filterUnits="userSpaceOnUse" x="-80" y="0" width="1760" height="200" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="13"/></filter>
+            <linearGradient id="diagonal-game-bloom" gradientUnits="userSpaceOnUse" x1="0" y1="56" x2="0" y2="120">
+              <stop offset="0.0000" stop-color="#16bfff" stop-opacity="0.0003"/>
+              <stop offset="0.0625" stop-color="#16bfff" stop-opacity="0.0008"/>
+              <stop offset="0.1250" stop-color="#16bfff" stop-opacity="0.0022"/>
+              <stop offset="0.1875" stop-color="#16bfff" stop-opacity="0.0056"/>
+              <stop offset="0.2500" stop-color="#16bfff" stop-opacity="0.0128"/>
+              <stop offset="0.3125" stop-color="#16bfff" stop-opacity="0.0272"/>
+              <stop offset="0.3750" stop-color="#16bfff" stop-opacity="0.0531"/>
+              <stop offset="0.4375" stop-color="#16bfff" stop-opacity="0.0954"/>
+              <stop offset="0.5000" stop-color="#16bfff" stop-opacity="0.1585"/>
+              <stop offset="0.5625" stop-color="#16bfff" stop-opacity="0.2439"/>
+              <stop offset="0.6250" stop-color="#16bfff" stop-opacity="0.3489"/>
+              <stop offset="0.6875" stop-color="#16bfff" stop-opacity="0.4658"/>
+              <stop offset="0.7500" stop-color="#16bfff" stop-opacity="0.5827"/>
+              <stop offset="0.8125" stop-color="#16bfff" stop-opacity="0.6860"/>
+              <stop offset="0.8750" stop-color="#16bfff" stop-opacity="0.7628"/>
+              <stop offset="0.9375" stop-color="#16bfff" stop-opacity="0.8038"/>
+              <stop offset="1.0000" stop-color="#16bfff" stop-opacity="0.8038"/>
+            </linearGradient>
+          </defs>
+          <rect class="diagonal-bloom" x="0" y="56" width="100%" height="64" fill="url(#diagonal-game-bloom)"/>
+          <g filter="url(#diagonal-game-halo)">
+            <g class="diagonal-stream"><use href="#diagonal-game-line" class="diagonal-trail"/></g>
+            <g class="diagonal-stream diagonal-stream--second"><use href="#diagonal-game-line" class="diagonal-trail"/></g>
+          </g>
+          <g filter="url(#diagonal-game-soft)">
+            <g class="diagonal-stream"><use href="#diagonal-game-line" class="diagonal-flare"/></g>
+            <g class="diagonal-stream diagonal-stream--second"><use href="#diagonal-game-line" class="diagonal-flare"/></g>
+          </g>
+          <g class="diagonal-stream">
+            <use href="#diagonal-game-line" class="diagonal-core"/>
+            <use href="#diagonal-game-line" class="diagonal-head"/>
+          </g>
+          <g class="diagonal-stream diagonal-stream--second">
+            <use href="#diagonal-game-line" class="diagonal-core"/>
+            <use href="#diagonal-game-line" class="diagonal-head"/>
+          </g>
+          <path class="diagonal-sparks" pathLength="100" d="M 0 108 Q 200 100 400 108 T 800 108 T 1200 108 T 1600 108"/>
+          <path class="diagonal-sparks diagonal-sparks--middle" pathLength="100" d="M 0 88 Q 200 99 400 88 T 800 88 T 1200 88 T 1600 88"/>
+          <path class="diagonal-sparks diagonal-sparks--outer" pathLength="100" d="M 0 64 Q 200 80 400 64 T 800 64 T 1200 64 T 1600 64"/>
+        </svg>
+      </div>
+      <p class="xp-live" role="status" aria-live="polite" aria-atomic="true"></p>
     </section>
-    
-    <footer>
-        <p>&copy; 2025 Unwind. Todos os direitos reservados.</p>
-        <p class="mencao">Uma produção de <a href="https://dids1901.github.io" target="_blank" style="color: #f0f0f0;">Diogo Coutinho</a></p>
+
+    <div class="fim">
+    <section id="descoberta" class="desc">
+      <div class="desc-parede">
+      <div class="desc-borda" aria-hidden="true"></div>
+      <div class="desc-mural" aria-hidden="true">
+          <div class="desc-fila desc-fila--c">
+            <img src="images/otimizadas/theBatman.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/witcher3.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/gameOfThrones.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/uncharted4.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/toyStory.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/lol.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/fightClub.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/mortalKombat.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/vikings.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/gtaV.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/whiplash.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/batman.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/naruto.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/legoMarvel.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/theBatman.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/witcher3.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/gameOfThrones.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/uncharted4.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/toyStory.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/lol.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/fightClub.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/mortalKombat.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/vikings.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/gtaV.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/whiplash.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/batman.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/naruto.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/legoMarvel.webp" alt="" loading="lazy" aria-hidden="true">
+          </div>
+          <div class="desc-fila desc-fila--a">
+            <img src="images/otimizadas/theLastOfUs.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/eldenRing.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/spiderverse.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/hades.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/breakingBad.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/godWar.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/interestellar.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/cyberpunk2077.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/strangerThings.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/zelda.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/darkKnight.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/mario3D.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/severance.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/hollowSilk.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/theLastOfUs.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/eldenRing.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/spiderverse.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/hades.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/breakingBad.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/godWar.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/interestellar.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/cyberpunk2077.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/strangerThings.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/zelda.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/darkKnight.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/mario3D.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/severance.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/hollowSilk.webp" alt="" loading="lazy" aria-hidden="true">
+          </div>
+          <div class="desc-fila desc-fila--b">
+            <img src="images/otimizadas/theBoys.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/rdd2.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/laLaLand.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/witcher3.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/jujutsuKaisen.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/minecraft.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/pulpFiction.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/forzaV.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/theOffice.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/doomEternal.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/matrix.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/re4.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/rickMorty.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/clashRoyale.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/theBoys.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/rdd2.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/laLaLand.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/witcher3.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/jujutsuKaisen.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/minecraft.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/pulpFiction.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/forzaV.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/theOffice.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/doomEternal.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/matrix.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/re4.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/otimizadas/rickMorty.webp" alt="" loading="lazy" aria-hidden="true">
+            <img src="images/clashRoyale.webp" alt="" loading="lazy" aria-hidden="true">
+          </div>
+      </div>
+      </div>
+
+
+      <div class="desc-texto">
+        <h2>“E agora, o que eu vou ver/jogar?”</h2>
+        <p>A pior parte de terminar uma história é não saber qual vem depois. No Unwind a resposta vem de quem já viveu.</p>
+      </div>
+
+      <div class="desc-poco">
+        <div class="desc-escolhas">
+          <figure class="desc-escolha" style="--turno: 0">
+            <span class="desc-capa">
+              <img src="images/otimizadas/theLastOfUs.webp" alt="Capa de The Last of Us" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>The Last of Us</b><small>Jogo</small></figcaption>
+            <span class="desc-balao"><b>@joao</b> te recomendou depois de platinar</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 1">
+            <span class="desc-capa">
+              <img src="images/otimizadas/severance.webp" alt="Capa de Severance" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Severance</b><small>Série</small></figcaption>
+            <span class="desc-balao">Estava na coleção <b>Mentes quebradas</b>, da <b>@lari</b></span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 2">
+            <span class="desc-capa">
+              <img src="images/otimizadas/interestellar.webp" alt="Capa de Interestelar" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Interestelar</b><small>Filme</small></figcaption>
+            <span class="desc-balao">Você viu num post do <b>@tuca</b> e salvou na hora</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 3">
+            <span class="desc-capa">
+              <img src="images/otimizadas/spiderMan2.webp" alt="Capa de Spider-Man 2" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Spider-Man 2</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Subiu no <b>Top da semana</b> e foi pro radar</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 4">
+            <span class="desc-capa">
+              <img src="images/otimizadas/breakingBad.webp" alt="Capa de Breaking Bad" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Breaking Bad</b><small>Série</small></figcaption>
+            <span class="desc-balao"><b>@mvbarros</b> deu um Reconhecimento</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 5">
+            <span class="desc-capa">
+              <img src="images/otimizadas/oppenheimer.webp" alt="Capa de Oppenheimer" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Oppenheimer</b><small>Filme</small></figcaption>
+            <span class="desc-balao">Três perfis que você segue deram nota 10</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 6">
+            <span class="desc-capa">
+              <img src="images/eldenRing.webp" alt="Capa de Elden Ring" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Elden Ring</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Apareceu no feed com 40 comentários</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 7">
+            <span class="desc-capa">
+              <img src="images/otimizadas/theBoys.webp" alt="Capa de The Boys" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>The Boys</b><small>Série</small></figcaption>
+            <span class="desc-balao"><b>@carolina</b> marcou você num post</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 8">
+            <span class="desc-capa">
+              <img src="images/otimizadas/matrix.webp" alt="Capa de Matrix" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Matrix</b><small>Filme</small></figcaption>
+            <span class="desc-balao">Estava na estante de quem platinou <b>Hades</b></span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 9">
+            <span class="desc-capa">
+              <img src="images/godWar.webp" alt="Capa de God of War" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>God of War</b><small>Jogo</small></figcaption>
+            <span class="desc-balao"><b>@grando</b> dropou e você quis entender</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 10">
+            <span class="desc-capa">
+              <img src="images/otimizadas/gameOfThrones.webp" alt="Capa de A Guerra dos Tronos" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>A Guerra dos Tronos</b><small>Série</small></figcaption>
+            <span class="desc-balao">Virou assunto depois do final da temporada</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 11">
+            <span class="desc-capa">
+              <img src="images/otimizadas/godfather.webp" alt="Capa de O Poderoso Chefão" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>O Poderoso Chefão</b><small>Filme</small></figcaption>
+            <span class="desc-balao"><b>@dinho</b> colocou entre os favoritos dele</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 12">
+            <span class="desc-capa">
+              <img src="images/hades.webp" alt="Capa de Hades" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Hades</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Você comentou num post e salvou junto</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 13">
+            <span class="desc-capa">
+              <img src="images/otimizadas/rickMorty.webp" alt="Capa de Rick and Morty" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Rick and Morty</b><small>Série</small></figcaption>
+            <span class="desc-balao">Metade de quem você segue encerrou essa semana</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 14">
+            <span class="desc-capa">
+              <img src="images/otimizadas/pulpFiction.webp" alt="Capa de Pulp Fiction" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Pulp Fiction</b><small>Filme</small></figcaption>
+            <span class="desc-balao"><b>@remango</b> deu diamante numa review</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 15">
+            <span class="desc-capa">
+              <img src="images/cyberpunk2077.webp" alt="Capa de Cyberpunk 2077" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Cyberpunk 2077</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Estava na coleção <b>Pra jogar no inverno</b></span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 16">
+            <span class="desc-capa">
+              <img src="images/otimizadas/strangerThings.webp" alt="Capa de Stranger Things" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Stranger Things</b><small>Série</small></figcaption>
+            <span class="desc-balao">Entrou na premiação do ano votada pela rede</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 17">
+            <span class="desc-capa">
+              <img src="images/otimizadas/laLaLand.webp" alt="Capa de La La Land" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>La La Land</b><small>Filme</small></figcaption>
+            <span class="desc-balao"><b>@luis</b> e mais 3 que você segue salvaram</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 18" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/theLastOfUs.webp" alt="Capa de The Last of Us" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>The Last of Us</b><small>Jogo</small></figcaption>
+            <span class="desc-balao"><b>@joao</b> te recomendou depois de platinar</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 19" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/severance.webp" alt="Capa de Severance" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Severance</b><small>Série</small></figcaption>
+            <span class="desc-balao">Estava na coleção <b>Mentes quebradas</b>, da <b>@lari</b></span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 20" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/interestellar.webp" alt="Capa de Interestelar" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Interestelar</b><small>Filme</small></figcaption>
+            <span class="desc-balao">Você viu num post do <b>@tuca</b> e salvou na hora</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 21" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/spiderMan2.webp" alt="Capa de Spider-Man 2" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Spider-Man 2</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Subiu no <b>Top da semana</b> e foi pro radar</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 22" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/breakingBad.webp" alt="Capa de Breaking Bad" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Breaking Bad</b><small>Série</small></figcaption>
+            <span class="desc-balao"><b>@mvbarros</b> deu um Reconhecimento</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 23" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/oppenheimer.webp" alt="Capa de Oppenheimer" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Oppenheimer</b><small>Filme</small></figcaption>
+            <span class="desc-balao">Três perfis que você segue deram nota 10</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 24" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/eldenRing.webp" alt="Capa de Elden Ring" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Elden Ring</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Apareceu no feed com 40 comentários</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 25" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/theBoys.webp" alt="Capa de The Boys" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>The Boys</b><small>Série</small></figcaption>
+            <span class="desc-balao"><b>@carolina</b> marcou você num post</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 26" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/matrix.webp" alt="Capa de Matrix" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Matrix</b><small>Filme</small></figcaption>
+            <span class="desc-balao">Estava na estante de quem platinou <b>Hades</b></span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 27" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/godWar.webp" alt="Capa de God of War" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>God of War</b><small>Jogo</small></figcaption>
+            <span class="desc-balao"><b>@grando</b> dropou e você quis entender</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 28" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/gameOfThrones.webp" alt="Capa de A Guerra dos Tronos" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>A Guerra dos Tronos</b><small>Série</small></figcaption>
+            <span class="desc-balao">Virou assunto depois do final da temporada</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 29" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/godfather.webp" alt="Capa de O Poderoso Chefão" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>O Poderoso Chefão</b><small>Filme</small></figcaption>
+            <span class="desc-balao"><b>@dinho</b> colocou entre os favoritos dele</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 30" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/hades.webp" alt="Capa de Hades" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Hades</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Você comentou num post e salvou junto</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 31" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/rickMorty.webp" alt="Capa de Rick and Morty" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Rick and Morty</b><small>Série</small></figcaption>
+            <span class="desc-balao">Metade de quem você segue encerrou essa semana</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 32" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/pulpFiction.webp" alt="Capa de Pulp Fiction" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Pulp Fiction</b><small>Filme</small></figcaption>
+            <span class="desc-balao"><b>@remango</b> deu diamante numa review</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 33" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/cyberpunk2077.webp" alt="Capa de Cyberpunk 2077" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Cyberpunk 2077</b><small>Jogo</small></figcaption>
+            <span class="desc-balao">Estava na coleção <b>Pra jogar no inverno</b></span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 34" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/strangerThings.webp" alt="Capa de Stranger Things" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>Stranger Things</b><small>Série</small></figcaption>
+            <span class="desc-balao">Entrou na premiação do ano votada pela rede</span>
+          </figure>
+
+          <figure class="desc-escolha" style="--turno: 35" aria-hidden="true">
+            <span class="desc-capa">
+              <img src="images/otimizadas/laLaLand.webp" alt="Capa de La La Land" loading="lazy">
+              <span class="desc-overlay" aria-hidden="true"></span>
+              <span class="desc-marca" aria-hidden="true"><i class="fa-solid fa-bookmark"></i></span>
+              <span class="desc-salvo">Salvo no radar</span>
+            </span>
+            <figcaption><b>La La Land</b><small>Filme</small></figcaption>
+            <span class="desc-balao"><b>@luis</b> e mais 3 que você segue salvaram</span>
+          </figure>
+        </div>
+
+        <div class="desc-perfil">
+          <span class="desc-perfil-titulo">Seu perfil</span>
+          <ul class="desc-estante">
+            <li class="desc-slot" style="--turno: 0"><img src="images/otimizadas/theLastOfUs.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 1"><img src="images/otimizadas/severance.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 2"><img src="images/otimizadas/interestellar.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 3"><img src="images/otimizadas/spiderMan2.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 4"><img src="images/otimizadas/breakingBad.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 5"><img src="images/otimizadas/oppenheimer.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 6"><img src="images/eldenRing.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 7"><img src="images/otimizadas/theBoys.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 8"><img src="images/otimizadas/matrix.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 9"><img src="images/godWar.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 10"><img src="images/otimizadas/gameOfThrones.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 11"><img src="images/otimizadas/godfather.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 12"><img src="images/hades.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 13"><img src="images/otimizadas/rickMorty.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 14"><img src="images/otimizadas/pulpFiction.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 15"><img src="images/cyberpunk2077.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 16"><img src="images/otimizadas/strangerThings.webp" alt="" loading="lazy" aria-hidden="true"></li>
+            <li class="desc-slot" style="--turno: 17"><img src="images/otimizadas/laLaLand.webp" alt="" loading="lazy" aria-hidden="true"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="fechamento" id="comecar">
+      <div class="fechamento-wrap">
+        <h2 class="fechamento-titulo">Quais vidas você já viveu?</h2>
+        <p class="fechamento-sub">Dê um lugar pra todas elas.</p>
+        <a class="fechamento-cta" href="beta.html" target="_blank" rel="noopener">Entrar no beta</a>
+        <img
+          class="fechamento-mockup"
+          src="images/mockup-fechamento.webp"
+          alt="Três telas do Unwind lado a lado: a página de um filme com os posts da comunidade embaixo, o perfil com nível, seguidores e a coleção de jogos, filmes e séries, e o catálogo No radar cheio de capas."
+          width="1356"
+          height="1131"
+          loading="lazy"
+          decoding="async">
+        <p class="fechamento-visao">Uma plataforma pra todo o seu entretenimento.</p>
+      </div>
+    </section>
+    </div>
+
+    <footer class="rodape">
+      <div class="rodape-wrap">
+
+        <div class="rodape-topo">
+          <div class="rodape-marca">
+            <a href="#hero" class="brand-lockup" aria-label="Unwind — ir para o início">
+              <span class="brand-name">Unwind</span>
+            </a>
+            <p>A rede social do entretenimento.</p>
+          </div>
+
+          <nav class="rodape-links" aria-label="Rodapé">
+            <div>
+              <h3>Produto</h3>
+              <a href="#hero">Início</a>
+              <a href="#midias-bg">Perfil</a>
+              <a href="#comunidade">Comunidade</a>
+              <a href="#hype">Hype</a>
+              <a href="#gamificacao">Progresso</a>
+              <a href="#descoberta">Descoberta</a>
+            </div>
+            <div>
+              <h3>Legal</h3>
+              <a href="/privacidade">Privacidade</a>
+              <a href="/termos">Termos</a>
+              <a href="/exclusao-de-conta/">Exclusão de conta</a>
+            </div>
+            <div>
+              <h3>Contato</h3>
+              <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="rodape-base">
+          <p class="rodape-atrib">
+            Este produto usa a API do <a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDB</a>, mas não é endossado nem certificado pelo TMDB.
+            Dados de jogos fornecidos por <a href="https://www.igdb.com" target="_blank" rel="noopener">IGDB.com</a>.
+          </p>
+          <div class="rodape-fim">
+            <span>&copy; <span id="ano">2026</span> Unwind. Todos os direitos reservados.</span>
+            <span>Uma produção de <a href="https://dids1901.github.io" target="_blank" rel="noopener">Diogo Coutinho</a></span>
+          </div>
+        </div>
+
+      </div>
     </footer>
     <script src="script.js"></script>
 
