@@ -73,17 +73,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // --- VIDEO DO PERFIL: so comeca a baixar perto da tela ---
-    // Sem autoplay no HTML, os 11 MB nao disputam banda com a abertura da
-    // pagina; ate la aparece o poster. Liga pelo atributo autoplay, e nao por
-    // play(): sem gesto do usuario o WebKit recusa play() mesmo com o video
-    // mudo (NotAllowedError -- o video ficava parado), mas aceita autoplay.
-    // Por isso tambem nao ha pause() aqui: pausar cancelava o autoplay e o
-    // play() de volta era recusado.
+    // O <video> ja nasce com autoplay/muted/playsinline no HTML, que e o que o
+    // WebKit honra; o que segura o download e que as <source> nao tem src ate
+    // o video chegar perto da tela (data-src). Ao preencher o src, o navegador
+    // roda a selecao de midia de novo e o autoplay dispara sozinho. O play()
+    // no fim e so garantia pro Chrome; no Safari sem gesto ele pode ser
+    // recusado, e tudo bem: o autoplay ja cuidou.
     document.querySelectorAll('.fone-tela video').forEach(function (video) {
         function ligar() {
-            video.autoplay = true;
-            video.preload = 'auto';
+            video.muted = true; // Safari confere a propriedade, nao so o atributo
+            video.querySelectorAll('source[data-src]').forEach(function (source) {
+                source.src = source.dataset.src;
+                source.removeAttribute('data-src');
+            });
             video.load();
+            var tentativa = video.play();
+            if (tentativa && tentativa.catch) tentativa.catch(function () {});
         }
 
         if (!('IntersectionObserver' in window)) {

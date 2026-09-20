@@ -404,11 +404,11 @@
           <div class="midias-palco">
             <div class="fone">
               <div class="fone-tela">
-                <video muted loop playsinline preload="metadata" poster="videos/perfil-poster.webp" aria-label="Demonstração do perfil no Unwind: a coleção de jogos, filmes e séries, com o que está em andamento e o que já foi encerrado">
+                <video autoplay muted loop playsinline preload="metadata" poster="videos/perfil-poster.webp" aria-label="Demonstração do perfil no Unwind: a coleção de jogos, filmes e séries, com o que está em andamento e o que já foi encerrado">
                   <!-- AV1 (metade do peso) pra Chrome, Firefox, Edge, Android e
                        iPhone 15 Pro+; quem nao decodifica AV1 cai no H.264. -->
-                  <source src="videos/perfil-av1.mp4" type="video/mp4; codecs=av01.0.05M.08">
-                  <source src="videos/perfil.mp4" type="video/mp4">
+                  <source data-src="videos/perfil-av1.mp4" type="video/mp4; codecs=av01.0.05M.08">
+                  <source data-src="videos/perfil.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
