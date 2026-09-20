@@ -392,6 +392,24 @@
       color: var(--texto-suave);
     }
 
+    /* Erro mais comum no iPhone: abrir o link de dentro do TestFlight, que
+       entao pede um codigo. O aviso fica antes do botao pra ser lido a tempo. */
+    .passo-aviso {
+      margin-top: 0.85rem;
+      padding: 12px 14px;
+      border-left: 3px solid var(--brand-blue);
+      border-radius: 0 10px 10px 0;
+      background: rgba(16, 123, 230, 0.10);
+      font-size: 15px;
+    }
+
+    .passo-aviso strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--texto);
+      font-weight: 600;
+    }
+
     /* ---------- Botoes ---------- */
     /* 19px em negrito pela mesma razao do .fechamento-cta do index: e o piso do
        "texto grande" do WCAG, onde branco sobre #107be6 (4.2:1) passa no AA. */
@@ -469,27 +487,6 @@
       color: var(--texto-apagado);
     }
 
-    /* ---------- Feedback ---------- */
-    .beta-feedback {
-      margin-top: clamp(32px, 5vw, 52px);
-      text-align: center;
-      font-size: 16px;
-      color: var(--texto-apagado);
-    }
-
-    .beta-feedback a {
-      color: #9ccbff;
-      text-decoration: underline;
-      text-decoration-color: rgba(156, 203, 255, 0.4);
-      text-underline-offset: 3px;
-      transition: color 0.2s, text-decoration-color 0.2s;
-    }
-
-    .beta-feedback a:hover {
-      color: #fff;
-      text-decoration-color: #fff;
-    }
-
     /* Celular: o numero sai da frente do texto e vai pro lado do titulo; texto e
        botao ocupam a largura toda do card. Com a coluna do numero, o "Baixar o
        TestFlight" nao cabia numa linha nem em 375px. */
@@ -535,6 +532,7 @@
       }
 
       .passo-corpo p,
+      .passo-aviso,
       .passo-corpo .botao {
         grid-column: 1 / -1;
       }
@@ -650,7 +648,12 @@
             <span class="passo-num" aria-hidden="true">2</span>
             <div class="passo-corpo">
               <h3>Abra o convite</h3>
-              <p>Com o TestFlight instalado, toque no link e depois em Instalar.</p>
+              <p>Com o TestFlight instalado, volte aqui, toque no botão abaixo e depois em Instalar.</p>
+              <p class="passo-aviso">
+                <strong>Não abra o link de dentro do TestFlight.</strong>
+                Se você entrar no TestFlight e tocar no link por lá, ele vai pedir um código de convite que você não tem.
+                Feche o TestFlight e toque no botão daqui: o convite abre direto, sem código.
+              </p>
               <!-- PLACEHOLDER: trocar pelo link publico do TestFlight -->
               <a class="botao botao--primario" href="#" target="_blank" rel="noopener">
                 Entrar no beta
@@ -664,11 +667,6 @@
         <svg class="card-marca-dagua card-icone--apple" viewBox="0 0 384 512" aria-hidden="true"><use href="#logo-apple"/></svg>
       </article>
     </div>
-
-    <p class="beta-feedback">
-      Já está no beta?
-      <a href="https://docs.google.com/forms/d/1Z6gk1LUzWpDXU-F7KbFjOOKXYuV4m2PSgoevS4iZZOI/viewform" target="_blank" rel="noopener">Conte o que você está achando</a>
-    </p>
   </main>
 
   <script>

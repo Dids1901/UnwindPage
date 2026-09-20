@@ -4164,7 +4164,9 @@ h2 {
 
   .hero h1 {
     font-family: "Cal Sans";
-    font-size: clamp(1.75rem, 8.5vw, 2.35rem);
+    /* 9.75vw: "Só se vive uma vez?" em Cal Sans mede ~8.85x o tamanho da
+       fonte; com a caixa de 100vw - 2rem ainda sobra folga num tela de 360px. */
+    font-size: clamp(1.9rem, 9.75vw, 2.6rem);
     line-height: 1.1;
     margin-bottom: 30px;
     color: var(--brand-blue);
