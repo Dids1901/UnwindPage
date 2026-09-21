@@ -109,9 +109,10 @@
     .beta-marca img {
       width: 44px;
       height: 44px;
-      border-radius: 10px;
-      /* O icone tem fundo navy: com screen, some no fundo da pagina e sobra so o portal. */
-      mix-blend-mode: screen;
+      object-fit: contain;
+      /* PNG com transparencia de verdade. A versao anterior tinha fundo navy
+         escondido com mix-blend-mode: screen, que no celular clareava o
+         quadrado junto com o brilho azul do topo. */
     }
 
     .beta-marca span {
@@ -575,7 +576,7 @@
   <main class="beta">
     <header class="beta-topo">
       <a href="index.html" class="beta-marca" aria-label="Unwind — voltar para o início">
-        <img src="images/unwind-portal-icone.png" alt="" width="44" height="44">
+        <img src="images/portal-transparente.png" alt="" width="44" height="44">
         <span>Unwind</span>
       </a>
     </header>
