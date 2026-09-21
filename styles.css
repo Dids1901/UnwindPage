@@ -414,6 +414,59 @@ h2 {
   }
 }
 
+/* Link pro roadmap, abaixo do CTA. E texto com um icone, nao um segundo botao:
+   o "Entrar no beta" continua sendo a unica entrada com cara de botao. */
+.hero-roadmap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: clamp(1.1rem, 1.6vw, 1.6rem);
+  /* Mesmo #bdf do paragrafo do hero: o link le como continuacao do texto.
+     Icone e seta ficam no azul das redes, como "coisas clicaveis do hero". */
+  color: #bdf;
+  font-size: clamp(0.9rem, 1.05vw, 1.15rem);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+/* Mapa dobrado em traco, no mesmo azul das redes ao lado do CTA. */
+.hero-roadmap-mapa {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  fill: none;
+  stroke: #4d9ff0;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.25s ease;
+}
+
+
+.hero-roadmap i {
+  font-size: 0.85em;
+  color: #4d9ff0;
+  transition: transform 0.25s ease;
+}
+
+.hero-roadmap:hover,
+.hero-roadmap:focus-visible {
+  color: #fff;
+}
+
+.hero-roadmap:hover i,
+.hero-roadmap:focus-visible i {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-roadmap:hover i,
+  .hero-roadmap:focus-visible i {
+    transform: none;
+  }
+}
+
 .hero-lamp {
   width: clamp(8rem, 10vw, 12rem);
 }

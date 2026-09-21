@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unwind — Roadmap</title>
+  <meta name="description" content="O que vem por aí no Unwind: as próximas features do beta, na ordem em que estão planejadas.">
+  <link rel="canonical" href="https://www.unwind.com.br/roadmap.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Unwind">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://www.unwind.com.br/roadmap.html">
+  <meta property="og:title" content="Unwind — Roadmap">
+  <meta property="og:description" content="O que vem por aí no Unwind: as próximas features do beta, na ordem em que estão planejadas.">
+  <meta property="og:image" content="https://www.unwind.com.br/images/og-hero.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Unwind: só se vive uma vez? Aqui não. Um garoto atravessa um portal para mundos de jogos, séries e filmes.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@useunwind">
+  <meta name="twitter:title" content="Unwind — Roadmap">
+  <meta name="twitter:description" content="O que vem por aí no Unwind: as próximas features do beta, na ordem em que estão planejadas.">
+  <meta name="twitter:image" content="https://www.unwind.com.br/images/og-hero.png">
+  <meta name="theme-color" content="#021033">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=4">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png?v=4">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=4">
+  <link rel="preload" href="fonts/carving.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/rammetto-one.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+  <!-- Pagina avulsa, mesmo esquema da beta.html: nao puxa o styles.css.
+       As fontes e os tokens abaixo sao os mesmos de la. -->
+  <style>
+    @font-face {
+      font-family: 'carving';
+      src: url('fonts/carving.woff2') format('woff2'),
+           url('fonts/MADECarvingSoftPERSONALUSE-Medium.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Rammetto One';
+      src: url('fonts/rammetto-one.woff2') format('woff2'),
+           url('fonts/RammettoOne-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --brand-navy: #021033;
+      --brand-navy-rgb: 2, 16, 51;
+      --brand-blue: #107be6;
+      --texto: #f4f7fa;
+      --texto-suave: #a8bfe4;
+      --texto-apagado: #8fa6cf;
+      --borda: rgba(190, 225, 255, 0.14);
+      /* Geometria da linha: o ponto e a coluna dele. O trilho e os cards se
+         alinham por esses dois valores, entao mudar aqui muda tudo junto. */
+      --ponto: 44px;
+      --coluna: 64px;
+      /* Desktop: vao entre as duas colunas. E a amplitude do zigzag. */
+      --calha: 120px;
+      /* Desktop: quanto a coluna da direita desce em relacao a da esquerda. */
+      --degrau: 128px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      font-family: 'carving', sans-serif;
+      color: var(--texto);
+      background-color: var(--brand-navy);
+      background-image:
+        radial-gradient(70rem 42rem at 50% -12rem, rgba(16, 123, 230, 0.30), transparent 62%),
+        radial-gradient(40rem 30rem at 100% 100%, rgba(16, 123, 230, 0.12), transparent 70%),
+        radial-gradient(36rem 28rem at 0% 80%, rgba(0, 7, 43, 0.9), transparent 70%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .roadmap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding-inline: clamp(16px, 5vw, 48px);
+      padding-block: clamp(20px, 3vw, 32px) clamp(40px, 6vw, 72px);
+    }
+
+    /* ---------- Marca ---------- */
+    .topo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .marca {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      border-radius: 12px;
+    }
+
+    .marca img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+    }
+
+    .marca span {
+      color: var(--brand-blue);
+      font-family: 'Rammetto One', sans-serif;
+      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      text-shadow: 0 0 1rem rgba(16, 123, 230, 0.28);
+    }
+
+    .marca:focus-visible {
+      outline: 2px solid var(--texto);
+      outline-offset: 4px;
+    }
+
+    /* ---------- Abertura ---------- */
+    .intro {
+      margin: clamp(36px, 6vw, 72px) auto clamp(36px, 5vw, 64px);
+      max-width: 620px;
+      text-align: center;
+    }
+
+    .selo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(16, 123, 230, 0.45);
+      border-radius: 999px;
+      background: rgba(16, 123, 230, 0.12);
+      color: #9ccbff;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .selo::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      box-shadow: 0 0 0 0 rgba(16, 123, 230, 0.7);
+      animation: selo-pulso 2.2s ease-out infinite;
+    }
+
+    @keyframes selo-pulso {
+      0%   { box-shadow: 0 0 0 0 rgba(16, 123, 230, 0.7); }
+      70%  { box-shadow: 0 0 0 8px rgba(16, 123, 230, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 123, 230, 0); }
+    }
+
+    .intro h1 {
+      margin-top: 1.1rem;
+      font-family: "Cal Sans", sans-serif;
+      font-weight: 400;
+      font-size: clamp(34px, 5.6vw, 64px);
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+
+    .intro h1 em {
+      font-style: normal;
+      color: var(--brand-blue);
+      text-shadow: 0 0 1.6rem rgba(16, 123, 230, 0.35);
+    }
+
+    .intro p {
+      margin: clamp(14px, 2vw, 20px) auto 0;
+      max-width: 46ch;
+      font-size: clamp(16px, 1.9vw, 19px);
+      line-height: 1.6;
+      color: var(--texto-suave);
+    }
+
+    /* Aviso de que e planejamento, nao promessa. Fica na abertura, antes da
+       lista, pra ninguem cobrar data depois. */
+    .aviso {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: clamp(18px, 2.4vw, 26px);
+      padding: 11px 16px;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--texto-apagado);
+      font-size: 14.5px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .aviso svg {
+      flex: none;
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      fill: none;
+      stroke: #9ccbff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ---------- Linha ---------- */
+    .linha {
+      list-style: none;
+      position: relative;
+      display: grid;
+      gap: clamp(18px, 2.6vw, 26px);
+    }
+
+    /* O trilho: uma linha unica atras de todos os pontos, do primeiro ao ultimo. */
+    .linha::before {
+      content: "";
+      position: absolute;
+      left: calc(var(--ponto) / 2);
+      top: calc(var(--ponto) / 2);
+      bottom: calc(var(--ponto) / 2);
+      width: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        rgba(16, 123, 230, 0.9),
+        rgba(16, 123, 230, 0.45) 40%,
+        rgba(16, 123, 230, 0.12)
+      );
+    }
+
+    .etapa {
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--coluna) 1fr;
+      animation: entra 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(var(--i) * 70ms);
+    }
+
+    @keyframes entra {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* O ponto na linha. O anel navy por fora "corta" o trilho, pra ele parecer
+       passar por tras do ponto e nao por cima. */
+    .ponto {
+      position: sticky;
+      top: 24px;
+      display: grid;
+      place-items: center;
+      width: var(--ponto);
+      height: var(--ponto);
+      margin-top: 22px;
+      border-radius: 50%;
+      border: 2px solid #2f8ff0;
+      background: #0b3f7d;
+      color: #fff;
+      font-family: "Cal Sans", sans-serif;
+      font-size: 17px;
+      line-height: 1;
+      box-shadow:
+        0 0 0 6px var(--brand-navy),
+        0 6px 14px rgba(0, 0, 0, 0.45);
+    }
+
+    /* O primeiro da fila brilha: e o que esta mais perto de entrar. */
+    .etapa.is-proximo .ponto {
+      border-color: #5fb0ff;
+      background: var(--brand-blue);
+      box-shadow:
+        0 0 0 6px var(--brand-navy),
+        0 0 1.6rem rgba(16, 123, 230, 0.7);
+    }
+
+    /* Fundo na superficie canonica do app (#1b2229), nao no navy: o card e uma
+       placa pendurada na parede, nao parte dela. */
+    .card {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      padding: clamp(20px, 2.8vw, 28px);
+      padding-top: clamp(28px, 3.4vw, 36px);
+      border: 1px solid rgba(190, 225, 255, 0.16);
+      border-radius: 20px;
+      background-color: rgba(27, 34, 41, 0.86);
+      background-image: linear-gradient(
+        155deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 40%,
+        rgba(0, 0, 0, 0.12) 100%
+      );
+      box-shadow:
+        0 1.5rem 3.5rem rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      -webkit-backdrop-filter: blur(0.9rem);
+      backdrop-filter: blur(0.9rem);
+      transition: border-color 0.3s ease;
+      /* O giro e em torno do pino, no meio do topo. */
+      transform-origin: 50% 0;
+      will-change: transform;
+    }
+
+    /* O pino que segura a placa na parede: cabeca azul com brilho e sombra
+       pra parecer que esta em relevo. */
+    .pino {
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      z-index: 2;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle at 36% 32%, #8fc8ff 0%, #2f8ff0 40%, #0b4f9a 100%);
+      box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.55),
+        0 0 0 2px rgba(0, 0, 0, 0.22),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.35);
+      pointer-events: none;
+    }
+
+    /* A sombra do pino projetada na placa: um borrao logo abaixo. */
+    .pino::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 18px;
+      height: 6px;
+      border-radius: 50%;
+      transform: translate(-50%, 1px);
+      background: rgba(0, 0, 0, 0.35);
+      filter: blur(2px);
+    }
+
+    .card:hover {
+      border-color: rgba(190, 225, 255, 0.24);
+    }
+
+    .etapa.is-proximo .card {
+      border-color: rgba(16, 123, 230, 0.6);
+      box-shadow:
+        0 1.5rem 3.5rem rgba(0, 0, 0, 0.38),
+        0 0 2.6rem rgba(16, 123, 230, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .card-topo {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    /* Icone como um icone de app: azul solido, traco branco, mesmo azul do
+       pino e das bolinhas dos numeros. */
+    .card-icone {
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background-image: linear-gradient(145deg, #3d9bf5 0%, #107be6 48%, #0a4f9a 100%);
+      color: #fff;
+      box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(120, 190, 255, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .card-icone svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
+    }
+
+    .card-titulo {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-titulo h2 {
+      font-family: "Cal Sans", sans-serif;
+      font-weight: 400;
+      font-size: clamp(21px, 2.4vw, 26px);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+    }
+
+    .card-tag {
+      display: inline-block;
+      margin-bottom: 0.35rem;
+      color: var(--texto-apagado);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .etapa.is-proximo .card-tag {
+      color: #9ccbff;
+    }
+
+    .card p {
+      margin-top: 0.95rem;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--texto-suave);
+    }
+
+    /* Icone gigante e quase apagado no canto, como na beta. */
+    .card-marca-dagua {
+      position: absolute;
+      right: -30px;
+      bottom: -34px;
+      z-index: -1;
+      width: 170px;
+      height: 170px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1;
+      color: #9ccbff;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    /* ---------- Fechamento ---------- */
+    .fim {
+      margin-top: clamp(40px, 6vw, 64px);
+      padding: clamp(22px, 3vw, 32px);
+      border: 1px solid var(--borda);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      text-align: center;
+    }
+
+    .fim h2 {
+      font-family: "Cal Sans", sans-serif;
+      font-weight: 400;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+
+    .fim p {
+      margin: 0.7rem auto 0;
+      max-width: 46ch;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--texto-suave);
+    }
+
+    .fim p a {
+      color: #9ccbff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .fim-acoes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.3rem;
+    }
+
+    /* 19px em negrito: piso do "texto grande" do WCAG pra branco sobre #107be6. */
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 1.1;
+      text-decoration: none;
+      transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .botao svg {
+      flex: none;
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s;
+    }
+
+    .botao--primario {
+      background: var(--brand-blue);
+      border: 1.5px solid var(--brand-blue);
+      color: #fff;
+    }
+
+    .botao--primario:hover {
+      background: #2a8ff0;
+      border-color: #2a8ff0;
+      box-shadow: 0 8px 30px rgba(16, 123, 230, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .botao--primario:hover svg {
+      transform: translateX(3px);
+    }
+
+    .botao--secundario {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(190, 225, 255, 0.3);
+      color: var(--texto);
+      font-size: 17px;
+    }
+
+    .botao--secundario:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(190, 225, 255, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .botao:focus-visible {
+      outline: 2px solid var(--texto);
+      outline-offset: 3px;
+    }
+
+    /* A linha em zigue-zague. Fica atras dos cards; o JS calcula os pontos.
+       Escondida por padrao (celular); a media query acima liga. */
+    .trilho {
+      display: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .trilho polyline {
+      fill: none;
+      stroke: url(#trilho-grad);
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+
+    .etapa {
+      z-index: 1;
+    }
+
+    /* ---------- Desktop: duas colunas em zigue-zague ---------- */
+    /* Os cards alternam de lado e a coluna da direita comeca um degrau abaixo.
+       O ponto de cada etapa fica na borda interna do card (dentro da calha), e
+       o <svg> desenha a linha ligando um ponto ao seguinte em diagonal. */
+    @media (min-width: 760px) {
+      .linha {
+        display: grid;
+        grid-template-columns: 1fr var(--calha) 1fr;
+        grid-auto-flow: dense;
+        row-gap: clamp(20px, 3vw, 32px);
+      }
+
+      .linha::before {
+        display: none;
+      }
+
+      .etapa {
+        display: block;
+      }
+
+      .etapa:nth-child(odd) {
+        grid-column: 1;
+      }
+
+      .etapa:nth-child(even) {
+        grid-column: 3;
+        transform: translateY(var(--degrau));
+      }
+
+      /* A ultima etapa da direita desceu um degrau: o rodape precisa desse espaco. */
+      .linha:has(.etapa:nth-child(even):last-child) {
+        padding-bottom: var(--degrau);
+      }
+
+      .ponto {
+        position: absolute;
+        top: 22px;
+        margin-top: 0;
+        z-index: 2;
+      }
+
+      .etapa:nth-child(odd) .ponto {
+        right: calc(var(--ponto) / -2);
+      }
+
+      .etapa:nth-child(even) .ponto {
+        left: calc(var(--ponto) / -2);
+      }
+
+      /* Animacao de entrada com o translate: pra nao brigar com o degrau,
+         a etapa da direita anima sem deslocar, so no opacity. */
+      .etapa:nth-child(even) {
+        animation-name: entra-par;
+      }
+
+      @keyframes entra-par {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      .trilho {
+        display: block;
+      }
+    }
+
+    /* Celular: ponto e trilho encolhem pra sobrar largura pro card. */
+    @media (max-width: 480px) {
+      :root {
+        --ponto: 34px;
+        --coluna: 48px;
+      }
+
+      .ponto {
+        font-size: 15px;
+        margin-top: 18px;
+      }
+
+      .card {
+        padding: 18px 16px;
+        border-radius: 16px;
+      }
+
+      .card-icone {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+      }
+
+      .card-icone svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .aviso {
+        font-size: 14px;
+      }
+
+      .fim-acoes .botao {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .etapa,
+      .selo::before {
+        animation: none;
+      }
+
+      .botao,
+      .botao svg,
+      .card {
+        transition: none;
+      }
+
+      .card {
+        transform: none !important;
+      }
+
+      .botao:hover,
+      .botao:hover svg {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Icones em traco, 24x24. Cada card usa um pelo id. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="ic-colecoes" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></symbol>
+    <symbol id="ic-compartilhar" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></symbol>
+    <symbol id="ic-plataformas" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 11h4M9 9v4"/><circle cx="16" cy="10" r="0.6" fill="currentColor"/><circle cx="18" cy="12" r="0.6" fill="currentColor"/></symbol>
+    <symbol id="ic-loja" viewBox="0 0 24 24"><path d="M6 3l-2.5 5v2a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0V8L18 3z"/><path d="M4 12v9h16v-9"/><path d="M9 21v-6h6v6"/></symbol>
+    <symbol id="ic-elenco" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M17.5 14a6.5 6.5 0 0 1 4 6"/></symbol>
+    <symbol id="ic-videos" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="ic-momentos" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1.5 1.5 0 0 1 1.5 1.5V19a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 19V9.5A1.5 1.5 0 0 1 4 8z"/><circle cx="12" cy="14" r="3.5"/></symbol>
+    <symbol id="ic-indicacoes" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/><path d="M4 3l.5 1.5L6 5l-1.5.5L4 7l-.5-1.5L2 5l1.5-.5z"/></symbol>
+    <symbol id="ic-livros" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 19a2.5 2.5 0 0 1 2.5-2.5H20"/><path d="M9 7h7"/></symbol>
+  </svg>
+
+  <main class="roadmap">
+    <header class="topo">
+      <a href="index.html" class="marca" aria-label="Unwind — voltar para o início">
+        <img src="images/unwind-portal-icone.png" alt="" width="44" height="44">
+        <span>Unwind</span>
+      </a>
+    </header>
+
+    <section class="intro">
+      <span class="selo">Roadmap</span>
+      <h1>O que vem por aí <em>no Unwind</em></h1>
+      <p>As próximas features do beta, na ordem em que estão na mira. Cada ponto da linha é uma delas.</p>
+      <div class="aviso" role="note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v4.5M12 16h.01"/></svg>
+        <span>Isso é um planejamento, não uma promessa. A ordem e o formato de cada coisa podem mudar pelo caminho.</span>
+      </div>
+    </section>
+
+    <!-- Preenchida pelo script a partir da lista FEATURES. -->
+    <div style="position: relative">
+      <svg class="trilho" id="trilho" aria-hidden="true">
+        <defs>
+          <linearGradient id="trilho-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="rgba(16, 123, 230, 0.9)"/>
+            <stop offset="0.4" stop-color="rgba(16, 123, 230, 0.45)"/>
+            <stop offset="1" stop-color="rgba(16, 123, 230, 0.12)"/>
+          </linearGradient>
+        </defs>
+        <polyline points=""/>
+      </svg>
+      <ol class="linha" id="linha"></ol>
+    </div>
+
+    <section class="fim">
+      <h2>Sua ideia já está na lista?</h2>
+      <p>Então ela já está a caminho. Se não está, manda pra <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>. O roadmap é feito de fã pra fã.</p>
+      <div class="fim-acoes">
+        <a class="botao botao--primario" href="beta.html">
+          Entrar no beta
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="botao botao--secundario" href="index.html">Voltar ao início</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // O roadmap inteiro mora aqui. Pra reordenar, mexer no texto ou tirar algo,
+    // e so editar esta lista: a ordem dela e a ordem da linha, e o primeiro
+    // item ganha o destaque de "Próximo".
+    var FEATURES = [
+      {
+        icone: 'ic-colecoes',
+        tag: 'Coleções',
+        titulo: 'Agrupe do seu jeito',
+        texto: 'Meus filmes de terror, top ficção científica, tudo do Batman. Sua estante ganha prateleiras que só você poderia montar, com as mídias que você escolher.'
+      },
+      {
+        icone: 'ic-compartilhar',
+        tag: 'Compartilhamento',
+        titulo: 'Leve o Unwind pra fora',
+        texto: 'Avaliações, reviews e coleções prontas pra sair do app e parar no story, no grupo ou na timeline. O que você vive aqui não precisa ficar só aqui.'
+      },
+      {
+        icone: 'ic-plataformas',
+        tag: 'Streamings e plataformas',
+        titulo: 'Diga onde você joga e assiste',
+        texto: 'Salve seus streamings e plataformas de games. O app usa isso pra indicar o que dá pra começar hoje, e não o que você não tem como ver.'
+      },
+      {
+        icone: 'ic-loja',
+        tag: 'Recompensas',
+        titulo: 'Gaste suas fichas com estilo',
+        texto: 'A loja cresce com várias recompensas estéticas pra deixar seu perfil com a sua cara. Seu engajamento vira algo que dá pra ver.'
+      },
+      {
+        icone: 'ic-elenco',
+        tag: 'Elenco, temporadas e estúdios',
+        titulo: 'Vá fundo em cada obra',
+        texto: 'Elenco, temporadas, episódios e empresas de games com página própria. Veja tudo o que cada um fez e crie a partir disso: rankings, listas, teorias.'
+      },
+      {
+        icone: 'ic-videos',
+        tag: 'Vídeos',
+        titulo: 'Assista antes de decidir',
+        texto: 'Trailers e gameplays dentro do app, com presença muito maior em cada obra. Menos aba aberta no navegador, mais hype no lugar certo.'
+      },
+      {
+        icone: 'ic-momentos',
+        tag: 'Momentos',
+        titulo: 'Mostre o seu lado da história',
+        texto: 'Um espaço só seu pra foto da partida, da sessão de cinema, da maratona de série. Momentos seus, junto de tudo o que você vive.'
+      },
+      {
+        icone: 'ic-indicacoes',
+        tag: 'Indicações pro seu gosto',
+        titulo: 'Deixe a resposta te encontrar',
+        texto: 'O app aprende o que você curte e escolhe as melhores opções pra jogar e assistir em seguida. A pior parte de terminar uma história deixa de existir.'
+      },
+      {
+        icone: 'ic-livros',
+        tag: 'Livros',
+        titulo: 'Livros entram na coleção',
+        texto: 'A mídia que faltava. Games, séries, filmes e livros no mesmo perfil, com a mesma rede, as mesmas fichas e a mesma estante.'
+      }
+    ];
+
+    (function () {
+      var lista = document.getElementById('linha');
+      var html = FEATURES.map(function (f, i) {
+        var proximo = i === 0;
+        return (
+          '<li class="etapa' + (proximo ? ' is-proximo' : '') + '" style="--i:' + i + '">' +
+            '<span class="ponto" aria-hidden="true">' + (i + 1) + '</span>' +
+            '<article class="card">' +
+              '<span class="pino" aria-hidden="true"></span>' +
+              '<div class="card-topo">' +
+                '<span class="card-icone" aria-hidden="true"><svg><use href="#' + f.icone + '"/></svg></span>' +
+                '<div class="card-titulo">' +
+                  '<span class="card-tag">' + (proximo ? 'Próximo · ' : '') + f.tag + '</span>' +
+                  '<h2>' + f.titulo + '</h2>' +
+                '</div>' +
+              '</div>' +
+              '<p>' + f.texto + '</p>' +
+              '<svg class="card-marca-dagua" aria-hidden="true"><use href="#' + f.icone + '"/></svg>' +
+            '</article>' +
+          '</li>'
+        );
+      }).join('');
+      lista.innerHTML = html;
+
+      // Liga o centro de cada ponto ao do seguinte. Roda de novo quando a
+      // largura muda, porque a altura dos cards (e o lugar dos pontos) muda junto.
+      var trilho = document.getElementById('trilho');
+      var poly = trilho.querySelector('polyline');
+      var pontos = lista.querySelectorAll('.ponto');
+
+      function desenha() {
+        if (getComputedStyle(trilho).display === 'none') return;
+        var base = trilho.getBoundingClientRect();
+        var coords = [];
+        pontos.forEach(function (p) {
+          var r = p.getBoundingClientRect();
+          coords.push((r.left + r.width / 2 - base.left) + ',' + (r.top + r.height / 2 - base.top));
+        });
+        poly.setAttribute('points', coords.join(' '));
+      }
+
+      // Espera a animacao de entrada acabar: durante ela os cards estao deslocados.
+      var rodou = false;
+      function agenda() {
+        if (rodou) return desenha();
+        rodou = true;
+        setTimeout(desenha, 1500);
+        desenha();
+      }
+      agenda();
+      if (window.ResizeObserver) {
+        new ResizeObserver(desenha).observe(lista);
+      } else {
+        window.addEventListener('resize', desenha);
+      }
+      document.fonts && document.fonts.ready.then(desenha);
+    })();
+
+    // Balanco das placas. Cada card e um pendulo preso pelo pino: o mouse
+    // passando perto da um empurrao proporcional a velocidade dele, e uma mola
+    // amortecida traz o card de volta ao repouso. So roda com mouse de verdade
+    // e sem "reduzir movimento" ligado.
+    (function () {
+      var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var semMouse = window.matchMedia('(hover: none)').matches;
+      if (reduz || semMouse) return;
+
+      var MOLA = 90;       // rigidez: quanto maior, mais rapido oscila
+      var ATRITO = 3.8;    // amortecimento: quanto menor, mais tempo balanca
+      var ALCANCE = 140;   // px ao redor do card em que o mouse ainda empurra
+      var GANHO = 1.2;     // forca do empurrao por px/ms de velocidade do mouse
+      var MAX = 9;         // graus, pra nao virar de cabeca pra baixo
+
+      var cards = Array.prototype.map.call(document.querySelectorAll('.card'), function (el) {
+        return { el: el, ang: 0, vel: 0 };
+      });
+
+      var ultimoX = null, ultimoY = null, ultimoT = 0;
+      var rodando = false, tAnterior = 0;
+
+      function passo(t) {
+        var dt = Math.min((t - tAnterior) / 1000, 0.05);
+        tAnterior = t;
+        var vivo = false;
+
+        cards.forEach(function (c) {
+          if (Math.abs(c.ang) < 0.02 && Math.abs(c.vel) < 0.02) {
+            if (c.ang !== 0) { c.ang = 0; c.vel = 0; c.el.style.transform = ''; }
+            return;
+          }
+          c.vel += (-MOLA * c.ang - ATRITO * c.vel) * dt;
+          c.ang += c.vel * dt;
+          if (c.ang > MAX) { c.ang = MAX; c.vel = -Math.abs(c.vel) * 0.4; }
+          if (c.ang < -MAX) { c.ang = -MAX; c.vel = Math.abs(c.vel) * 0.4; }
+          c.el.style.transform = 'rotate(' + c.ang.toFixed(3) + 'deg)';
+          vivo = true;
+        });
+
+        if (vivo) requestAnimationFrame(passo); else rodando = false;
+      }
+
+      function acorda() {
+        if (rodando) return;
+        rodando = true;
+        tAnterior = performance.now();
+        requestAnimationFrame(passo);
+      }
+
+      window.addEventListener('mousemove', function (e) {
+        var agora = performance.now();
+        if (ultimoX !== null) {
+          var dt = Math.max(agora - ultimoT, 1);
+          var vx = (e.clientX - ultimoX) / dt; // px por ms
+          if (Math.abs(vx) > 0.02) {
+            cards.forEach(function (c) {
+              var r = c.el.getBoundingClientRect();
+              // Distancia do mouse ate a borda do card (0 se estiver em cima).
+              var dx = Math.max(r.left - e.clientX, 0, e.clientX - r.right);
+              var dy = Math.max(r.top - e.clientY, 0, e.clientY - r.bottom);
+              var d = Math.sqrt(dx * dx + dy * dy);
+              if (d > ALCANCE) return;
+              var perto = 1 - d / ALCANCE;
+              // Alavanca: empurrar perto do pino quase nao gira; perto da base, gira bem.
+              var alavanca = Math.min(Math.max((e.clientY - r.top) / r.height, 0.15), 1);
+              // Sinal negativo: com a origem no topo, rotate(+) leva a base do
+              // card pra ESQUERDA. Mouse indo pra direita empurra a base pra direita.
+              c.vel -= vx * GANHO * perto * perto * alavanca * 60;
+            });
+            acorda();
+          }
+        }
+        ultimoX = e.clientX; ultimoY = e.clientY; ultimoT = agora;
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
