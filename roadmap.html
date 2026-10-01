@@ -25,7 +25,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=4">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png?v=4">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=4">
-  <link rel="preload" href="fonts/carving.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/rammetto-one.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,11 +34,12 @@
        As fontes e os tokens abaixo sao os mesmos de la. -->
   <style>
     @font-face {
-      font-family: 'carving';
-      src: url('fonts/carving.woff2') format('woff2'),
-           url('fonts/MADECarvingSoftPERSONALUSE-Medium.otf') format('opentype');
-      font-weight: normal;
+      font-family: 'nunito';
+      src: url('fonts/nunito.woff2') format('woff2'),
+           url('fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+      font-weight: 200 1000;
       font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
@@ -77,7 +78,8 @@
     body {
       min-height: 100vh;
       min-height: 100svh;
-      font-family: 'carving', sans-serif;
+      font-family: 'nunito', sans-serif;
+      font-weight: 700;
       color: var(--texto);
       background-color: var(--brand-navy);
       background-image:
@@ -118,6 +120,7 @@
     .marca span {
       color: var(--brand-blue);
       font-family: 'Rammetto One', sans-serif;
+      font-weight: 400;
       font-size: clamp(1.7rem, 2.6vw, 2.2rem);
       line-height: 1;
       letter-spacing: -0.05em;
@@ -271,6 +274,7 @@
       background: #0b3f7d;
       color: #fff;
       font-family: "Cal Sans", sans-serif;
+      font-weight: 400;
       font-size: 17px;
       line-height: 1;
       box-shadow:
@@ -494,7 +498,7 @@
       padding: 13px 24px;
       border-radius: 10px;
       font-family: inherit;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 19px;
       line-height: 1.1;
       text-decoration: none;

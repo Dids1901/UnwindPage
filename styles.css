@@ -1,23 +1,15 @@
-@font-face {
-  font-family: 'hamster';
-  src: url('fonts/Hamster.woff2') format('woff2'),
-       url('fonts/Hamster.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* As .woff2 sao recortes das originais so com latim (ASCII, Latin-1, pontuacao
    e simbolos): as quatro juntas cairam de 502 KB pra 68 KB. A Sarpanch trazia
    devanagari e a Open Sans cirilico, grego e hebraico que o site nao usa. Um
    caractere fora do recorte cai na fonte generica; pra outro alfabeto, gere o
    woff2 de novo a partir do original, que fica como reserva no segundo src. */
 @font-face {
-  font-family: 'carving';
-  src: url('fonts/carving.woff2') format('woff2'),
-       url('fonts/MADECarvingSoftPERSONALUSE-Medium.otf') format('opentype');
-  font-weight: normal;
+  font-family: 'nunito';
+  src: url('fonts/nunito.woff2') format('woff2'),
+       url('fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 1000;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -76,7 +68,8 @@
 }
 
 body {
-  font-family: 'carving', sans-serif;
+  font-family: 'nunito', sans-serif;
+  font-weight: 700;
   margin: 0;
   overflow-x: hidden;
   background-color: var(--brand-navy);
@@ -242,7 +235,7 @@ nav ul li a {
   text-decoration: none;
   color: white;
   font-size: clamp(0.8rem, 1.05vw + 0.25rem, 1.4rem);
-  font-weight: bold;
+  font-weight: 900;
   position: relative;
   transition: color 0.3s ease;
 }
@@ -275,7 +268,8 @@ nav ul li a:hover::after {
   border-radius: 5px;
   margin: 0 clamp(0.9rem, 2vw, 2.5rem);
   color: white;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   font-size: clamp(0.9rem, 1.2vw, 1.8rem);
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -333,7 +327,8 @@ nav ul li a:hover::after {
   padding: 15px 20px;
   border: none;
   cursor: pointer;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   border-radius: 5px;
   font-size: clamp(1rem, 1.5vw, 1.4rem);
   margin-bottom: 20px;
@@ -343,7 +338,8 @@ nav ul li a:hover::after {
 h1 {
   color: var(--brand-blue);
   font-size: clamp(1.6rem, 2vw, 2.4rem);
-  font-family: "hamster";
+  font-family: "nunito";
+  font-weight: 900;
 }
 
 h2 {
@@ -425,7 +421,7 @@ h2 {
      Icone e seta ficam no azul das redes, como "coisas clicaveis do hero". */
   color: #bdf;
   font-size: clamp(0.9rem, 1.05vw, 1.15rem);
-  font-weight: 600;
+  font-weight: 900;
   text-decoration: none;
   transition: color 0.25s ease;
 }
@@ -585,7 +581,7 @@ h2 {
   box-shadow: inset 0 1px 0 rgba(105, 183, 255, 0.08);
   color: var(--brand-text-muted);
   font-size: clamp(0.85rem, 1vw, 1.05rem);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -605,7 +601,7 @@ h2 {
   color: var(--brand-blue);
   padding: 2% 25px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 900;
   border-radius: 5px;
   display: inline-block;
   font-size: clamp(0.9rem, 1.2vw, 1.8rem);
@@ -1037,7 +1033,8 @@ h2 {
 }
 
 .camada-rotulo {
-  font-family: "carving", sans-serif;
+  font-family: "nunito", sans-serif;
+  font-weight: 700;
   font-size: clamp(0.62rem, 0.75vw, 0.75rem);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1046,6 +1043,7 @@ h2 {
 
 .camada-rede {
   font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
   font-size: clamp(1.15rem, 2.1vw, 1.9rem);
   line-height: 1.1;
   letter-spacing: -0.015em;
@@ -1053,7 +1051,8 @@ h2 {
 }
 
 .camada-oque {
-  font-family: "carving", sans-serif;
+  font-family: "nunito", sans-serif;
+  font-weight: 700;
   font-size: clamp(0.8rem, 1vw, 0.95rem);
   line-height: 1.5;
   color: #7590b8;
@@ -1205,7 +1204,8 @@ h2 {
 .camadas-resposta {
   margin: clamp(12px, 1.8vw, 20px) auto 0;
   max-width: 46ch;
-  font-family: "carving", sans-serif;
+  font-family: "nunito", sans-serif;
+  font-weight: 700;
   font-size: clamp(14.5px, 1.7vw, 17px);
   line-height: 1.65;
   color: #7590b8;
@@ -1213,7 +1213,7 @@ h2 {
 
 .camadas-resposta b {
   color: #8ba3c4;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 /* Cascata na carga da pagina. Sem scroll, sem observer: o estado final e o
@@ -1498,6 +1498,7 @@ h2 {
 
 .midias-secao-nome {
   font-family: "Cal Sans";
+  font-weight: 400;
   font-size: clamp(0.95rem, 1.1vw, 1.2rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1650,9 +1651,9 @@ h2 {
    letter-spacing e o que faz caixa alta em texto pequeno ficar legivel. */
 .subtitulo {
   margin: 0 0 clamp(0.7rem, 1.2vw, 1.2rem);
-  font-family: "carving", sans-serif;
+  font-family: "nunito", sans-serif;
   font-size: clamp(1.3rem, 2.6vw, 3.4rem);
-  font-weight: 400;
+  font-weight: 700;
   /* Tracking menor que o de uma sobrancelha: em corpo grande, 0.18em abriria
      demais e a frase perderia unidade. */
   letter-spacing: 0.1em;
@@ -1991,7 +1992,8 @@ h2 {
 .post-timestamp {
   font-size: 1vw;
   color: #888;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
 }
 
 .post-avatar {
@@ -2032,7 +2034,8 @@ h2 {
 .action-count {
   font-size: 1.3vw;
   color: #ccc;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
 }
 
 .liked-by {
@@ -2097,14 +2100,16 @@ h2 {
   color: #b0b0b0;
   border-radius: 1vw;
   font-size: 0.8rem;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   align-self: flex-start;
 }
 
 .review-text {
   font-size: 1.3vw;
   color: #fff;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   margin: 0;
 }
 
@@ -2126,7 +2131,8 @@ h2 {
 .publication-text {
   font-size:1.3vw;
   color: #fff;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   margin: 0;
 }
 
@@ -2139,7 +2145,8 @@ h2 {
 .publication-tags .tag {
   font-size: 1.2vw;
   color: var(--brand-blue);
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
 }
 
 /* Rating Block Styles */
@@ -2345,7 +2352,8 @@ h2 {
 
 /* A barra mostrava um numero com chama e nada dizia o que ele media. */
 .hype-nivel-rotulo {
-  font-family: "carving", sans-serif;
+  font-family: "nunito", sans-serif;
+  font-weight: 700;
   font-size: clamp(0.62rem, 0.75vw, 0.75rem);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -2357,6 +2365,7 @@ h2 {
   min-width: 4ch;
   text-align: right;
   font-family: "Cal Sans";
+  font-weight: 400;
   font-size: clamp(1.1rem, 1.4vw, 1.6rem);
   color: #ff7a3d;
   /* trava a largura dos digitos: sem isso a barra encurta e alonga sozinha */
@@ -2612,7 +2621,7 @@ h2 {
   background: linear-gradient(150deg, #263548, #121a25) padding-box, linear-gradient(135deg, var(--xp-light), var(--xp-accent) 48%, var(--xp-dark)) border-box;
   box-shadow: inset 0 0 16px rgba(var(--xp-rgb), 0.12);
 }
-.xp-level-badge > span { color: var(--brand-text-muted); font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.05em; }
+.xp-level-badge > span { color: var(--brand-text-muted); font-size: 12px; line-height: 1.2; font-weight: 900; letter-spacing: 0.05em; }
 .xp-level-badge > b { font-family: "Cal Sans", sans-serif; font-size: 35px; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
 .xp-progress-heading { position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; }
 .xp-progress-heading > span:first-child { font-size: clamp(0.62rem, 0.75vw, 0.75rem); text-transform: uppercase; letter-spacing: 0.16em; color: #8fa3bd; white-space: nowrap; }
@@ -2769,9 +2778,9 @@ h2 {
 .xp-action h3 { grid-column: 2; margin: 0 0 8px; font-family: "Cal Sans", sans-serif; font-size: clamp(20px, 1.65vw, 24px); line-height: 1.12; font-weight: 500; letter-spacing: -0.015em; }
 .xp-action p { grid-column: 2; max-width: 30ch; margin: 0; color: var(--brand-text-muted); font-size: 14px; line-height: 1.5; }
 .xp-action-footer { grid-column: 3; grid-row: 1 / 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; margin-left: 6px; }
-.xp-action-value { color: var(--mission-color); font-family: "Cal Sans", sans-serif; font-size: 19px; white-space: nowrap; }
-.xp-action-value small { font-family: 'carving', sans-serif; font-size: 11px; }
-.xp-claim { min-width: 110px; min-height: 42px; padding: 10px 16px; border: 1px solid transparent; border-radius: 999px; background: var(--mission-color); color: #07182a; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 0 color-mix(in srgb, var(--mission-color) 45%, #08131d); transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
+.xp-action-value { color: var(--mission-color); font-family: "Cal Sans", sans-serif; font-weight: 400; font-size: 19px; white-space: nowrap; }
+.xp-action-value small { font-family: 'nunito', sans-serif; font-weight: 700; font-size: 11px; }
+.xp-claim { min-width: 110px; min-height: 42px; padding: 10px 16px; border: 1px solid transparent; border-radius: 999px; background: var(--mission-color); color: #07182a; font: inherit; font-size: 13px; font-weight: 900; cursor: pointer; box-shadow: 0 4px 0 color-mix(in srgb, var(--mission-color) 45%, #08131d); transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
 .xp-claim:hover:not(:disabled) { filter: brightness(1.12); transform: translateY(-2px); box-shadow: 0 6px 0 color-mix(in srgb, var(--mission-color) 45%, #08131d); }
 .xp-claim:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 color-mix(in srgb, var(--mission-color) 45%, #08131d); }
 .xp-claim:focus-visible, .xp-arrows button:focus-visible { outline: 2px solid var(--mission-color, #bce1ff); outline-offset: 5px; }
@@ -2787,7 +2796,7 @@ h2 {
 .xp-action.is-claimed .xp-action-icon { color: var(--mission-color); }
 .xp-action.is-claimed .xp-claim { background: rgba(var(--mission-rgb), 0.09); border-color: rgba(var(--mission-rgb), 0.24); color: var(--mission-color); }
 .xp-action.is-claimed .xp-action-value { color: var(--mission-color); opacity: 0.5; }
-.xp-card-gain { position: absolute; right: 24px; bottom: 68px; font-size: 22px; font-family: "Cal Sans", sans-serif; color: var(--mission-color); opacity: 0; pointer-events: none; }
+.xp-card-gain { position: absolute; right: 24px; bottom: 68px; font-size: 22px; font-family: "Cal Sans", sans-serif; font-weight: 400; color: var(--mission-color); opacity: 0; pointer-events: none; }
 /* Proximas recompensas: nao desbloqueiam aqui, so mostram que a fila segue.
    A mascara come o fim da lista — o resto fica pra dentro do app. */
 .xp-futuros {
@@ -2836,7 +2845,7 @@ h2 {
 .xp-arrows button:hover:not(:disabled), .xp-arrows button:focus-visible:not(:disabled) { background-color: var(--brand-blue); color: #fff; transform: translateY(3px); }
 .xp-prev:hover:not(:disabled), .xp-prev:focus-visible:not(:disabled) { transform: translateY(-3px); }
 .xp-arrows button:disabled { opacity: 0.3; cursor: default; }
-.xp-flight { position: fixed; top: 0; left: 0; z-index: 1001; pointer-events: none; border-radius: 999px; background: var(--mission-color, #a4d9ff); color: #07182a; padding: 8px 13px; font-family: 'carving', sans-serif; font-size: 13px; box-shadow: 0 0 20px rgba(var(--mission-rgb, 16, 123, 230), 0.4); white-space: nowrap; }
+.xp-flight { position: fixed; top: 0; left: 0; z-index: 1001; pointer-events: none; border-radius: 999px; background: var(--mission-color, #a4d9ff); color: #07182a; padding: 8px 13px; font-family: 'nunito', sans-serif; font-weight: 700; font-size: 13px; box-shadow: 0 0 20px rgba(var(--mission-rgb, 16, 123, 230), 0.4); white-space: nowrap; }
 .xp-flight--spark { width: 5px; height: 5px; padding: 0; background: var(--mission-color, #d0efff); }
 .xp-live { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
@@ -3205,7 +3214,7 @@ h2 {
   animation-delay: var(--atraso);
 }
 
-.desc-balao b { color: #05070a; font-weight: 700; }
+.desc-balao b { color: #05070a; font-weight: 900; }
 
 /* Ponteiro: quadrado girado 45deg com so duas bordas, para as laterais dele
    continuarem a linha do balao em vez de cruzarem por dentro. */
@@ -3722,7 +3731,7 @@ h2 {
   border-radius: 10px;
   background: #107be6;
   color: #fff;
-  font-weight: 700;
+  font-weight: 900;
   font-size: clamp(19px, 1.6vw, 21px);
   text-decoration: none;
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
@@ -3827,7 +3836,7 @@ h2 {
 .rodape-links h3 {
   margin: 0 0 12px;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #9aa5b0;
@@ -3921,7 +3930,8 @@ h2 {
 #beta-tester p {
   margin-bottom: 1rem;
   color: #bdf;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   font-size: clamp(0.9rem, 1.2vw, 1.2rem);
 }
 
@@ -3936,7 +3946,8 @@ h2 {
   padding: 0.75rem 1.2rem;
   background: var(--brand-blue);
   color: white;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   border: none;
   border-radius: 8px;
   font-size: clamp(0.9rem, 1.2vw, 1.2rem);
@@ -3956,7 +3967,8 @@ h2 {
   border: 2px solid #444;
   color: #fff;
   border-radius: 8px;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   font-size: clamp(0.9rem, 1.2vw, 1.2rem);
 }
 
@@ -3967,7 +3979,8 @@ h2 {
   border: 2px solid #444;
   color: #b0b0b0;
   border-radius: 8px;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -4024,7 +4037,8 @@ h2 {
 .feedback-link {
   color: #bdf;
   text-decoration: none;
-  font-family: "carving";
+  font-family: "nunito";
+  font-weight: 700;
   font-size: clamp(0.8rem, 1vw, 1rem);
   transition: color 0.3s;
 }
@@ -4287,7 +4301,8 @@ h2 {
     padding: 1vh 2vw;
     cursor: pointer;
     color: #ccc;
-    font-family: "carving";
+    font-family: "nunito";
+    font-weight: 700;
     font-size: 4vw;
     transition: border-color 0.3s ease, color 0.3s ease;
   }
@@ -4350,7 +4365,8 @@ h2 {
     font-size: 1.3vw;
     color: #fff;
     text-align: left;
-    font-family: "carving";
+    font-family: "nunito";
+    font-weight: 700;
     margin: 0;
   }
   .cta-comunidade {
@@ -4361,7 +4377,8 @@ h2 {
     font-size:1.3vw;
     color: #fff;
     text-align: left;
-    font-family: "carving";
+    font-family: "nunito";
+    font-weight: 700;
   }
 
   .post-content {
@@ -4398,7 +4415,8 @@ h2 {
   .publication-tags .tag {
     font-size: 4vw;
     color: var(--brand-blue);
-    font-family: "carving";
+    font-family: "nunito";
+    font-weight: 700;
   }  .comunidade-text {
     width: 100%;
   }
@@ -4476,7 +4494,8 @@ h2 {
   .action-count {
     font-size: 4vw;
     color: #ccc;
-    font-family: "carving";
+    font-family: "nunito";
+    font-weight: 700;
   }
   .post-header h3 {
     font-size: 4vw;
@@ -4488,7 +4507,8 @@ h2 {
   .post-timestamp {
     font-size: 3vw;
     color: #888;
-    font-family: "carving";
+    font-family: "nunito";
+    font-weight: 700;
   }
   
   .post-avatar {
