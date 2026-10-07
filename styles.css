@@ -403,6 +403,22 @@ h2 {
   text-shadow: 0 0 0.7rem rgba(16, 123, 230, 0.75);
 }
 
+/* Discord e Threads sao SVG inline (fora do subset do Font Awesome). Altura
+   de 1em pra bater com os glifos; text-shadow nao pega em SVG, entao o halo
+   do hover vem por drop-shadow. */
+.hero-social-link svg {
+  display: block;
+  width: auto;
+  height: 1em;
+  fill: currentColor;
+  transition: filter 0.25s ease;
+}
+
+.hero-social-link:hover svg,
+.hero-social-link:focus-visible svg {
+  filter: drop-shadow(0 0 0.35rem rgba(16, 123, 230, 0.75));
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-social-link:hover,
   .hero-social-link:focus-visible {
@@ -3902,150 +3918,6 @@ h2 {
   margin-right: 10px;
   vertical-align: middle;
   display: inline-block;
-}
-#beta-tester {
-  background: linear-gradient(180deg, var(--brand-navy) 0%, var(--brand-blue) 100%);
-  padding: 0px 5% 60px 5%;
-  text-align: center;
-  justify-content: center;
-}
-
-.beta-tester-container {
-  padding: 2rem;
-  font-family: sans-serif;
-  background: rgba(var(--brand-navy-rgb), 0.4);
-  border-radius: 20px;
-  border: solid 2px #444;
-  max-width: 600px;
-  text-align: left;
-  margin: 0 auto;
-  padding: 0px auto 60px auto;
-}
-
-#beta-tester h2 {
-  font-size: clamp(1.4rem, 2vw, 2.2rem);
-  margin-bottom: 0.5rem;
-}
-
-#beta-tester p {
-  margin-bottom: 1rem;
-  color: #bdf;
-  font-family: "nunito";
-  font-weight: 700;
-  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
-}
-
-#betaForm {
-  display: flex;
-  gap: 1rem;
-  max-width: 100%;
-  flex-wrap: wrap;
-}
-
-#betaForm button {
-  padding: 0.75rem 1.2rem;
-  background: var(--brand-blue);
-  color: white;
-  font-family: "nunito";
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
-  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
-  cursor: pointer;
-}
-
-#successMsg {
-  margin-top: 1rem;
-  color: var(--brand-blue);
-  display: none;
-}
-
-#betaForm input {
-  flex: 1 1 100%;
-  padding: 0.75rem;
-  background-color: rgba(var(--brand-navy-rgb), 0.5);
-  border: 2px solid #444;
-  color: #fff;
-  border-radius: 8px;
-  font-family: "nunito";
-  font-weight: 700;
-  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
-}
-
-#betaForm select {
-  flex: 1 1 100%;
-  padding: 0.75rem;
-  background-color: rgba(var(--brand-navy-rgb), 0.5);
-  border: 2px solid #444;
-  color: #b0b0b0;
-  border-radius: 8px;
-  font-family: "nunito";
-  font-weight: 700;
-  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-}
-
-#betaForm select option:first-child {
-  color: #b0b0b0;
-}
-
-#betaForm select option:not(:first-child) {
-  color: #fff;
-}
-
-#betaForm select:focus,
-#betaForm select option {
-  background-color: rgba(var(--brand-navy-rgb), 0.5);
-  color: #fff;
-}
-
-#betaForm select {
-  position: relative;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23b0b0b0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-}
-
-#betaForm select::-webkit-scrollbar {
-  width: 8px;
-}
-
-#betaForm select::-webkit-scrollbar-track {
-  background: rgba(var(--brand-navy-rgb), 0.5);
-}
-
-#betaForm select::-webkit-scrollbar-thumb {
-  background: #444;
-  border-radius: 4px;
-}
-
-#betaForm input::placeholder {
-  color: #b0b0b0;
-  opacity: 1;
-}
-
-.form-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.feedback-link {
-  color: #bdf;
-  text-decoration: none;
-  font-family: "nunito";
-  font-weight: 700;
-  font-size: clamp(0.8rem, 1vw, 1rem);
-  transition: color 0.3s;
-}
-
-.feedback-link:hover {
-  color: #fff;
-  text-decoration: underline;
 }
 
 /* O nav tem sete itens. Medindo rotulo por rotulo com a fonte real, eles so
