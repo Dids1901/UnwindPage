@@ -2,6 +2,14 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+  <!-- Google Analytics 4 (ID de medicao G-4DL0PX3B9T) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DL0PX3B9T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4DL0PX3B9T');
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome local, recortado so pros icones usados: antes eram 102 KB
          de CSS de outro dominio travando a primeira pintura, mais as fontes. -->
@@ -69,7 +77,7 @@
     </div>
 
     <div class="header-right">
-      <button class="login-btn" onclick="window.open('beta.html', '_blank')">Entrar no beta</button>
+      <button class="login-btn" data-evento="clique_entrar_beta" data-local="topo" onclick="window.open('beta.html', '_blank')">Entrar no beta</button>
     </div>
 
     <!-- Menu Mobile -->
@@ -83,7 +91,7 @@
               <li><a href="#descoberta">Descoberta</a></li>
               <li><a href="roadmap.html">Roadmap</a></li>
         </ul>
-        <button class="login-btn-mobile">Entrar no beta</button>
+        <button class="login-btn-mobile" data-evento="clique_entrar_beta" data-local="menu_mobile">Entrar no beta</button>
     </div>
 </header>
 
@@ -103,7 +111,7 @@
                 Dê vida à sua coleção de jogos, séries e filmes. Compartilhe o que viveu e descubra qual história vem depois.
             </p>
             <div class="cta-container">
-              <a href="beta.html" class="cta-button" target="_blank">Entrar no beta</a>
+              <a href="beta.html" class="cta-button" data-evento="clique_entrar_beta" data-local="hero" target="_blank">Entrar no beta</a>
 
               <ul class="hero-social">
                 <!-- Discord e Threads nao estao no subset do Font Awesome do site, entao vao como SVG inline. -->
@@ -1318,7 +1326,7 @@
       <div class="fechamento-wrap">
         <h2 class="fechamento-titulo">Quais vidas você já viveu?</h2>
         <p class="fechamento-sub">Dê um lugar pra todas elas.</p>
-        <a class="fechamento-cta" href="beta.html" target="_blank" rel="noopener">Entrar no beta</a>
+        <a class="fechamento-cta" data-evento="clique_entrar_beta" data-local="fim" href="beta.html" target="_blank" rel="noopener">Entrar no beta</a>
         <img
           class="fechamento-mockup"
           src="images/mockup-fechamento.webp"
@@ -1385,5 +1393,13 @@
 
       
       
+  <!-- Eventos de clique do GA4: elementos com data-evento (e data-local opcional) -->
+  <script>
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest('[data-evento]');
+      if (!el || typeof window.gtag !== 'function') return;
+      gtag('event', el.dataset.evento, { local: el.dataset.local || '', transport_type: 'beacon' });
+    });
+  </script>
 </body>
 </html>
