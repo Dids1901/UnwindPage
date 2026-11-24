@@ -7,7 +7,7 @@
        O GitHub Pages nao faz redirecionamento no servidor, entao vai por
        meta refresh (com o JS como atalho) e o canonical aponta pro destino. -->
   <meta http-equiv="refresh" content="0; url=baixar.html">
-  <script>location.replace('baixar.html' + location.hash);</script>
+  <script>location.replace('baixar.html' + location.search + location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <title>Unwind — Baixe o app</title>

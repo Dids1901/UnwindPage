@@ -17,7 +17,7 @@
 (function () {
   var LOJAS = {
     ios: 'https://apps.apple.com/br/app/id6789730748',
-    android: 'https://play.google.com/store/apps/details?id=com.dids1901.unwind'
+    android: 'https://play.google.com/store/apps/details?id=com.dids1901.unwind&referrer=utm_source%3Dsite%26utm_medium%3Dweb'
   };
 
   var ua = navigator.userAgent;
