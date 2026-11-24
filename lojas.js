@@ -16,7 +16,7 @@
 // vira outro evento, pra nao inflar o numero de quem foi pra loja.
 (function () {
   var LOJAS = {
-    ios: 'https://apps.apple.com/br/app/id6789730748',
+    ios: 'https://apps.apple.com/br/app/id6789730748?pt=127820874&ct=site&mt=8',
     android: 'https://play.google.com/store/apps/details?id=com.dids1901.unwind&referrer=utm_source%3Dsite%26utm_medium%3Dweb'
   };
 
