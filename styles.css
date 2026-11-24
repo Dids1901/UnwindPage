@@ -279,6 +279,101 @@ nav ul li a:hover::after {
   background-color: #0a5aa3;
 }
 
+/* Virou link (vai direto pra loja no celular): tira o sublinhado e mantem a
+   caixa de botao. */
+.login-btn,
+.login-btn-mobile {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ---------- Selos oficiais das lojas ---------- */
+/* So aparecem no desktop: no celular o botao ja leva pra loja do aparelho.
+   O data-aparelho vem do lojas.js; sem JS, fica o botao (que leva pra
+   baixar.html, a pagina de download). As duas imagens vao pela altura, como
+   pedem as guias da Apple e do Google: mesma altura, largura propria. */
+.selos-loja {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+html[data-aparelho="desktop"] .selos-loja {
+  display: flex;
+}
+
+html[data-aparelho="desktop"] .cta-container > .js-baixar,
+html[data-aparelho="desktop"] .fechamento .js-baixar {
+  display: none;
+}
+
+.selo-loja {
+  display: block;
+  height: 100%;
+  border-radius: 8px;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.selo-loja img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+.selo-loja:hover,
+.selo-loja:focus-visible {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0.4rem 1rem rgba(16, 123, 230, 0.55));
+}
+
+.selo-loja:focus-visible {
+  outline: 2px solid #f4f7fa;
+  outline-offset: 3px;
+}
+
+/* Hero: na altura do CTA que ele substitui. */
+.cta-container > .selos-loja {
+  height: clamp(40px, 3.3vw, 58px);
+}
+
+/* Fechamento: centralizado, um degrau maior, no lugar do botao azul. */
+.selos-loja--fim {
+  justify-content: center;
+  height: clamp(48px, 4vw, 60px);
+  margin-top: clamp(24px, 3.4vw, 40px);
+}
+
+/* Popover do botao do topo (desktop): os dois selos empilhados logo abaixo. */
+.selos-pop {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  right: clamp(0.9rem, 2vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(190, 225, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(2, 16, 51, 0.96);
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.45);
+}
+
+.selos-pop[hidden] {
+  display: none;
+}
+
+.selos-pop .selo-loja {
+  height: 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selo-loja:hover,
+  .selo-loja:focus-visible {
+    transform: none;
+  }
+}
+
 .menu-toggle {
   display: none;
   background: none;
@@ -362,8 +457,8 @@ h2 {
 
 /* Redes ao lado do CTA: so o glifo, sem moldura nenhuma. Sao quatro saidas do
    site encostadas na unica entrada que interessa no hero, e qualquer caixa em
-   volta delas cria um segundo bloco de botoes competindo com o "Entrar no
-   beta". Sem contorno e sem fundo, elas leem como um detalhe do bloco de
+   volta delas cria um segundo bloco de botoes competindo com o "Baixe o
+   Unwind". Sem contorno e sem fundo, elas leem como um detalhe do bloco de
    texto -- e nao precisam de divisa pra se separar do CTA, porque o botao ja
    tem borda e elas nao. O espaco sozinho resolve. */
 .hero-social {
@@ -403,7 +498,7 @@ h2 {
   text-shadow: 0 0 0.7rem rgba(16, 123, 230, 0.75);
 }
 
-/* Discord e Threads sao SVG inline (fora do subset do Font Awesome). Altura
+/* Discord e SVG inline (fora do subset do Font Awesome). Altura
    de 1em pra bater com os glifos; text-shadow nao pega em SVG, entao o halo
    do hover vem por drop-shadow. */
 .hero-social-link svg {
@@ -427,7 +522,7 @@ h2 {
 }
 
 /* Link pro roadmap, abaixo do CTA. E texto com um icone, nao um segundo botao:
-   o "Entrar no beta" continua sendo a unica entrada com cara de botao. */
+   o "Baixe o Unwind" continua sendo a unica entrada com cara de botao. */
 .hero-roadmap {
   display: inline-flex;
   align-items: center;
@@ -2470,7 +2565,7 @@ h2 {
   display: block;
 }
 
-/* Veu: as capas variam demais de luminosidade (o GTA e claro, o Doomsday e
+/* Veu: as capas variam demais de luminosidade (o Potter e claro, o Doomsday e
    escuro). Sem ele o texto sumiria em cima da arte de algumas. */
 .hype-capa::after {
   content: '';

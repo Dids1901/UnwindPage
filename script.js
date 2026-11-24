@@ -344,12 +344,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const ano = document.getElementById('ano');
     if (ano) ano.textContent = new Date().getFullYear();
 
-    // --- BOTAO "ENTRAR NO BETA" DO MENU MOBILE ---
-    // Abre em aba nova, igual ao botao do header no desktop, e fecha o menu.
+    // --- BOTAO "BAIXE O UNWIND" DO MENU MOBILE ---
+    // E um link: o lojas.js ja apontou pra loja do aparelho. Aqui so fecha o menu.
     const loginBtnMobile = document.querySelector('.login-btn-mobile');
     if (loginBtnMobile) {
         loginBtnMobile.addEventListener('click', () => {
-            window.open('beta.html', '_blank', 'noopener');
             const menu = document.querySelector(".mobile-menu");
             if (menu && menu.style.display === "block") {
                 toggleMenu();

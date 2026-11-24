@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unwind — Roadmap</title>
-  <meta name="description" content="O que vem por aí no Unwind: as próximas features do beta, na ordem em que estão planejadas.">
+  <!-- Links das lojas e deteccao do aparelho (o botao "Baixe o Unwind"). -->
+  <script src="lojas.js"></script>
+  <meta name="description" content="O que vem por aí no Unwind: as próximas features do app, na ordem em que estão planejadas.">
   <link rel="canonical" href="https://www.unwind.com.br/roadmap.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Unwind">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:url" content="https://www.unwind.com.br/roadmap.html">
   <meta property="og:title" content="Unwind — Roadmap">
-  <meta property="og:description" content="O que vem por aí no Unwind: as próximas features do beta, na ordem em que estão planejadas.">
+  <meta property="og:description" content="O que vem por aí no Unwind: as próximas features do app, na ordem em que estão planejadas.">
   <meta property="og:image" content="https://www.unwind.com.br/images/og-hero.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@useunwind">
   <meta name="twitter:title" content="Unwind — Roadmap">
-  <meta name="twitter:description" content="O que vem por aí no Unwind: as próximas features do beta, na ordem em que estão planejadas.">
+  <meta name="twitter:description" content="O que vem por aí no Unwind: as próximas features do app, na ordem em que estão planejadas.">
   <meta name="twitter:image" content="https://www.unwind.com.br/images/og-hero.png">
   <meta name="theme-color" content="#021033">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=4">
@@ -30,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
-  <!-- Pagina avulsa, mesmo esquema da beta.html: nao puxa o styles.css.
+  <!-- Pagina avulsa, mesmo esquema da baixar.html (pagina de download): nao puxa o styles.css.
        As fontes e os tokens abaixo sao os mesmos de la. -->
   <style>
     @font-face {
@@ -432,7 +434,7 @@
       color: var(--texto-suave);
     }
 
-    /* Icone gigante e quase apagado no canto, como na beta. */
+    /* Icone gigante e quase apagado no canto, como na pagina de download. */
     .card-marca-dagua {
       position: absolute;
       right: -30px;
@@ -449,6 +451,72 @@
     }
 
     /* ---------- Fechamento ---------- */
+    /* ---------- Ja chegou ---------- */
+    /* O que saiu da linha porque ja esta no app. Mais discreto que os cards da
+       linha: e prova de entrega, nao o assunto da pagina. */
+    .chegou {
+      margin-top: clamp(40px, 6vw, 64px);
+    }
+
+    .chegou h2 {
+      font-family: "Cal Sans", sans-serif;
+      font-weight: 400;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+    }
+
+    .chegou > p {
+      margin-top: 0.5rem;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--texto-suave);
+    }
+
+    .chegou-lista {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+      gap: 12px;
+      margin-top: 1.2rem;
+    }
+
+    .chegou-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 12px 14px;
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .chegou-item .card-icone {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+    }
+
+    .chegou-item .card-icone svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .chegou-item strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .chegou-item div > span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--texto-apagado);
+    }
+
     .fim {
       margin-top: clamp(40px, 6vw, 64px);
       padding: clamp(22px, 3vw, 32px);
@@ -739,7 +807,7 @@
     <section class="intro">
       <span class="selo">Roadmap</span>
       <h1>O que vem por aí <em>no Unwind</em></h1>
-      <p>As próximas features do beta, na ordem em que estão na mira. Cada ponto da linha é uma delas.</p>
+      <p>As próximas features do app, na ordem em que estão na mira. Cada ponto da linha é uma delas.</p>
       <div class="aviso" role="note">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v4.5M12 16h.01"/></svg>
         <span>Isso é um planejamento, não uma promessa. A ordem e o formato de cada coisa podem mudar pelo caminho.</span>
@@ -761,12 +829,39 @@
       <ol class="linha" id="linha"></ol>
     </div>
 
+    <section class="chegou" aria-labelledby="chegou-titulo">
+      <h2 id="chegou-titulo">Já chegou</h2>
+      <p>Saiu da linha porque já está no app.</p>
+      <ul class="chegou-lista">
+        <li class="chegou-item">
+          <span class="card-icone" aria-hidden="true"><svg><use href="#ic-colecoes"/></svg></span>
+          <div><strong>Coleções</strong><span>Sua estante em prateleiras do seu jeito</span></div>
+        </li>
+        <li class="chegou-item">
+          <span class="card-icone" aria-hidden="true"><svg><use href="#ic-compartilhar"/></svg></span>
+          <div><strong>Compartilhamento</strong><span>Avaliações e coleções no story e no grupo</span></div>
+        </li>
+        <li class="chegou-item">
+          <span class="card-icone" aria-hidden="true"><svg><use href="#ic-loja"/></svg></span>
+          <div><strong>Recompensas</strong><span>A loja de fichas cheia de estilo pro perfil</span></div>
+        </li>
+        <li class="chegou-item">
+          <span class="card-icone" aria-hidden="true"><svg><use href="#ic-elenco"/></svg></span>
+          <div><strong>Elenco, temporadas e estúdios</strong><span>Uma página pra cada um, pra ir fundo</span></div>
+        </li>
+        <li class="chegou-item">
+          <span class="card-icone" aria-hidden="true"><svg><use href="#ic-momentos"/></svg></span>
+          <div><strong>Momentos</strong><span>A foto da partida, da sessão, da maratona</span></div>
+        </li>
+      </ul>
+    </section>
+
     <section class="fim">
       <h2>Sua ideia já está na lista?</h2>
       <p>Então ela já está a caminho. Se não está, conta pra gente no <a href="https://discord.gg/4Bh6BRTkN7" target="_blank" rel="noopener">Discord</a> ou manda pra <a href="mailto:contato@unwind.com.br">contato@unwind.com.br</a>. O roadmap é feito de fã pra fã.</p>
       <div class="fim-acoes">
-        <a class="botao botao--primario" href="beta.html">
-          Entrar no beta
+        <a class="botao botao--primario js-baixar" href="baixar.html">
+          Baixe o Unwind
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="botao botao--secundario" href="https://discord.gg/4Bh6BRTkN7" target="_blank" rel="noopener">
@@ -784,46 +879,16 @@
     // item ganha o destaque de "Próximo".
     var FEATURES = [
       {
-        icone: 'ic-colecoes',
-        tag: 'Coleções',
-        titulo: 'Agrupe do seu jeito',
-        texto: 'Meus filmes de terror, top ficção científica, tudo do Batman. Sua estante ganha prateleiras que só você poderia montar, com as mídias que você escolher.'
-      },
-      {
-        icone: 'ic-compartilhar',
-        tag: 'Compartilhamento',
-        titulo: 'Leve o Unwind pra fora',
-        texto: 'Avaliações, reviews e coleções prontas pra sair do app e parar no story, no grupo ou na timeline. O que você vive aqui não precisa ficar só aqui.'
-      },
-      {
         icone: 'ic-plataformas',
         tag: 'Streamings e plataformas',
         titulo: 'Diga onde você joga e assiste',
         texto: 'Salve seus streamings e plataformas de games. O app usa isso pra indicar o que dá pra começar hoje, e não o que você não tem como ver.'
       },
       {
-        icone: 'ic-loja',
-        tag: 'Recompensas',
-        titulo: 'Gaste suas fichas com estilo',
-        texto: 'A loja cresce com várias recompensas estéticas pra deixar seu perfil com a sua cara. Seu engajamento vira algo que dá pra ver.'
-      },
-      {
-        icone: 'ic-elenco',
-        tag: 'Elenco, temporadas e estúdios',
-        titulo: 'Vá fundo em cada obra',
-        texto: 'Elenco, temporadas, episódios e empresas de games com página própria. Veja tudo o que cada um fez e crie a partir disso: rankings, listas, teorias.'
-      },
-      {
         icone: 'ic-videos',
         tag: 'Vídeos',
         titulo: 'Assista antes de decidir',
         texto: 'Trailers e gameplays dentro do app, com presença muito maior em cada obra. Menos aba aberta no navegador, mais hype no lugar certo.'
-      },
-      {
-        icone: 'ic-momentos',
-        tag: 'Momentos',
-        titulo: 'Mostre o seu lado da história',
-        texto: 'Um espaço só seu pra foto da partida, da sessão de cinema, da maratona de série. Momentos seus, junto de tudo o que você vive.'
       },
       {
         icone: 'ic-indicacoes',
